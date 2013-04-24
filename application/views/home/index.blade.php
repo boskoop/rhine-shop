@@ -1,57 +1,69 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Laravel: A Framework For Web Artisans</title>
-	<meta name="viewport" content="width=device-width">
-	{{ HTML::style('laravel/css/style.css') }}
+  <title>Bootstrap 101 Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
-	<div class="wrapper">
-		<header>
-			<h1>Laravel</h1>
-			<h2>A Framework For Web Artisans</h2>
-
-			<p class="intro-text" style="margin-top: 45px;">
-			</p>
-		</header>
-		<div role="main" class="main">
-			<div class="home">
-				<h2>Learn the terrain.</h2>
-
-				<p>
-					You've landed yourself on our default home page. The route that
-					is generating this page lives at:
-				</p>
-
-				<pre>{{ path('app') }}routes.php</pre>
-
-				<p>And the view sitting before you can be found at:</p>
-
-				<pre>{{ path('app') }}views/home/index.blade.php</pre>
-
-				<h2>Grow in knowledge.</h2>
-
-				<p>
-					Learning to use Laravel is amazingly simple thanks to
-					its {{ HTML::link('docs', 'wonderful documentation') }}.
-				</p>
-
-				<h2>Create something beautiful.</h2>
-
-				<p>
-					Now that you're up and running, it's time to start creating!
-					Here are some links to help you get started:
-				</p>
-
-				<ul class="out-links">
-					<li><a href="http://laravel.com">Official Website</a></li>
-					<li><a href="http://forums.laravel.com">Laravel Forums</a></li>
-					<li><a href="http://github.com/laravel/laravel">GitHub Repository</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <div class="row">
+      <div class="span7">
+        <h1>rhine shop</h1>
+      </div>
+      <div class="span3">
+        <h4>Language</h4>
+        <p><a href="#"><strong>English</strong></a> |
+          <a href="#">Deutsch</a></p>
+        </div>
+        <div class="span2 text-right">
+          <p><a href="#"><h4>Shopping Cart</h4></a></p>
+          <p><a href="#">2 item(s) - $40.00</a></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+              <ul class="nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li class="divider-vertical"></li>
+                <li><a href="#">Cart</a></li>
+                <li class="divider-vertical"></li>
+                <li><a href="#">My account</a></li>
+                <li class="divider-vertical"></li>
+                <li><a href="#">Information</a></li>
+              </ul>
+              <form class="navbar-search pull-right" action="">
+                <input type="text" class="search-query span3" placeholder="Search" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3">
+          <ul class="nav nav-list well">
+            <li class="nav-header">Categories</li>
+            <li class="active">
+              <a href="#">PC Games</a>
+            </li>
+            <ul class="nav nav-list">
+              <li><a href="#">Product range</a></li>
+              <li><a href="#">New arrivals</a></li>
+              <li><a href="#">Bestsellers</a></li>
+            </ul>
+            <li><a href="#">Playstation 3</a></li>
+            <li><a href="#">Xbox 360</a></li>
+          </ul>
+        </div>
+        <div class="span9">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
