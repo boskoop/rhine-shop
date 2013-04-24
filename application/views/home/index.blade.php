@@ -41,117 +41,113 @@
                   <a href="#" class="btn btn-inverse pull-right">Logout</a>
                   <span class="divider-vertical pull-right">&nbsp;</span>
                   <form class="navbar-search pull-right" action="">
-                      <input type="text" class="search-query span3" placeholder="Search" />
+                    <input type="text" class="search-query span3" placeholder="Search" />
                   </form>
-                  </ul>
-                </div>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="span3">
-          <ul class="nav nav-list well">
-            <li class="nav-header">Categories</li>
-            <li class="active">
-              <a href="#">PC Games</a>
-            </li>
-            <ul class="nav nav-list">
-              <li><a href="#">Product range</a></li>
-              <li><a href="#">New arrivals</a></li>
-              <li><a href="#">Bestsellers</a></li>
-            </ul>
-            <li class="divider"></li>
-            <li><a href="#">Playstation 3</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Xbox 360</a></li>
-          </ul>
-        </div>
-        <div class="span9">
-          <ul class="breadcrumb well">
-            <li><a href="#">Shop</a><span class="divider">/</span></li>
-            <li class="active">PC Games</li>
-          </ul>
-          <ul class="thumbnails">
-            <li class="span3">
-              <div class="thumbnail">
-                <a class="text-center" href="#">
-                  <img src="img/barcode_150.jpg" alt="" />
+    </div>
+    <div class="row">
+      <div class="span3">
+        <ul class="breadcrumb well">
+          <li class="active">Categories</li>
+        </ul>
+        <ul class="nav nav-tabs nav-stacked">
+          <li class="active"><a href="#">PC Games</a></li>
+          <li><a href="#">Playstation 3</a></li>
+          <li><a href="#">Xbox 360</a></li>
+        </ul>
+      </div>
+      <div class="span9">
+        <ul class="nav nav-tabs">
+          <li class="active">
+            <a href="#">Product range</a>
+          </li>
+          <li><a href="#">New arrivals</a></li>
+          <li><a href="#">Bestsellers</a></li>
+        </ul>
+        <ul class="thumbnails">
+          <li class="span3">
+            <div class="thumbnail">
+              <a class="text-center" href="#">
+                <img src="img/barcode_150.jpg" alt="" />
+              </a>
+              <div class="caption">
+                <a href="#">
+                  <h3>Product 1</h3>
                 </a>
-                <div class="caption">
-                  <a href="#">
-                    <h3>Product 1</h3>
-                  </a>
-                </div>
               </div>
-            </li>
-            <li class="span3">
-              <div class="thumbnail">
-                <a class="text-center" href="#">
-                  <img src="img/barcode_150.jpg" alt="" />
+            </div>
+          </li>
+          <li class="span3">
+            <div class="thumbnail">
+              <a class="text-center" href="#">
+                <img src="img/barcode_150.jpg" alt="" />
+              </a>
+              <div class="caption">
+                <a href="#">
+                  <h3>Product 2</h3>
                 </a>
-                <div class="caption">
-                  <a href="#">
-                    <h3>Product 2</h3>
-                  </a>
-                </div>
               </div>
-            </li>
-            <li class="span3">
-              <div class="thumbnail">
-                <a class="text-center" href="#">
-                  <img src="img/barcode_150.jpg" alt="" />
+            </div>
+          </li>
+          <li class="span3">
+            <div class="thumbnail">
+              <a class="text-center" href="#">
+                <img src="img/barcode_150.jpg" alt="" />
+              </a>
+              <div class="caption">
+                <a href="#">
+                  <h3>Product 3</h3>
                 </a>
-                <div class="caption">
-                  <a href="#">
-                    <h3>Product 3</h3>
-                  </a>
-                </div>
               </div>
-            </li>
-            <li class="span3">
-              <div class="thumbnail">
-                <a class="text-center" href="#">
-                  <img src="img/barcode_150.jpg" alt="" />
+            </div>
+          </li>
+          <li class="span3">
+            <div class="thumbnail">
+              <a class="text-center" href="#">
+                <img src="img/barcode_150.jpg" alt="" />
+              </a>
+              <div class="caption">
+                <a href="#">
+                  <h3>Product 4</h3>
                 </a>
-                <div class="caption">
-                  <a href="#">
-                    <h3>Product 4</h3>
-                  </a>
-                </div>
               </div>
-            </li>
-            <li class="span3">
-              <div class="thumbnail">
-                <a class="text-center" href="#">
-                  <img src="img/barcode_150.jpg" alt="" />
+            </div>
+          </li>
+          <li class="span3">
+            <div class="thumbnail">
+              <a class="text-center" href="#">
+                <img src="img/barcode_150.jpg" alt="" />
+              </a>
+              <div class="caption">
+                <a href="#">
+                  <h3>Product 5</h3>
                 </a>
-                <div class="caption">
-                  <a href="#">
-                    <h3>Product 5</h3>
-                  </a>
-                </div>
               </div>
-            </li>
-            <li class="span3">
-              <div class="thumbnail">
-                <a class="text-center" href="#">
-                  <img src="img/barcode_150.jpg" alt="" />
+            </div>
+          </li>
+          <li class="span3">
+            <div class="thumbnail">
+              <a class="text-center" href="#">
+                <img src="img/barcode_150.jpg" alt="" />
+              </a>
+              <div class="caption">
+                <a href="#">
+                  <h3>Product 6</h3>
                 </a>
-                <div class="caption">
-                  <a href="#">
-                    <h3>Product 6</h3>
-                  </a>
-                </div>
               </div>
-            </li>
-          </ul>
-        </div>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
-  <script src="http://code.jquery.com/jquery.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+</div>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
