@@ -80,6 +80,19 @@ Autoloader::directories(array(
 
 /*
 |--------------------------------------------------------------------------
+| Register and wire beans in IoC
+|--------------------------------------------------------------------------
+|
+| Initialize the IoC for the Rhine namespace.
+|
+*/
+Autoloader::namespaces(array(
+	'Rhine' => path('app').'rhine',
+));
+Rhine\RhineIoC::init();
+
+/*
+|--------------------------------------------------------------------------
 | Laravel View Loader
 |--------------------------------------------------------------------------
 |

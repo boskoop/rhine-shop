@@ -23,7 +23,7 @@
 
 $environments = array(
 
-	'local' => array('http://localhost*', '*.dev', 'boskoop.*'),
+	'local' => array('http://localhost*', '*.dev', '*.dev:8888', 'boskoop.*'),
 
 );
 

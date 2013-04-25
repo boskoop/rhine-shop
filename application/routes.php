@@ -32,10 +32,9 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('shop.index');
-});
+Route::get('/', 'shop@index');
+
+Route::controller('shop');
 
 /*
 |--------------------------------------------------------------------------
