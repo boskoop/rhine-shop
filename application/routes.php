@@ -31,10 +31,16 @@
 |		});
 |
 */
+Route::controller(Controller::detect());
 
-Route::get('/', 'shop@index');
+Route::get('/', array('as' => 'home', 'uses' => 'shop@index'));
+Route::get('shop', array('as' => 'shop', 'uses' => 'shop@index'));
 
-Route::controller('shop');
+Route::get('cart', array('as' => 'cart', 'uses' => 'shop@index'));
+Route::get('account', array('as' => 'account', 'uses' => 'shop@index'));
+Route::get('information', array('as' => 'information', 'uses' => 'shop@index'));
+
+Route::get('category/(:num)', 'shop@index');
 
 /*
 |--------------------------------------------------------------------------

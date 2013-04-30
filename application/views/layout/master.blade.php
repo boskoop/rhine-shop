@@ -4,7 +4,7 @@
   <title>rhine shop</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap -->
-  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="{{ URL::to_asset('css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
 </head>
 <body>
   <div class="container">
@@ -40,13 +40,13 @@
               <div class="container">
                 <div class="nav-collapse">
                   <ul class="nav">
-                    <li class="active"><a href="#">{{ __('rhine/nav.shop') }}</a></li>
+                    <li class="active"><a href="{{ URL::to_route('shop') }}">{{ __('rhine/nav.shop') }}</a></li>
                     <li class="divider-vertical"></li>
-                    <li><a href="#">{{ __('rhine/nav.cart') }}</a></li>
+                    <li><a href="{{ URL::to_route('cart') }}">{{ __('rhine/nav.cart') }}</a></li>
                     <li class="divider-vertical"></li>
-                    <li><a href="#">{{ __('rhine/nav.myaccount') }}</a></li>
+                    <li><a href="{{ URL::to_route('account') }}">{{ __('rhine/nav.myaccount') }}</a></li>
                     <li class="divider-vertical"></li>
-                    <li><a href="#">{{ __('rhine/nav.information') }}</a></li>
+                    <li><a href="{{ URL::to_route('information') }}">{{ __('rhine/nav.information') }}</a></li>
                   </ul>
                   <a href="#" class="btn btn-inverse pull-right">{{ __('rhine/nav.logout') }}</a>
                   <span class="divider-vertical pull-right">&nbsp;</span>
@@ -76,7 +76,7 @@
           <li class="span3">
             <div class="thumbnail">
               <a class="text-center" href="#">
-                <img src="img/barcode_150.jpg" alt="" />
+                {{ HTML::image('img/barcode_150.jpg', '') }}
               </a>
               <div class="caption">
                 <a href="#">
@@ -88,7 +88,7 @@
           <li class="span3">
             <div class="thumbnail">
               <a class="text-center" href="#">
-                <img src="img/barcode_150.jpg" alt="" />
+                {{ HTML::image('img/barcode_150.jpg', '') }}
               </a>
               <div class="caption">
                 <a href="#">
@@ -100,7 +100,7 @@
           <li class="span3">
             <div class="thumbnail">
               <a class="text-center" href="#">
-                <img src="img/barcode_150.jpg" alt="" />
+                {{ HTML::image('img/barcode_150.jpg', '') }}
               </a>
               <div class="caption">
                 <a href="#">
@@ -112,7 +112,7 @@
           <li class="span3">
             <div class="thumbnail">
               <a class="text-center" href="#">
-                <img src="img/barcode_150.jpg" alt="" />
+                {{ HTML::image('img/barcode_150.jpg', '') }}
               </a>
               <div class="caption">
                 <a href="#">
@@ -124,7 +124,7 @@
           <li class="span3">
             <div class="thumbnail">
               <a class="text-center" href="#">
-                <img src="img/barcode_150.jpg" alt="" />
+                {{ HTML::image('img/barcode_150.jpg', '') }}
               </a>
               <div class="caption">
                 <a href="#">
@@ -136,7 +136,7 @@
           <li class="span3">
             <div class="thumbnail">
               <a class="text-center" href="#">
-                <img src="img/barcode_150.jpg" alt="" />
+                {{ HTML::image('img/barcode_150.jpg', '') }}
               </a>
               <div class="caption">
                 <a href="#">
@@ -151,6 +151,6 @@
   </div>
 </div>
 <script src="http://code.jquery.com/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="{{ URL::to_asset('js/bootstrap.min.js') }}"></script>
 </body>
 </html>

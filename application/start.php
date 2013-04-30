@@ -90,6 +90,7 @@ Autoloader::namespaces(array(
 	'Rhine' => path('app').'rhine',
 ));
 Rhine\RhineIoC::init();
+Rhine\AssetManager::init();
 
 /*
 |--------------------------------------------------------------------------
