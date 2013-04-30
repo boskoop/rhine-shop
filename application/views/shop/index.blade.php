@@ -2,7 +2,7 @@
 
 @section('sidenavigation')
         <ul class="breadcrumb well">
-          <li class="active">Categories</li>
+          <li class="active">{{ __('rhine/shop.categories') }}</li>
         </ul>
         <ul class="nav nav-tabs nav-stacked">
 @foreach($categories as $category)

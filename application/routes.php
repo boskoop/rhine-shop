@@ -92,7 +92,12 @@ Event::listen('500', function($exception)
 
 Route::filter('before', function()
 {
-	// Do stuff before every request to your application...
+	$lang = Input::get('lang');
+	if ($lang != null)
+	{
+		Rhine\Language\LanguageManager::setSessionLanguage($lang);
+	}
+	Rhine\Language\LanguageManager::detectLanguage();
 });
 
 Route::filter('after', function($response)

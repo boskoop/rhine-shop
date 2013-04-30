@@ -9,18 +9,28 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="span7">
+      <div class="span6">
         <h1>rhine shop</h1>
       </div>
       <div class="span3">
-        <h4>Language</h4>
-        <p><a href="#"><strong>English</strong></a> |
-          <a href="#">German</a> |
-          <a href="#">French</a></p>
+        <h4>{{ __('rhine/header.language') }}</h4>
+        <p>
+          <?php $firstElement = true; ?>
+          @foreach(Config::get('application.languages') as $lang)
+            @unless($firstElement)|@endunless
+            <?php
+              $firstElement = false;
+              $isSessionLanguage = Rhine\Language\LanguageManager::isSessionLanguage($lang);
+            ?>
+            @if($isSessionLanguage)<strong>@endif
+            <a href="?lang={{ $lang }}">{{ __('rhine/header.'.$lang) }}</a>
+            @if($isSessionLanguage)</strong>@endif
+          @endforeach
+        </p>
         </div>
-        <div class="span2 text-right">
-          <p><h4>Shopping Cart</h4></p>
-          <p><a href="#">2 item(s) - $40.00</a></p>
+        <div class="span3 text-right">
+          <p><h4>{{ __('rhine/header.cart') }}</h4></p>
+          <p><a href="#">2 {{ __('rhine/header.item') }} - $40.00</a></p>
         </div>
       </div>
       <div class="row">
@@ -30,18 +40,18 @@
               <div class="container">
                 <div class="nav-collapse">
                   <ul class="nav">
-                    <li class="active"><a href="#">Shop</a></li>
+                    <li class="active"><a href="#">{{ __('rhine/nav.shop') }}</a></li>
                     <li class="divider-vertical"></li>
-                    <li><a href="#">Cart</a></li>
+                    <li><a href="#">{{ __('rhine/nav.cart') }}</a></li>
                     <li class="divider-vertical"></li>
-                    <li><a href="#">My account</a></li>
+                    <li><a href="#">{{ __('rhine/nav.myaccount') }}</a></li>
                     <li class="divider-vertical"></li>
-                    <li><a href="#">Information</a></li>
+                    <li><a href="#">{{ __('rhine/nav.information') }}</a></li>
                   </ul>
-                  <a href="#" class="btn btn-inverse pull-right">Logout</a>
+                  <a href="#" class="btn btn-inverse pull-right">{{ __('rhine/nav.logout') }}</a>
                   <span class="divider-vertical pull-right">&nbsp;</span>
                   <form class="navbar-search pull-right" action="">
-                    <input type="text" class="search-query span3" placeholder="Search" />
+                    <input type="text" class="search-query span3" placeholder="{{ __('rhine/nav.search') }}" />
                   </form>
                 </ul>
               </div>
@@ -57,10 +67,10 @@
       <div class="span9">
         <ul class="nav nav-tabs">
           <li class="active">
-            <a href="#">Product range</a>
+            <a href="#">{{ __('rhine/shop.productrange') }}</a>
           </li>
-          <li><a href="#">New arrivals</a></li>
-          <li><a href="#">Bestsellers</a></li>
+          <li><a href="#">{{ __('rhine/shop.newarrivals') }}</a></li>
+          <li><a href="#">{{ __('rhine/shop.bestsellers') }}</a></li>
         </ul>
         <ul class="thumbnails">
           <li class="span3">
