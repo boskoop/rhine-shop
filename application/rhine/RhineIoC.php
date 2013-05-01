@@ -11,12 +11,12 @@ class RhineIoC
 	{
 		// Infrastructure
 		IoC::singleton('languageManager', function() {
-			return new \Rhine\LanguageManager();
+			return new LanguageManager();
 		});
 
 		// Repositories
 		IoC::singleton('categoryRepository', function() {
-			return new \Rhine\Repositories\Eloquent\EloquentCategoryRepository();
+			return new Repositories\Eloquent\EloquentCategoryRepository();
 		});
 
 		// Services
@@ -24,7 +24,7 @@ class RhineIoC
 
 		// Actions
 		IoC::register('shopGetIndexAction', function() {
-			return new \Rhine\Actions\Shop\ShopGetIndexAction(IoC::resolve('categoryRepository'));
+			return new Actions\Shop\ShopGetIndexAction(IoC::resolve('categoryRepository'));
 		});
 	}
 }
