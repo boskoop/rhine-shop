@@ -11,7 +11,7 @@ class RhineIoC
 	{
 		// Infrastructure
 		IoC::singleton('languageManager', function() {
-			return new \Rhine\Language\LocalizationManager();
+			return new \Rhine\LanguageManager();
 		});
 
 		// Repositories

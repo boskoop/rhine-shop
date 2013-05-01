@@ -1,10 +1,10 @@
-<?php namespace Rhine\Language;
+<?php namespace Rhine;
 
 use Laravel\Session;
 use Laravel\Request;
 use Laravel\Config;
 
-class LocalizationManager
+class LanguageManager
 {
 	
 	public function detectLanguage()
