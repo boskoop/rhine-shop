@@ -9,9 +9,12 @@ class RhineIoC
 	 */
 	public static function init()
 	{
-		// Infrastructure
+		// Viewmanagers
 		IoC::singleton('languageManager', function() {
-			return new LanguageManager();
+			return new Viewmanagers\LanguageManager();
+		});
+		IoC::singleton('assetManager', function() {
+			return new Viewmanagers\AssetManager();
 		});
 
 		// Repositories

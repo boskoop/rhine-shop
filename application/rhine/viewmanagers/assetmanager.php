@@ -1,4 +1,4 @@
-<?php namespace Rhine;
+<?php namespace Rhine\Viewmanagers;
 
 use Laravel\Asset;
 
@@ -7,7 +7,7 @@ class AssetManager
 	/**
 	 * Register and wire objects.
 	 */
-	public static function init()
+	public function init()
 	{
 		// Twitter bootstrap
 		Asset::add('bootstrap.css', 'css/bootstrap.min.css');
