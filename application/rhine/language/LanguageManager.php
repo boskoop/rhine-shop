@@ -51,7 +51,7 @@ class LanguageManager
 	{
 		if(!in_array($lang, Config::get('application.languages')))
 		{
-			//$lang = Config::get('application.language');
+			$lang = Config::get('application.language');
 		}
 		Session::put('language', $lang);
 	}

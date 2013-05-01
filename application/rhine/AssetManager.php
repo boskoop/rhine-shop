@@ -1,6 +1,6 @@
 <?php namespace Rhine;
 
-use \Laravel\Asset;
+use Laravel\Asset;
 
 class AssetManager
 {

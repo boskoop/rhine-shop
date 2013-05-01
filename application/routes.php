@@ -101,9 +101,9 @@ Route::filter('before', function()
 	$lang = Input::get('lang');
 	if ($lang != null)
 	{
-		Rhine\Language\LanguageManager::setSessionLanguage($lang);
+		\Rhine\Language\LanguageManager::setSessionLanguage($lang);
 	}
-	Rhine\Language\LanguageManager::detectLanguage();
+	\Rhine\Language\LanguageManager::detectLanguage();
 });
 
 Route::filter('after', function($response)
