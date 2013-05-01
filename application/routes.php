@@ -98,6 +98,8 @@ Event::listen('500', function($exception)
 
 Route::filter('before', function()
 {
+	IoC::resolve('assetManager')->init();
+
 	$lm = IoC::resolve('languageManager');
 	$lang = Input::get('lang');
 	if ($lang != null)
