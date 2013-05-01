@@ -4,7 +4,7 @@ use Laravel\Session;
 use Laravel\Request;
 use Laravel\Config;
 
-class LanguageManager
+class LocalizationManager
 {
 	
 	public function detectLanguage()
