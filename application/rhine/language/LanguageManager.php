@@ -7,7 +7,7 @@ use Laravel\Config;
 class LanguageManager
 {
 	
-	static function detectLanguage()
+	public function detectLanguage()
 	{
 		// Set default session language if none is set
 		if(!Session::has('language'))
@@ -47,7 +47,7 @@ class LanguageManager
 
 	}
 
-	static function setSessionLanguage($lang)
+	public function setSessionLanguage($lang)
 	{
 		if(!in_array($lang, Config::get('application.languages')))
 		{
@@ -56,7 +56,7 @@ class LanguageManager
 		Session::put('language', $lang);
 	}
 
-	static function isSessionLanguage($lang)
+	public function isSessionLanguage($lang)
 	{
 		if(Session::get('language') == $lang)
 		{

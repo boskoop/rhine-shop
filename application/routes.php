@@ -98,12 +98,13 @@ Event::listen('500', function($exception)
 
 Route::filter('before', function()
 {
+	$lm = IoC::resolve('languageManager');
 	$lang = Input::get('lang');
 	if ($lang != null)
 	{
-		\Rhine\Language\LanguageManager::setSessionLanguage($lang);
+		$lm->setSessionLanguage($lang);
 	}
-	\Rhine\Language\LanguageManager::detectLanguage();
+	$lm->detectLanguage();
 });
 
 Route::filter('after', function($response)

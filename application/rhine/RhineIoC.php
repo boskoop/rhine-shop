@@ -9,6 +9,11 @@ class RhineIoC
 	 */
 	public static function init()
 	{
+		// Infrastructure
+		IoC::singleton('languageManager', function() {
+			return new \Rhine\Language\languageManager();
+		});
+
 		// Repositories
 		IoC::singleton('categoryRepository', function() {
 			return new \Rhine\Repositories\Eloquent\EloquentCategoryRepository();

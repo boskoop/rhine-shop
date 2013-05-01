@@ -20,7 +20,9 @@
             @unless($firstElement)|@endunless
             <?php
               $firstElement = false;
-              $isSessionLanguage = Rhine\Language\LanguageManager::isSessionLanguage($lang);
+              
+              $lm = IoC::resolve('languageManager');
+              $isSessionLanguage = $lm->isSessionLanguage($lang);
             ?>
             @if($isSessionLanguage)<strong>@endif
             <a href="?lang={{ $lang }}">{{ __('rhine/header.'.$lang) }}</a>
