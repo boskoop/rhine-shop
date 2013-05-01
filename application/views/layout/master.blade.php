@@ -22,11 +22,11 @@
               $firstElement = false;
               
               $lm = IoC::resolve('languageManager');
-              $isSessionLanguage = $lm->isSessionLanguage($lang);
+              $isCurrentLanguage = $lm->isCurrentLanguage($lang);
             ?>
-            @if($isSessionLanguage)<strong>@endif
-            <a href="?lang={{ $lang }}">{{ __('rhine/header.'.$lang) }}</a>
-            @if($isSessionLanguage)</strong>@endif
+            @if($isCurrentLanguage)<strong>@endif
+            <a href="{{ $lm->generateLanguageURL($lang) }}">{{ __('rhine/header.'.$lang) }}</a>
+            @if($isCurrentLanguage)</strong>@endif
           @endforeach
         </p>
         </div>

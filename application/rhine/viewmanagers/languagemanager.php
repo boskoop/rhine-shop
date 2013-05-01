@@ -1,64 +1,21 @@
 <?php namespace Rhine\Viewmanagers;
 
-use Laravel\Session;
-use Laravel\Request;
 use Laravel\Config;
+use Laravel\URI;
+use Laravel\URL;
 
 class LanguageManager
 {
 	
-	public function detectLanguage()
+	public function generateLanguageURL($lang)
 	{
-		// Set default session language if none is set
-		if(!Session::has('language'))
-		{
-
-			// detect browser language
-			if(Request::server('http_accept_language'))
-			{
-				$headerlang = substr(Request::server('http_accept_language'), 0, 2);
-
-				if(in_array($headerlang, Config::get('application.languages')))
-				{
-					// browser lang is supported, use it
-					$lang = $headerlang;
-				}
-				else // use default application lang
-				{
-					$lang = Config::get('application.language');
-				}
-			}
-			// no lang in uri nor in browser. use default
-			else 
-			{
-				// use default application lang
-				$lang = Config::get('application.language');            
-			}
-
-			// set application language for that user
-			Session::put('language', $lang);
-			Config::set('application.language',  $lang);
-		}
-		else // session is available
-		{
-			// set application to session lang
-			Config::set('application.language', Session::get('language'));
-		}
-
+		$langURI = $lang.'/'.URI::current();
+		return URL::to($langURI, null, false, false);
 	}
 
-	public function setSessionLanguage($lang)
+	public function isCurrentLanguage($lang)
 	{
-		if(!in_array($lang, Config::get('application.languages')))
-		{
-			$lang = Config::get('application.language');
-		}
-		Session::put('language', $lang);
-	}
-
-	public function isSessionLanguage($lang)
-	{
-		if(Session::get('language') == $lang)
+		if(Config::get('application.language') == $lang)
 		{
 			return true;
 		}
