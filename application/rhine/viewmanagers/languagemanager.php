@@ -1,4 +1,4 @@
-<?php namespace Rhine/Viewmanagers;
+<?php namespace Rhine\Viewmanagers;
 
 use Laravel\Session;
 use Laravel\Request;
