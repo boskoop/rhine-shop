@@ -53,7 +53,7 @@ return array(
 	|
 	*/
 
-	'key' => 'YourSecretKeyGoesHere!',
+	'key' => 'If you can\'t spot the crazy person on the bus, it\'s you.',
 
 	/*
 	|--------------------------------------------------------------------------
