@@ -147,6 +147,42 @@
               </div>
             </div>
           </li>
+          <li class="span3">
+            <div class="thumbnail">
+              <a class="text-center" href="#">
+                {{ HTML::image('img/barcode_150.jpg', '') }}
+              </a>
+              <div class="caption">
+                <a href="#">
+                  <h3>Product 7</h3>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="span3">
+            <div class="thumbnail">
+              <a class="text-center" href="#">
+                {{ HTML::image('img/barcode_150.jpg', '') }}
+              </a>
+              <div class="caption">
+                <a href="#">
+                  <h3>Product 8</h3>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="span3">
+            <div class="thumbnail">
+              <a class="text-center" href="#">
+                {{ HTML::image('img/barcode_150.jpg', '') }}
+              </a>
+              <div class="caption">
+                <a href="#">
+                  <h3>Product 9</h3>
+                </a>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
