@@ -69,6 +69,7 @@
 								<includes>
 									<include>VERSION</include>
 									<include>application/config/database.php</include>
+									<include>application/config/application.php</include>
 								</includes>
 							</resource>
 						</resources>
