@@ -72,6 +72,7 @@
 										<exclude>application/config/local/**</exclude>
 										<exclude>application/config/test/**</exclude>
 										<exclude>application/tests/**</exclude>
+										<exclude>application/libraries/tests/**</exclude>
 
 										<!-- Exclude directory content -->
 										<!--
