@@ -6,4 +6,9 @@
 			<directory suffix=".test.php">{{directory}}</directory>
 		</testsuite>
 	</testsuites>
+
+	<logging>
+		<!-- this is JUnit test report of Jenkins -->
+		<log type="junit" target="target/logs/junit.xml" logIncompleteSkipped="true"/>
+	</logging>
 </phpunit>
