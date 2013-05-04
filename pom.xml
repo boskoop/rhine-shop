@@ -69,6 +69,7 @@
 									<excludes>
 										<!-- Exclude directories -->
 										<exclude>target/**</exclude>
+										<exclude>bundles/docs/**</exclude>
 										<exclude>application/config/local/**</exclude>
 										<exclude>application/config/test/**</exclude>
 										<exclude>application/tests/**</exclude>
