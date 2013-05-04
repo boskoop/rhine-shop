@@ -7,6 +7,7 @@ abstract class PersistenceTestCase extends PHPUnit_Framework_TestCase {
 
 	protected final function setUp()
 	{
+		echo "\nPersistenceTestCase: running ".get_class($this)."->".$this->getName()."()";
 		Session::load();
 
 		PersistenceTestHelper::cleanDatabase();
