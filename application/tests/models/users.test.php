@@ -44,4 +44,21 @@ class UsersTest extends Tests\PersistenceTestCase {
 		$modifiedCredentials = array('username' => 'joe', 'password' => 'wrong');
 		$this->assertFalse(Auth::attempt($modifiedCredentials));
 	}
+
+	/**
+	 * Tests if usernames are unique.
+	 * 
+	 * @expectedException Laravel\Database\Exception
+	 * @return void
+	 */
+	public function testUsernameUnique()
+	{
+		$user1 = new User;
+		$user1->username = 'joe';
+		$user1->save();
+
+		$user2 = new User;
+		$user2->username = 'joe';
+		$user2->save();
+	}
 }
