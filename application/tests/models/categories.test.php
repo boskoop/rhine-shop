@@ -1,8 +1,5 @@
 <?php
 
-use Laravel\Hash;
-use Laravel\Auth;
-
 class CategoriesTest extends Tests\PersistenceTestCase {
 
 	/**
