@@ -1,10 +1,6 @@
 <?php
 
-class TestExample extends PHPUnit_Framework_TestCase {
-
-	protected function setUp() {
-		Tests\PersistenceTestHelper::setUp();
-	}
+class PersistenceTestHelperTest extends Tests\PersistenceTestCase {
 
 	/**
 	 * Tests if the tables are empty when the tests runs.

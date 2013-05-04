@@ -7,7 +7,12 @@ use \DB;
 
 class PersistenceTestHelper {
 
-	public static function setUp()
+	/**
+	 * Cleans the database with the migrations table scheme.
+	 *
+	 * @return void
+	 */
+	public static function cleanDatabase()
 	{
 		static::checkTestEnv();
 		echo "\nPersistenceTestHelper: cleaning database\n";
