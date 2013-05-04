@@ -14,11 +14,11 @@ class PersistenceTestHelper {
 	 */
 	public static function cleanDatabase()
 	{
-		static::checkTestEnv();
+		self::checkTestEnv();
 		echo "\nPersistenceTestHelper: cleaning database\n";
 
 		require path('sys').'cli/dependencies'.EXT;
-		if (!static::checkTableExists('laravel_migrations'))
+		if (!self::checkTableExists('laravel_migrations'))
 		{
 			echo "PersistenceTestHelper: creating migrations table\n";
 			Command::run(array('migrate:install'));
