@@ -9,10 +9,10 @@ class CategoriesTest extends Tests\PersistenceTestCase {
 	 */
 	public function testCategoryAttributes()
 	{
-		$category = new Category;
-		$category->name = 'comic';
-		$category->order = 1;
-		$category->save();
+		Category::create(array(
+			'name' => 'comic',
+			'order' => 1
+		));
 
 		$comic = Category::find(1);
 		$this->assertEquals('comic', $comic->name);
@@ -27,15 +27,15 @@ class CategoriesTest extends Tests\PersistenceTestCase {
 	 */
 	public function testCategoryNameUnique()
 	{
-		$category1 = new Category;
-		$category1->name = 'comic';
-		$category1->order = 1;
-		$category1->save();
+		Category::create(array(
+			'name' => 'comic',
+			'order' => 1
+		));
 
-		$category2 = new Category;
-		$category2->name = 'comic';
-		$category2->order = 2;
-		$category2->save();
+		Category::create(array(
+			'name' => 'comic',
+			'order' => 2
+		));
 	}
 
 	/**
@@ -46,14 +46,14 @@ class CategoriesTest extends Tests\PersistenceTestCase {
 	 */
 	public function testCategoryOrderUnique()
 	{
-		$category1 = new Category;
-		$category1->name = 'comic';
-		$category1->order = 1;
-		$category1->save();
+		Category::create(array(
+			'name' => 'comic',
+			'order' => 1
+		));
 
-		$category2 = new Category;
-		$category2->name = 'dvd';
-		$category2->order = 1;
-		$category2->save();
+		Category::create(array(
+			'name' => 'dvd',
+			'order' => 1
+		));
 	}
 }

@@ -12,11 +12,11 @@ class UsersTest extends Tests\PersistenceTestCase {
 	 */
 	public function testUserAttributes()
 	{
-		$user = new User;
-		$user->username = 'joe';
-		$user->email = 'joe@doe.com';
-		$user->password = 'secret';
-		$user->save();
+		User::create(array(
+			'username' => 'joe',
+			'email' => 'joe@doe.com',
+			'password' => 'secret'
+		));
 
 		$joe = User::find(1);
 		$this->assertEquals('joe', $joe->username);
@@ -34,10 +34,10 @@ class UsersTest extends Tests\PersistenceTestCase {
 		$credentials = array('username' => 'joe', 'password' => 'secret');
 		$this->assertFalse(Auth::attempt($credentials));
 
-		$user = new User;
-		$user->username = 'joe';
-		$user->password = Hash::make('secret');
-		$user->save();
+		User::create(array(
+			'username' => 'joe',
+			'password' => Hash::make('secret')
+		));
 
 		$this->assertTrue(Auth::attempt($credentials));
 
@@ -53,12 +53,12 @@ class UsersTest extends Tests\PersistenceTestCase {
 	 */
 	public function testUsernameUnique()
 	{
-		$user1 = new User;
-		$user1->username = 'joe';
-		$user1->save();
+		User::create(array(
+			'username' => 'joe'
+		));
 
-		$user2 = new User;
-		$user2->username = 'joe';
-		$user2->save();
+		User::create(array(
+			'username' => 'joe'
+		));
 	}
 }

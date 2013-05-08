@@ -9,95 +9,77 @@ class Seed_Data_Task
 			'username' => 'admin',
 			'email' => 'admin@localhost',
 			'password' => Hash::make('1234')
-		));
+			));
 
-		Category::create(array(
+		$pcGames = Category::create(array(
 			'name' => 'PC Games',
 			'order' => 1
-		));
-		Category::create(array(
+			));
+		$products = array(
+			array(
+				'name' => 'Tomb Raider',
+				'price' => 5900,
+				'stocksize' => 10),
+			array(
+				'name' => 'Far Cry 3',
+				'price' => 5900,
+				'stocksize' => 10),
+			array(
+				'name' => 'Landwirtschafts-Simulator 2013',
+				'price' => 2990,
+				'stocksize' => 12)
+			);
+		$pcGames->products()->save($products);
+
+
+		$ps3 = Category::create(array(
 			'name' => 'Playstation 3',
 			'order' => 2
-		));
-		Category::create(array(
+			));
+		$products = array(
+			array(
+				'name' => 'Tomb Raider',
+				'price' => 6900,
+				'stocksize' => 5),
+			array(
+				'name' => 'Far Cry 3',
+				'price' => 7500,
+				'stocksize' => 10),
+			array(
+				'name' => 'NHL 13',
+				'price' => 3990,
+				'stocksize' => 3),
+			array(
+				'name' => 'Gran Turismo 6',
+				'price' => 7900,
+				'stocksize' => 0)
+			);
+		$ps3->products()->save($products);
+
+
+		$xbox = Category::create(array(
 			'name' => 'Xbox 360',
 			'order' => 3
-		));
-
-		// PC Games
-		$pcGamesId = Category::where('name', '=', 'PC Games')->first()->id;
-		Product::create(array(
-			'name' => 'Tomb Raider',
-			'category_id' => $pcGamesId,
-			'price' => 5900,
-			'stocksize' => 10,
-		));
-		Product::create(array(
-			'name' => 'Far Cry 3',
-			'category_id' => $pcGamesId,
-			'price' => 5900,
-			'stocksize' => 10,
-		));
-		Product::create(array(
-			'name' => 'Landwirtschafts-Simulator 2013',
-			'category_id' => $pcGamesId,
-			'price' => 2990,
-			'stocksize' => 12,
-		));
-
-		// PS3 Games
-		$ps3Id = Category::where('name', '=', 'Playstation 3')->first()->id;
-		Product::create(array(
-			'name' => 'Tomb Raider',
-			'category_id' => $ps3Id,
-			'price' => 6900,
-			'stocksize' => 5,
-		));
-		Product::create(array(
-			'name' => 'Far Cry 3',
-			'category_id' => $ps3Id,
-			'price' => 7500,
-			'stocksize' => 10,
-		));
-		Product::create(array(
-			'name' => 'NHL 13',
-			'category_id' => $ps3Id,
-			'price' => 3990,
-			'stocksize' => 3,
-		));
-		Product::create(array(
-			'name' => 'Gran Turismo 6',
-			'category_id' => $ps3Id,
-			'price' => 7900,
-			'stocksize' => 0,
-		));
-
-		// Xbox Games
-		$xbox360Id = Category::where('name', '=', 'Xbox 360')->first()->id;
-		Product::create(array(
-			'name' => 'Tomb Raider',
-			'category_id' => $xbox360Id,
-			'price' => 6900,
-			'stocksize' => 8,
-		));
-		Product::create(array(
-			'name' => 'Far Cry 3',
-			'category_id' => $xbox360Id,
-			'price' => 7500,
-			'stocksize' => 10,
-		));
-		Product::create(array(
-			'name' => 'NHL 13',
-			'category_id' => $xbox360Id,
-			'price' => 3990,
-			'stocksize' => 4,
-		));
-		Product::create(array(
-			'name' => 'Halo 4',
-			'category_id' => $xbox360Id,
-			'price' => 4990,
-			'stocksize' => 6,
-		));
+			));
+		$products = array(
+			array(
+				'name' => 'Tomb Raider',
+				'price' => 6900,
+				'stocksize' => 8),
+			array(
+				'name' => 'Far Cry 3',
+				'price' => 7500,
+				'stocksize' => 10),
+			array(
+				'name' => 'NHL 13',
+				'price' => 3990,
+				'stocksize' => 4),
+			array(
+				'name' => 'Halo 4',
+				'price' => 4990,
+				'stocksize' => 6)
+			);
+		$xbox->products()->save($products);
 	}
 
 	public function clean($arguments)

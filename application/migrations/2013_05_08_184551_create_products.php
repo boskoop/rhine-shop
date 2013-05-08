@@ -22,7 +22,7 @@ class Create_Products {
 			// indexes
 			$table->index('name');
 
-			// fk
+			// fk (no support by sqlite -> disable in test)
 			if (!Request::is_env('test'))
 			{
 				$table->foreign('category_id')->references('id')->on('categories')->on_delete('restrict')->on_update('cascade');

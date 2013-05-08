@@ -1,8 +1,5 @@
 <?php
 
-use Tests\Builder\EloquentPersister;
-use Tests\Builder\ProductBuilder;
-
 class ProductsTest extends Tests\PersistenceTestCase {
 
 	/**
@@ -12,12 +9,11 @@ class ProductsTest extends Tests\PersistenceTestCase {
 	 */
 	public function testProductAttributes()
 	{
-		$product = ProductBuilder::aProduct()
-				->withName('donald')
-				->withCategoryId(1)
-				->withPrice(1000)
-				->withStocksize(10)
-				->buildWith(new EloquentPersister);
+		Product::create(array('name' => 'donald',
+			'category_id' => 1,
+			'price' => 1000,
+			'stocksize' => 10
+		));
 
 		$donald = Product::find(1);
 		$this->assertEquals('donald', $donald->name);
