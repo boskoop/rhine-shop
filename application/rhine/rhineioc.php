@@ -10,9 +10,6 @@ class RhineIoC
 	public static function init()
 	{
 		// Viewmanagers
-		IoC::singleton('languageManager', function() {
-			return new Viewmanagers\LanguageManager();
-		});
 		IoC::singleton('assetManager', function() {
 			return new Viewmanagers\AssetManager();
 		});

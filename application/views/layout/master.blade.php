@@ -21,11 +21,10 @@
             <?php
               $firstElement = false;
               
-              $lm = IoC::resolve('languageManager');
-              $isCurrentLanguage = $lm->isCurrentLanguage($lang);
+              $isCurrentLanguage = (Config::get('application.language') == $lang)
             ?>
             @if($isCurrentLanguage)<strong>@endif
-            <a href="{{ $lm->generateLanguageURL($lang) }}">{{ __('rhine/header.'.$lang) }}</a>
+            <a href="{{ URL::to_language($lang) }}">{{ __('rhine/header.'.$lang) }}</a>
             @if($isCurrentLanguage)</strong>@endif
           @endforeach
         </p>
