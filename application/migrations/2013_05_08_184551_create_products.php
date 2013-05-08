@@ -14,7 +14,7 @@ class Create_Products {
 		Schema::create('products', function($table) {
 			$table->increments('id');
 			$table->string('name', 64);
-			$table->integer('category')->unsigned();
+			$table->integer('category_id')->unsigned();
 			$table->integer('price');
 			$table->integer('stocksize')->default(0);
 			$table->timestamps();
@@ -25,7 +25,7 @@ class Create_Products {
 			// fk
 			if (!Request::is_env('test'))
 			{
-				$table->foreign('category')->references('id')->on('categories')->on_delete('restrict')->on_update('cascade');
+				$table->foreign('category_id')->references('id')->on('categories')->on_delete('restrict')->on_update('cascade');
 			}
 		});
 	}
