@@ -28,19 +28,19 @@ class Seed_Data_Task
 		$pcGamesId = Category::where('name', '=', 'PC Games')->first()->id;
 		Product::create(array(
 			'name' => 'Tomb Raider',
-			'category' => $pcGamesId,
+			'category_id' => $pcGamesId,
 			'price' => 5900,
 			'stocksize' => 10,
 		));
 		Product::create(array(
 			'name' => 'Far Cry 3',
-			'category' => $pcGamesId,
+			'category_id' => $pcGamesId,
 			'price' => 5900,
 			'stocksize' => 10,
 		));
 		Product::create(array(
 			'name' => 'Landwirtschafts-Simulator 2013',
-			'category' => $pcGamesId,
+			'category_id' => $pcGamesId,
 			'price' => 2990,
 			'stocksize' => 12,
 		));
@@ -49,25 +49,25 @@ class Seed_Data_Task
 		$ps3Id = Category::where('name', '=', 'Playstation 3')->first()->id;
 		Product::create(array(
 			'name' => 'Tomb Raider',
-			'category' => $ps3Id,
+			'category_id' => $ps3Id,
 			'price' => 6900,
 			'stocksize' => 5,
 		));
 		Product::create(array(
 			'name' => 'Far Cry 3',
-			'category' => $ps3Id,
+			'category_id' => $ps3Id,
 			'price' => 7500,
 			'stocksize' => 10,
 		));
 		Product::create(array(
 			'name' => 'NHL 13',
-			'category' => $ps3Id,
+			'category_id' => $ps3Id,
 			'price' => 3990,
 			'stocksize' => 3,
 		));
 		Product::create(array(
 			'name' => 'Gran Turismo 6',
-			'category' => $ps3Id,
+			'category_id' => $ps3Id,
 			'price' => 7900,
 			'stocksize' => 0,
 		));
@@ -76,25 +76,25 @@ class Seed_Data_Task
 		$xbox360Id = Category::where('name', '=', 'Xbox 360')->first()->id;
 		Product::create(array(
 			'name' => 'Tomb Raider',
-			'category' => $xbox360Id,
+			'category_id' => $xbox360Id,
 			'price' => 6900,
 			'stocksize' => 8,
 		));
 		Product::create(array(
 			'name' => 'Far Cry 3',
-			'category' => $xbox360Id,
+			'category_id' => $xbox360Id,
 			'price' => 7500,
 			'stocksize' => 10,
 		));
 		Product::create(array(
 			'name' => 'NHL 13',
-			'category' => $xbox360Id,
+			'category_id' => $xbox360Id,
 			'price' => 3990,
 			'stocksize' => 4,
 		));
 		Product::create(array(
 			'name' => 'Halo 4',
-			'category' => $xbox360Id,
+			'category_id' => $xbox360Id,
 			'price' => 4990,
 			'stocksize' => 6,
 		));
