@@ -12,6 +12,11 @@ class CategoryBuilder extends Builder {
 		$this->order = 1;
 	}
 
+	public static function aCategory()
+	{
+		return new self();
+	}
+
 	protected function buildInternal(BuilderExtension $extension)
 	{
 		$category = new Category;

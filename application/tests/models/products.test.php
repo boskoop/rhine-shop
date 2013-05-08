@@ -12,8 +12,8 @@ class ProductsTest extends Tests\PersistenceTestCase {
 	 */
 	public function testProductAttributes()
 	{
-		$productBuilder = new ProductBuilder();
-		$product = $productBuilder->withName('donald')
+		$product = ProductBuilder::aProduct()
+				->withName('donald')
 				->withCategoryId(1)
 				->withPrice(1000)
 				->withStocksize(10)

@@ -20,6 +20,11 @@ class ProductBuilder extends Builder {
 		$this->stocksize = 0;
 	}
 
+	public static function aProduct()
+	{
+		return new self();
+	}
+
 	protected function buildInternal(BuilderExtension $extension)
 	{
 		$product = new Product;
