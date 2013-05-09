@@ -24,7 +24,7 @@
           <li class="span3">
             <div class="thumbnail">
               <a class="text-center" href="#">
-                {{ HTML::image('img/barcode_150.jpg', '') }}
+                {{ HTML::image(URL::to_route('product_image', array($product->id)), '') }}
               </a>
               <div class="caption">
                 <a href="#">
