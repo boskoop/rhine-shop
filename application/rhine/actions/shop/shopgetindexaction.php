@@ -24,10 +24,12 @@ class ShopGetIndexAction
 		
 		$categories = $this->categoryRepository->findAllOrdered();
 		$products = $this->productRepository->findAllOrderedAndPaginated();
+		$activeCategory = null;
 
 		return View::make('shop.index')
 		->with(compact('categories'))
-		->with(compact('products'));
+		->with(compact('products'))
+		->with(compact('activeCategory'));
 	}
 
 }

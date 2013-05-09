@@ -6,7 +6,7 @@
         </ul>
         <ul class="nav nav-tabs nav-stacked">
 @foreach($categories as $category)
-          <li><a href="{{ URL::to_route('category', array($category->id)) }}">{{ $category->name }}</a></li>
+          <li{{ ($activeCategory == $category->id) ? ' class="active"' : '' }}><a href="{{ URL::to_route('category', array($category->id)) }}">{{ $category->name }}</a></li>
 @endforeach
         </ul>
 @endsection
