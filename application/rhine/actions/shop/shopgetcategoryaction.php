@@ -1,7 +1,9 @@
 <?php namespace Rhine\Actions\Shop;
 
 use Laravel\View;
+use Laravel\Response;
 use Rhine\Repositories\CategoryRepository;
+use Rhine\Repositories\ProductRepository;
 
 class ShopGetCategoryAction
 {
@@ -9,7 +11,7 @@ class ShopGetCategoryAction
 	private $categoryRepository;
 	private $productRepository;
 
-	function __construct($categoryRepository, $productRepository)
+	function __construct(CategoryRepository $categoryRepository, ProductRepository $productRepository)
 	{
 		$this->categoryRepository = $categoryRepository;
 		$this->productRepository = $productRepository;

@@ -2,6 +2,7 @@
 
 use Laravel\View;
 use Rhine\Repositories\CategoryRepository;
+use Rhine\Repositories\ProductRepository;
 
 class ShopGetIndexAction
 {
@@ -9,7 +10,7 @@ class ShopGetIndexAction
 	private $categoryRepository;
 	private $productRepository;
 
-	function __construct($categoryRepository, $productRepository)
+	function __construct(CategoryRepository $categoryRepository, ProductRepository $productRepository)
 	{
 		$this->categoryRepository = $categoryRepository;
 		$this->productRepository = $productRepository;
