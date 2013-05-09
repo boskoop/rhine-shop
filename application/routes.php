@@ -42,6 +42,8 @@ Route::get('information', array('as' => 'information', 'uses' => 'shop@index'));
 
 Route::get('category/(:num)', array('as' => 'category', 'uses' => 'shop@category'));
 
+Route::get('product/(:num)/image.png', array('after' => 'image', 'as' => 'product_image', 'uses' => 'image@product'));
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers
@@ -95,6 +97,11 @@ Event::listen('500', function($exception)
 |		}));
 |
 */
+
+Route::filter('image', function($response)
+{
+	$response->header('Content-Type', 'image/png');
+});
 
 Route::filter('before', function()
 {

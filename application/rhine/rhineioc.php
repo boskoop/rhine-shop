@@ -21,6 +21,9 @@ class RhineIoC
 		IoC::singleton('productRepository', function() {
 			return new Repositories\Eloquent\EloquentProductRepository();
 		});
+		IoC::singleton('productImageRepository', function() {
+			return new Repositories\Eloquent\EloquentProductImageRepository();
+		});
 
 		// Services
 
@@ -33,6 +36,9 @@ class RhineIoC
 		IoC::register('shopGetCategoryAction', function() {
 			return new Actions\Shop\ShopGetCategoryAction(IoC::resolve('categoryRepository'),
 					IoC::resolve('productRepository'));
+		});
+		IoC::register('imageGetProductAction', function() {
+			return new Actions\Image\ImageGetProductAction(IoC::resolve('productImageRepository'));
 		});
 	}
 }
