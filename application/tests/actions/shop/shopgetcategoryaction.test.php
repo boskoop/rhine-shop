@@ -77,6 +77,7 @@ class ShopGetCategoryActionTest extends Tests\ActionTestCase
 		$this->assertEquals('comic', $response->data['categories'][0]->name);
 		$this->assertEquals(1, count($response->data['products']));
 		$this->assertEquals('donald', $response->data['products'][0]->name);
+		$this->assertEquals(1, $response->data['activeCategory']);
 	}
 
 }
