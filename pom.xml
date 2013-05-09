@@ -86,6 +86,7 @@
 									<exclude>**/.travis.yml</exclude>
 									<exclude>pom.xml</exclude>
 									<exclude>assembly.xml</exclude>
+									<exclude>phpunit.sh</exclude>
 								</excludes>
 							</resource>
 							
