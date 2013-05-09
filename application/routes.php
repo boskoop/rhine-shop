@@ -40,7 +40,7 @@ Route::get('cart', array('as' => 'cart', 'uses' => 'shop@index'));
 Route::get('account', array('as' => 'account', 'uses' => 'shop@index'));
 Route::get('information', array('as' => 'information', 'uses' => 'shop@index'));
 
-Route::get('category/(:num)', 'shop@index');
+Route::get('category/(:num)', array('as' => 'category', 'uses' => 'shop@category'));
 
 /*
 |--------------------------------------------------------------------------

@@ -9,4 +9,9 @@ interface CategoryRepository
 	 */
 	function findAllOrdered();
 
+	/**
+	 * @return Category
+	 */
+	function findById($id);
+
 }

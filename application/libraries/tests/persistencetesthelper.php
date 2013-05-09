@@ -18,8 +18,7 @@ class PersistenceTestHelper {
 		echo "\nPersistenceTestHelper: cleaning database\n";
 
 		require path('sys').'cli/dependencies'.EXT;
-		if (!self::checkTableExists('laravel_migrations'))
-		{
+		if (!self::checkTableExists('laravel_migrations')) {
 			echo "PersistenceTestHelper: creating migrations table\n";
 			Command::run(array('migrate:install'));
 			echo "\n";
@@ -33,8 +32,7 @@ class PersistenceTestHelper {
 
 	private static function checkTestEnv()
 	{
-		if (!Request::is_env('test'))
-		{
+		if (!Request::is_env('test')) {
 			throw new Exception('PersistenceTestHelper called but env is not test');
 		}
 	}

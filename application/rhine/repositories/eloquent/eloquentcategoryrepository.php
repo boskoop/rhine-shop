@@ -12,4 +12,9 @@ class EloquentCategoryRepository implements CategoryRepository
 		return $categories;
 	}
 
+	function findById($id)
+	{
+		return Category::where('id', '=', $id)->first();
+	}
+
 }

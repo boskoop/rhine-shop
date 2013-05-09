@@ -18,13 +18,21 @@ class RhineIoC
 		IoC::singleton('categoryRepository', function() {
 			return new Repositories\Eloquent\EloquentCategoryRepository();
 		});
+		IoC::singleton('productRepository', function() {
+			return new Repositories\Eloquent\EloquentProductRepository();
+		});
 
 		// Services
 
 
 		// Actions
 		IoC::register('shopGetIndexAction', function() {
-			return new Actions\Shop\ShopGetIndexAction(IoC::resolve('categoryRepository'));
+			return new Actions\Shop\ShopGetIndexAction(IoC::resolve('categoryRepository'),
+					IoC::resolve('productRepository'));
+		});
+		IoC::register('shopGetCategoryAction', function() {
+			return new Actions\Shop\ShopGetCategoryAction(IoC::resolve('categoryRepository'),
+					IoC::resolve('productRepository'));
 		});
 	}
 }

@@ -8,4 +8,10 @@ class Shop_Controller extends Base_Controller {
 		return $action->execute();
 	}
 
+	public function action_category($id)
+	{
+		$action = IoC::resolve('shopGetCategoryAction');
+		return $action->execute($id);
+	}
+
 }

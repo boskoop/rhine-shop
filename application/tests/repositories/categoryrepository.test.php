@@ -27,19 +27,38 @@ class CategoryRepositoryTest extends Tests\PersistenceTestCase
 
 		$orderedCategories = $this->categoryRepository->findAllOrdered();
 		$i = 1;
-		foreach ($orderedCategories as $category)
-		{
+		foreach ($orderedCategories as $category) {
 			$this->assertEquals($i, $category->order);
 			$i++;
 		}
 	}
 
+	/**
+	 * Tests the function findById().
+	 *
+	 * @return void
+	 */
+	public function testFindById()
+	{
+		$this->assertNull($this->categoryRepository->findById(10));
+		$this->assertNull($this->categoryRepository->findById(20));
+
+		Category::create(array(
+			'id' => 10,
+			'name' => 'c1',
+			'order' => 1
+			));
+
+		$this->assertNotNull($this->categoryRepository->findById(10));
+		$this->assertNull($this->categoryRepository->findById(20));
+	}
+
 	private function insertCategory($name, $order)
 	{
-		$category = new Category;
-		$category->name = $name;
-		$category->order = $order;
-		$category->save();
+		return Category::create(array(
+			'name' => $name,
+			'order' => $order
+			));
 	}
 
 }
