@@ -1,6 +1,7 @@
 <?php
 
-class CategoriesTest extends Tests\PersistenceTestCase {
+class CategoriesTest extends Tests\PersistenceTestCase
+{
 
 	/**
 	 * Tests the User table attributes.

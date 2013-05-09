@@ -1,6 +1,7 @@
 <?php
 
-class CategoryProductTest extends Tests\PersistenceTestCase {
+class CategoryProductTest extends Tests\PersistenceTestCase
+{
 
 	/**
 	 * Tests the association between Category and Product if the Product is 

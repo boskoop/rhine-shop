@@ -1,6 +1,7 @@
 <?php
 
-class PersistenceTestHelperTest extends Tests\PersistenceTestCase {
+class PersistenceTestHelperTest extends Tests\PersistenceTestCase
+{
 
 	/**
 	 * Tests if the tables are empty when the tests runs.

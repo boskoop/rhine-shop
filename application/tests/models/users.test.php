@@ -3,7 +3,8 @@
 use Laravel\Hash;
 use Laravel\Auth;
 
-class UsersTest extends Tests\PersistenceTestCase {
+class UsersTest extends Tests\PersistenceTestCase
+{
 
 	/**
 	 * Tests the User table attributes.
