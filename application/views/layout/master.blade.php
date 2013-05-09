@@ -33,7 +33,7 @@
         </div>
         <div class="span3 text-right">
           <h4>{{ __('rhine/header.cart') }}</h4>
-          <p><a href="#">2 {{ __('rhine/header.item') }} - $40.00</a></p>
+          <p><a href="{{ URL::to_route('cart') }}">2 {{ __('rhine/header.item') }} - $40.00</a></p>
         </div>
       </div>
       <div class="row">
