@@ -96,6 +96,7 @@
 								<directory>.</directory>
 								<includes>
 									<include>VERSION</include>
+									<include>application/config/rhine.php</include>
 									<include>application/config/database.php</include>
 									<include>application/config/application.php</include>
 								</includes>
