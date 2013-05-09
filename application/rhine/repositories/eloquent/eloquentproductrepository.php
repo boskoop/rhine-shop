@@ -1,19 +1,22 @@
 <?php namespace Rhine\Repositories\Eloquent;
 
 use Product;
+use Laravel\Config;
 use Rhine\Repositories\ProductRepository;
 
 class EloquentProductRepository implements ProductRepository
 {
 	
-	function findByCategory($category)
+	function findByCategoryOrderedAndPaginated($category)
 	{
-		return $category->products()->order_by('name', 'asc')->get();
+		$productsPerPage = Config::get('rhine.products#per_page', 9);
+		return $category->products()->order_by('name', 'asc')->paginate($productsPerPage);
 	}
 
-	function findAllOrdered()
+	function findAllOrderedAndPaginated()
 	{
-		return Product::order_by('name', 'asc')->get();
+		$productsPerPage = Config::get('rhine.products#per_page', 9);
+		return Product::order_by('name', 'asc')->paginate($productsPerPage);
 	}
 
 }

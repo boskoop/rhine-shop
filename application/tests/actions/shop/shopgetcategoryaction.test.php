@@ -66,7 +66,7 @@ class ShopGetCategoryActionTest extends Tests\ActionTestCase
 
 		$this->productRepositoryMock
 		->expects($this->once())
-		->method('findByCategory')
+		->method('findByCategoryOrderedAndPaginated')
 		->with($this->equalTo($category))
 		->will($this->returnValue(array($product)));
 

@@ -9,4 +9,7 @@ return array(
 	'build#timestamp' => '@timestamp@',
 	'build#copyright' => '@build.copyright@',
 
+	// Pagination
+	'products#per_page' => 6,
+
 );

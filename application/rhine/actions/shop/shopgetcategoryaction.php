@@ -29,7 +29,7 @@ class ShopGetCategoryAction
 		}
 
 		$categories = $this->categoryRepository->findAllOrdered();
-		$products = $this->productRepository->findByCategory($category);
+		$products = $this->productRepository->findByCategoryOrderedAndPaginated($category);
 
 		return View::make('shop.index')
 		->with(compact('categories'))

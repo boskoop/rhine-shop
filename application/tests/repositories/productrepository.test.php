@@ -24,7 +24,7 @@ class ProductRepositoryTest extends Tests\PersistenceTestCase
 		$this->insertProduct('c', $category1, 10, 10);
 		$this->insertProduct('a', $category1, 10, 10);
 
-		$products = $this->productRepository->findByCategory($category1);
+		$products = $this->productRepository->findByCategoryOrderedAndPaginated($category1)->results;
 
 		$this->assertEquals(3, count($products));
 		$this->assertEquals('a', $products[0]->name);
@@ -45,11 +45,11 @@ class ProductRepositoryTest extends Tests\PersistenceTestCase
 		$category2 = $this->insertCategory('c2', 2);
 		$this->insertProduct('p2', $category2, 10, 10);
 
-		$products = $this->productRepository->findByCategory($category1);
+		$products = $this->productRepository->findByCategoryOrderedAndPaginated($category1)->results;
 		$this->assertEquals(1, count($products));
 		$this->assertEquals('p1', $products[0]->name);
 
-		$products = $this->productRepository->findByCategory($category2);
+		$products = $this->productRepository->findByCategoryOrderedAndPaginated($category2)->results;
 		$this->assertEquals(1, count($products));
 		$this->assertEquals('p2', $products[0]->name);
 	}
@@ -66,7 +66,7 @@ class ProductRepositoryTest extends Tests\PersistenceTestCase
 		$this->insertProduct('z', $category1, 10, 10);
 		$this->insertProduct('x', $category1, 10, 10);
 
-		$products = $this->productRepository->findAllOrdered();
+		$products = $this->productRepository->findAllOrderedAndPaginated()->results;
 
 		$this->assertEquals(3, count($products));
 		$this->assertEquals('x', $products[0]->name);

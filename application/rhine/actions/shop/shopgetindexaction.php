@@ -23,7 +23,7 @@ class ShopGetIndexAction
 	{
 		
 		$categories = $this->categoryRepository->findAllOrdered();
-		$products = $this->productRepository->findAllOrdered();
+		$products = $this->productRepository->findAllOrderedAndPaginated();
 
 		return View::make('shop.index')
 		->with(compact('categories'))

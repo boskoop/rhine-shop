@@ -20,7 +20,7 @@
           <li><a href="#">{{ __('rhine/shop.bestsellers') }}</a></li>
         </ul>
         <ul class="thumbnails">
-@foreach($products as $product)
+@foreach($products->results as $product)
           <li class="span3">
             <div class="thumbnail">
               <a class="text-center" href="#">
@@ -35,4 +35,5 @@
           </li>
 @endforeach
         </ul>
+        {{ $products->links() }}
 @endsection
