@@ -8,4 +8,9 @@ class Product extends Eloquent
 		return $this->belongs_to('Category');
 	}
 
+	public function productImage()
+	{
+		return $this->has_one('ProductImage');
+	}
+
 }

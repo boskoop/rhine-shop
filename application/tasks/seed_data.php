@@ -80,6 +80,32 @@ class Seed_Data_Task
 				'stocksize' => 6)
 			);
 		$xbox->products()->save($products);
+
+		$this->insertProductImages();
+	}
+
+	private function insertProductImages()
+	{
+		$categories = Category::all();
+		foreach ($categories as $category) {
+			$catName = strtolower($category->name);
+			$catName = str_replace(' ', '', $catName);
+
+			$products = $category->products()->get();
+			foreach ($products as $product) {
+				$prodName = strtolower($product->name);
+				$prodName = str_replace(' ', '', $prodName);
+				$prodName = str_replace('-', '', $prodName);
+				
+				$fileName = $catName.'_'.$prodName.'.png';
+				$file = path('app').'tasks/img/'.$fileName;
+				echo "\nInserting image: ".$file;
+				$image = File::get($file);
+
+				$productImage = new ProductImage(array('file' => $image));
+				$product->productImage()->insert($productImage);
+			}
+		}
 	}
 
 	public function clean($arguments)
@@ -89,6 +115,7 @@ class Seed_Data_Task
 
 		$products = Product::all();
 		foreach ($products as $product) {
+			// deletes productimages as well (cascade)
 			$product->delete();
 		}
 		$categories = Category::all();
