@@ -2,7 +2,7 @@
 
 use Rhine\Actions\Shop\ShopGetCategoryAction;
 
-class ShopGetCategoryActionTest extends PHPUnit_Framework_TestCase
+class ShopGetCategoryActionTest extends Tests\ActionTestCase
 {
 
 	private $action;
@@ -10,7 +10,7 @@ class ShopGetCategoryActionTest extends PHPUnit_Framework_TestCase
 	private $categoryRepositoryMock;
 	private $productRepositoryMock;
 
-	protected function setUp()
+	protected function setUpInternal()
 	{
 		$this->categoryRepositoryMock = $this->getMock('Rhine\Repositories\CategoryRepository');
 		$this->productRepositoryMock = $this->getMock('Rhine\Repositories\ProductRepository');
@@ -34,7 +34,7 @@ class ShopGetCategoryActionTest extends PHPUnit_Framework_TestCase
 
 		$response = $this->action->execute(1);
 
-		$this->assertEquals('404', $response->foundation->getStatusCode());
+		$this->assertResponse404($response);
 	}
 
 	/**
@@ -72,7 +72,7 @@ class ShopGetCategoryActionTest extends PHPUnit_Framework_TestCase
 
 		$response = $this->action->execute(1);
 
-		$this->assertEquals('shop.index', $response->view);
+		$this->assertResponseViewNameIs('shop.index', $response);
 		$this->assertEquals(1, count($response->data['categories']));
 		$this->assertEquals('comic', $response->data['categories'][0]->name);
 		$this->assertEquals(1, count($response->data['products']));
