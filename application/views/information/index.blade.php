@@ -7,7 +7,7 @@
 
 
 @section('sidenavigation')
-Sidenavigation
+@include('information.partials.information_sidenavigation')
 @endsection
 
 

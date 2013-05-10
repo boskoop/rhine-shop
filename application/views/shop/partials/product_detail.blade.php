@@ -4,7 +4,6 @@
     Variables needed:
     $product -> Product to display
     $productCategory -> Category of the Product
-
 --}}
         <div class="row">
           <div class="span2">

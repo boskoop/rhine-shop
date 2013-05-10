@@ -44,16 +44,16 @@ $isCurrentLanguage = (Config::get('application.language') == $lang)
       </div>
       <div class="row">
         <div class="span12">
-          @yield('topnavigation')
+@yield('topnavigation')
         </div>
       </div>
       <div class="container">
         <div class="row">
           <div class="span2">
-            @yield('sidenavigation')
+@yield('sidenavigation')
           </div>
           <div class="span10">
-            @yield('content')
+ @yield('content')
           </div>
         </div>
       </div>

@@ -3,8 +3,7 @@
 
     Variables needed:
     $categories -> array of Category
-	$activeCategory -> int, id of active Category
-
+    $activeCategory -> int, id of active Category
 --}}
         <ul class="breadcrumb well">
           <li class="active">{{ __('rhine/shop.categories') }}</li>

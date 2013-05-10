@@ -3,7 +3,6 @@
 
     Variables needed:
     -
-
 --}}
         <ul class="nav nav-tabs">
           <li class="active">

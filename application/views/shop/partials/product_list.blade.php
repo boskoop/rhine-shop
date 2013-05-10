@@ -3,7 +3,6 @@
 
     Variables needed:
     $products -> paginated result of Product
-
 --}}
         <div class="row">
 <?php
