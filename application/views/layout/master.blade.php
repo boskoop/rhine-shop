@@ -77,9 +77,9 @@
   </div>
   <div id="footer">
     <div class="container">
-      <center>
-        <p class="muted credit"><b>Rhine Shop</b> &copy; {{ Config::get('rhine.build#copyright') }}, <b>Version</b>: {{ Config::get('rhine.build#version') }}, <b>Build:</b> {{ Config::get('rhine.build#timestamp') }},</p>
-      </center>
+      <p class="muted credit text-center">
+        <b>Rhine Shop</b> &copy; {{ Config::get('rhine.build#copyright') }}, <b>Version</b>: {{ Config::get('rhine.build#version') }}, <b>Build:</b> {{ Config::get('rhine.build#timestamp') }}
+      </p>
     </div>
   </div>
   <!-- JavaScript placed at the end of the document so the pages load faster -->
