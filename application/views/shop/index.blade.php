@@ -30,15 +30,22 @@ $row = 0;
         <div class="row">
 <?php
 $row = 0;
-?>          
+?>
 @endif
           <div class="span5">
             <div style="padding: 0px 20px 20px 0px; min-height: 140px; position: relative;">
               <a class="pull-left" href="{{ URL::to_route('product', array($product->id)) }}" style="padding-right: 20px;">
-                {{ HTML::image(URL::to_route('product_image', array($product->id)), '') }}
+                {{ HTML::image(URL::to_route('product_image', array($product->id)), '', array('width' => 110, 'height' => 155)) }}
               </a>
               <h4><a href="{{ URL::to_route('product', array($product->id)) }}">{{ $product->name }}</a></h4>
               <p>Description</p>
+@if ( $product->stocksize >= 5)
+              <span class="label label-success"><i class="icon-ok-circle icon-white" ></i></span>&nbsp;<small class="text-success">Available from stock</small>
+@elseif ( $product->stocksize <= 0)
+              <span class="label label-important"><i class="icon-ban-circle icon-white" ></i></span>&nbsp;<small class="text-error">Not available from stock</small>
+@else
+              <span class="label label-warning"><i class="icon-ok-circle icon-white" ></i></span>&nbsp;<small class="text-warning">Less than 5 items availabe</small>
+@endif
               <h5>SFr. {{ number_format($product->price / 100, 2) }}</h5>
               <p style="position: absolute; bottom: 0; right: 40px;"><a class="btn btn-primary btn-small" href="#"><i class="icon-shopping-cart icon-white" ></i> Add to cart</a></p>
             </div>
