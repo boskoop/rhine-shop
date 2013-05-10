@@ -3,7 +3,7 @@
               <div class="container">
                 <div class="nav-collapse">
                   <ul class="nav">
-@if($activeTopRoute == 'shop')
+@if(in_array(Request::route()->action['as'], array('shop', 'home', 'category', 'product')))
                     <li class="active">
 @else
                     <li>
@@ -11,21 +11,21 @@
                       <a href="{{ URL::to_route('shop') }}"><i class="icon-home icon-white"></i> {{ __('rhine/nav.shop') }}</a>
                     </li>
                     <li class="divider-vertical"></li>
-@if($activeTopRoute == 'cart')
+@if(in_array(Request::route()->action['as'], array('cart')))
                     <li class="active">
 @else
                     <li>
 @endif
                       <a href="{{ URL::to_route('cart') }}"><i class="icon-shopping-cart icon-white"></i> {{ __('rhine/nav.cart') }}</a></li>
                     <li class="divider-vertical"></li>
-@if($activeTopRoute == 'account')
+@if(in_array(Request::route()->action['as'], array('account')))
                     <li class="active">
 @else
                     <li>
 @endif
                       <a href="{{ URL::to_route('account') }}"><i class="icon-user icon-white"></i> {{ __('rhine/nav.myaccount') }}</a></li>
                     <li class="divider-vertical"></li>
-@if($activeTopRoute == 'information')
+@if(in_array(Request::route()->action['as'], array('information')))
                     <li class="active">
 @else
                     <li>
