@@ -64,10 +64,10 @@
       </div>
       <div class="container">
         <div class="row">
-          <div class="span3">
+          <div class="span2">
             @yield('sidenavigation')
           </div>
-          <div class="span9">
+          <div class="span10">
             @yield('content')
           </div>
         </div>

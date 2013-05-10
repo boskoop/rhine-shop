@@ -44,6 +44,8 @@ Route::get('category/(:num)', array('as' => 'category', 'uses' => 'shop@category
 
 Route::get('product/(:num)/image.png', array('after' => 'image', 'as' => 'product_image', 'uses' => 'image@product'));
 
+Route::get('product/(:num)', array('as' => 'product', 'uses' => 'shop@index'));
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers

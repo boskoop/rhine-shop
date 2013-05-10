@@ -19,21 +19,34 @@
           <li><a href="#">{{ __('rhine/shop.newarrivals') }}</a></li>
           <li><a href="#">{{ __('rhine/shop.bestsellers') }}</a></li>
         </ul>
-        <ul class="thumbnails">
+        <div class="row">
+<?php
+$row = 0;
+?>
 @foreach($products->results as $product)
-          <li class="span3">
-            <div class="thumbnail">
-              <a class="text-center" href="#">
+@if ( $row > 1 )
+        </div>
+        <hr />
+        <div class="row">
+<?php
+$row = 0;
+?>          
+@endif
+          <div class="span5">
+            <div style="padding: 0px 20px 20px 0px; min-height: 140px; position: relative;">
+              <a class="pull-left" href="{{ URL::to_route('product', array($product->id)) }}" style="padding-right: 20px;">
                 {{ HTML::image(URL::to_route('product_image', array($product->id)), '') }}
               </a>
-              <div class="caption">
-                <a href="#">
-                  <h4>{{ $product->name }}</h4>
-                </a>
-              </div>
+              <h4><a href="{{ URL::to_route('product', array($product->id)) }}">{{ $product->name }}</a></h4>
+              <p>Description</p>
+              <h5>SFr. {{ number_format($product->price / 100, 2) }}</h5>
+              <p style="position: absolute; bottom: 0; right: 40px;"><a class="btn btn-primary btn-small" href="#"><i class="icon-shopping-cart icon-white" ></i> Add to cart</a></p>
             </div>
-          </li>
+          </div>
+<?php
+$row++;
+?>
 @endforeach
-        </ul>
+        </div>
         {{ $products->links() }}
 @endsection
