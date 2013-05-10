@@ -46,7 +46,7 @@ Route::get('product/(:num)', array('as' => 'product', 'uses' => 'shop@product'))
 Route::get('cart', array('as' => 'cart', 'uses' => 'cart@index'));
 
 // Account routes
-Route::get('account', array('as' => 'account', 'uses' => 'shop@index'));
+Route::get('account', array('as' => 'account', 'uses' => 'account@index'));
 
 // Information routes
 Route::get('information', array('as' => 'information', 'uses' => 'shop@index'));

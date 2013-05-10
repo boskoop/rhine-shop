@@ -49,5 +49,9 @@ class RhineIoC
 		IoC::register('cartGetIndexAction', function() {
 			return new Actions\Cart\CartGetIndexAction();
 		});
+
+		IoC::register('accountGetIndexAction', function() {
+			return new Actions\Account\AccountGetIndexAction();
+		});
 	}
 }
