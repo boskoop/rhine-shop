@@ -6,7 +6,7 @@ return array(
 	'language' => 'Sprache',
 	'en'     => 'Englisch',
 	'de'      => 'Deutsch',
-	'fr'      => 'Franz&ouml;sisch',
+	'fr'      => 'Französisch',
 
 	'cart' => 'Warenkorb',
 	'item' => 'Artikel',

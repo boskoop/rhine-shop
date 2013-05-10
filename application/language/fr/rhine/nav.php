@@ -8,6 +8,6 @@ return array(
 	'myaccount' => 'Mon compte',
 	'information' => 'Informations',
 	'search' => 'Rechercher',
-	'logout' => 'D&eacute;connexion',
+	'logout' => 'Déconnexion',
 
 );

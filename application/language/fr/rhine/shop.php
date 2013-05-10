@@ -3,9 +3,9 @@
 return array(
 
 	// shop
-	'categories' => 'Cat&eacute;gories',
+	'categories' => 'Catégories',
 	'productrange' => 'Produits',
-	'newarrivals' => 'Nouveaut&eacute;s',
+	'newarrivals' => 'Nouveautés',
 	'bestsellers' => 'Meilleures ventes',
 	
 );
