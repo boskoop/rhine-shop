@@ -32,18 +32,24 @@
 |
 */
 
+// Shop routes
 Route::get('/', array('as' => 'home', 'uses' => 'shop@index'));
 Route::get('shop', array('as' => 'shop', 'uses' => 'shop@index'));
-
-Route::get('cart', array('as' => 'cart', 'uses' => 'shop@index'));
-Route::get('account', array('as' => 'account', 'uses' => 'shop@index'));
-Route::get('information', array('as' => 'information', 'uses' => 'shop@index'));
-
 Route::get('category/(:num)', array('as' => 'category', 'uses' => 'shop@category'));
 
 Route::get('product/(:num)/image.png', array('after' => 'image', 'as' => 'product_image', 'uses' => 'image@product'));
 
+// Image routes
 Route::get('product/(:num)', array('as' => 'product', 'uses' => 'shop@product'));
+
+// Cart routes
+Route::get('cart', array('as' => 'cart', 'uses' => 'cart@index'));
+
+// Account routes
+Route::get('account', array('as' => 'account', 'uses' => 'shop@index'));
+
+// Information routes
+Route::get('information', array('as' => 'information', 'uses' => 'shop@index'));
 
 /*
 |--------------------------------------------------------------------------

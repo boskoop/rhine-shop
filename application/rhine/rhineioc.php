@@ -45,5 +45,9 @@ class RhineIoC
 		IoC::register('imageGetProductAction', function() {
 			return new Actions\Image\ImageGetProductAction(IoC::resolve('productImageRepository'));
 		});
+
+		IoC::register('cartGetIndexAction', function() {
+			return new Actions\Cart\CartGetIndexAction();
+		});
 	}
 }
