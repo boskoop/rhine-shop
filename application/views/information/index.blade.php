@@ -14,7 +14,7 @@
 
 
 @section('content')
-          <div class="span9">
-Information: Content
+          <div class="span6 offset1">
+@include('information.partials.about_us_'.Config::get('application.language'))
           </div>
 @endsection
