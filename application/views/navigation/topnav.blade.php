@@ -31,7 +31,7 @@
 @endif
                       <a href="{{ URL::to_route('account') }}"><i class="icon-user icon-white"></i> {{ __('rhine/nav.myaccount') }}</a></li>
                     <li class="divider-vertical"></li>
-@if(in_array(Request::route()->action['as'], array('information')))
+@if(in_array(Request::route()->action['as'], array('information', 'information_about', 'information_contact', 'information_tob')))
                     <li class="active">
 @else
                     <li>

@@ -57,5 +57,11 @@ class RhineIoC
 		IoC::register('informationGetAboutAction', function() {
 			return new Actions\Information\InformationGetAboutAction();
 		});
+		IoC::register('informationGetContactAction', function() {
+			return new Actions\Information\InformationGetContactAction();
+		});
+		IoC::register('informationGetToBAction', function() {
+			return new Actions\Information\InformationGetToBAction();
+		});
 	}
 }
