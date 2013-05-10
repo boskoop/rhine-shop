@@ -4,9 +4,9 @@ return array(
 
 	// header
 	'language' => 'Sprache',
-	'en'     => 'Englisch',
+	'en'     => 'English',
 	'de'      => 'Deutsch',
-	'fr'      => 'Französisch',
+	'fr'      => 'Français',
 
 	'cart' => 'Warenkorb',
 	'item' => 'Artikel',

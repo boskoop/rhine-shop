@@ -5,8 +5,8 @@ return array(
 	// header
 	'language' => 'Language',
 	'en' => 'English',
-	'de' => 'German',
-	'fr' => 'French',
+	'de' => 'Deutsch',
+	'fr' => 'Français',
 
 	'cart' => 'Shopping Cart',
 	'item' => 'item(s)',

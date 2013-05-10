@@ -4,8 +4,8 @@ return array(
 
 	// header
 	'language' => 'Langue',
-	'en'     => 'Anglais',
-	'de'      => 'Allemand',
+	'en'     => 'English',
+	'de'      => 'Deutsch',
 	'fr'      => 'Français',
 
 	'cart' => 'Panier d\'achat',
