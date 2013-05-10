@@ -64,6 +64,12 @@ class ShopGetProductActionTest extends Tests\ActionTestCase
 		->method('findAllOrdered')
 		->will($this->returnValue(array($category)));
 
+		$this->categoryRepositoryMock
+		->expects($this->once())
+		->method('findByProduct')
+		->with($this->equalTo($product))
+		->will($this->returnValue($category));
+
 		$response = $this->action->execute(1);
 
 		$this->assertResponseViewNameIs('shop.product', $response);

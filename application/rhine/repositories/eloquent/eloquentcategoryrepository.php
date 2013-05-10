@@ -17,4 +17,9 @@ class EloquentCategoryRepository implements CategoryRepository
 		return Category::where('id', '=', $id)->first();
 	}
 
+	function findByProduct($product)
+	{
+		return $product->category()->first();
+	}
+
 }

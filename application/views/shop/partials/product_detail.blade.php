@@ -3,6 +3,7 @@
 
     Variables needed:
     $product -> Product to display
+    $productCategory -> Category of the Product
 
 --}}
         <div class="row">
@@ -10,8 +11,9 @@
             {{ HTML::image(URL::to_route('product_image', array($product->id)), '', array('width' => 110, 'height' => 155)) }}
           </div>
           <div class="span5">
+            <p><em>{{ $productCategory->name }}</em></p>
             <h2>{{ $product->name }}</h2>
-            <p>Details</p>
+            <p class="lead">Details</p>
           </div>
           <div class="span3">
             <h3>SFr. {{ number_format($product->price / 100, 2) }}</h3>

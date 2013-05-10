@@ -53,6 +53,25 @@ class CategoryRepositoryTest extends Tests\PersistenceTestCase
 		$this->assertNull($this->categoryRepository->findById(20));
 	}
 
+	/**
+	 * Tests the function findById().
+	 *
+	 * @return void
+	 */
+	public function testFindByProduct()
+	{
+		$category = $this->insertCategory('c1', 1);
+		$product = new Product(array('name' => 'donald',
+			'price' => 1000,
+			'stocksize' => 10
+		));
+		$product = $category->products()->insert($product);
+
+		$category = $this->categoryRepository->findByProduct($product);
+		$this->assertNotNull($category);
+		$this->assertEquals('c1', $category->name);
+	}
+
 	private function insertCategory($name, $order)
 	{
 		return Category::create(array(

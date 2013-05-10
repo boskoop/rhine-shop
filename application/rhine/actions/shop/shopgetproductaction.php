@@ -27,6 +27,7 @@ class ShopGetProductAction
 		if (is_null($product)) {
 			return Response::error('404');
 		}
+		$productCategory = $this->categoryRepository->findByProduct($product);
 		
 		$categories = $this->categoryRepository->findAllOrdered();
 		$activeCategory = null;
@@ -34,6 +35,7 @@ class ShopGetProductAction
 		return View::make('shop.product')
 		->with(compact('categories'))
 		->with(compact('product'))
+		->with(compact('productCategory'))
 		->with(compact('activeCategory'));
 	}
 

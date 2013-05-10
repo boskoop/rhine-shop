@@ -14,4 +14,9 @@ interface CategoryRepository
 	 */
 	function findById($id);
 
+	/**
+	 * @return Category
+	 */
+	function findByProduct($product);
+
 }
