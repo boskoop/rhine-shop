@@ -17,18 +17,24 @@
         <div class="span3">
           <h4>{{ __('rhine/header.language') }}</h4>
           <p>
-            <?php $firstElement = true; ?>
-            @foreach(Config::get('application.languages') as $lang)
-            @unless($firstElement)|@endunless
-            <?php
-            $firstElement = false;
+<?php $firstElement = true; ?>
+@foreach(Config::get('application.languages') as $lang)
+@unless($firstElement)
+            |
+@endunless
+<?php
+$firstElement = false;
 
-            $isCurrentLanguage = (Config::get('application.language') == $lang)
-            ?>
-            @if($isCurrentLanguage)<strong>@endif
+$isCurrentLanguage = (Config::get('application.language') == $lang)
+?>
+@if($isCurrentLanguage)
+            <strong>
+@endif
             <a href="{{ URL::to_language($lang) }}">{{ __('rhine/header.'.$lang) }}</a>
-            @if($isCurrentLanguage)</strong>@endif
-            @endforeach
+@if($isCurrentLanguage)
+            </strong>
+@endif
+@endforeach
           </p>
         </div>
         <div class="span3 text-right">
