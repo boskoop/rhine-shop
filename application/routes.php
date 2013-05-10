@@ -49,7 +49,7 @@ Route::get('cart', array('as' => 'cart', 'uses' => 'cart@index'));
 Route::get('account', array('as' => 'account', 'uses' => 'account@index'));
 
 // Information routes
-Route::get('information', array('as' => 'information', 'uses' => 'shop@index'));
+Route::get('information', array('as' => 'information', 'uses' => 'information@index'));
 
 /*
 |--------------------------------------------------------------------------

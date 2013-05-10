@@ -53,5 +53,9 @@ class RhineIoC
 		IoC::register('accountGetIndexAction', function() {
 			return new Actions\Account\AccountGetIndexAction();
 		});
+
+		IoC::register('informationGetIndexAction', function() {
+			return new Actions\Information\InformationGetIndexAction();
+		});
 	}
 }
