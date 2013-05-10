@@ -2,7 +2,7 @@
 
 use Laravel\View;
 
-class InformationGetIndexAction
+class InformationGetAboutAction
 {
 
 	/**
@@ -10,7 +10,7 @@ class InformationGetIndexAction
 	 */
 	public function execute()
 	{
-		return View::make('information.index');
+		return View::make('information.about');
 	}
 
 }
