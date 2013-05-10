@@ -16,6 +16,9 @@ class AssetManager
 
 		// jQuery
 		Asset::add('jquery.js', 'js/jquery-1.9.1.min.js');
+
+		// Rhine
+		Asset::add('rhine.css', 'css/rhine.css');
 	}
 
 }
