@@ -19,4 +19,9 @@ class EloquentProductRepository implements ProductRepository
 		return Product::order_by('name', 'asc')->paginate($productsPerPage);
 	}
 
+	function findById($id)
+	{
+		return Product::where('id', '=', $id)->first();
+	}
+
 }

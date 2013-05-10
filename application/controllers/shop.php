@@ -14,4 +14,10 @@ class Shop_Controller extends Base_Controller {
 		return $action->execute($id);
 	}
 
+	public function action_product($id)
+	{
+		$action = IoC::resolve('shopGetProductAction');
+		return $action->execute($id);
+	}
+
 }

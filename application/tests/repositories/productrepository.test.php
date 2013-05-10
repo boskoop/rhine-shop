@@ -74,6 +74,27 @@ class ProductRepositoryTest extends Tests\PersistenceTestCase
 		$this->assertEquals('z', $products[2]->name);
 	}
 
+	/**
+	 * Tests the function findById().
+	 *
+	 * @return void
+	 */
+	public function testFindById()
+	{
+		$this->assertNull($this->productRepository->findById(10));
+		$this->assertNull($this->productRepository->findById(20));
+
+		Product::create(array(
+			'id' => 10,
+			'name' => 'p1',
+			'price' => 100,
+			'stocksize' => 100
+			));
+
+		$this->assertNotNull($this->productRepository->findById(10));
+		$this->assertNull($this->productRepository->findById(20));
+	}
+
 	private function insertCategory($name, $order)
 	{
 		return Category::create(array(

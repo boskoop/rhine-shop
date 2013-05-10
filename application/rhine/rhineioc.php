@@ -37,6 +37,11 @@ class RhineIoC
 			return new Actions\Shop\ShopGetCategoryAction(IoC::resolve('categoryRepository'),
 					IoC::resolve('productRepository'));
 		});
+		IoC::register('shopGetProductAction', function() {
+			return new Actions\Shop\ShopGetProductAction(IoC::resolve('categoryRepository'),
+					IoC::resolve('productRepository'));
+		});
+
 		IoC::register('imageGetProductAction', function() {
 			return new Actions\Image\ImageGetProductAction(IoC::resolve('productImageRepository'));
 		});

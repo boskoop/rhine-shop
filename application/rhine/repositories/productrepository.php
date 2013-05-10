@@ -15,5 +15,10 @@ interface ProductRepository
 	 * @return Product[]
 	 */
 	function findAllOrderedAndPaginated();
+	
+	/**
+	 * @return Product
+	 */
+	function findById($id);
 
 }
