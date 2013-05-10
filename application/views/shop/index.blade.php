@@ -1,5 +1,11 @@
 @layout('layout.master')
 
+@section('topnavigation')
+
+@include('navigation.topnav')
+
+@endsection
+
 @section('sidenavigation')
         <ul class="breadcrumb well">
           <li class="active">{{ __('rhine/shop.categories') }}</li>

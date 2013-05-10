@@ -31,11 +31,13 @@ class ShopGetCategoryAction
 		$categories = $this->categoryRepository->findAllOrdered();
 		$products = $this->productRepository->findByCategoryOrderedAndPaginated($category);
 		$activeCategory = $id;
+		$activeTopRoute = 'shop';
 
 		return View::make('shop.index')
 		->with(compact('categories'))
 		->with(compact('products'))
-		->with(compact('activeCategory'));
+		->with(compact('activeCategory'))
+		->with(compact('activeTopRoute'));
 	}
 
 }
