@@ -31,7 +31,6 @@
 |		});
 |
 */
-Route::controller(Controller::detect());
 
 Route::get('/', array('as' => 'home', 'uses' => 'shop@index'));
 Route::get('shop', array('as' => 'shop', 'uses' => 'shop@index'));
