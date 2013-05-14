@@ -40,8 +40,8 @@
                   </ul>
                   <a href="#" class="btn btn-inverse pull-right"><i class="icon-off icon-white"></i> {{ __('rhine/nav.logout') }}</a>
                   <span class="divider-vertical pull-right">&nbsp;</span>
-                  <form class="navbar-search pull-right" action="search">
-                    <input type="text" class="search-query span2" placeholder="{{ __('rhine/nav.search') }}" />
+                  <form class="navbar-search pull-right" action="{{ URL::to_route('searchaction') }}" method="post">
+                    <input type="text" name="query" class="search-query span2" placeholder="{{ __('rhine/nav.search') }}" />
                   </form>
                 </div>
               </div>
