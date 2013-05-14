@@ -9,7 +9,7 @@
               <div class="container">
                 <div class="nav-collapse">
                   <ul class="nav">
-@if(in_array(Request::route()->action['as'], array('shop', 'home', 'category', 'product')))
+@if(in_array(Request::route()->action['as'], array('shop', 'home', 'category', 'product', 'search')))
                     <li class="active">
 @else
                     <li>

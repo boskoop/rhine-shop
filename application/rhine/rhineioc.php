@@ -26,7 +26,9 @@ class RhineIoC
 		});
 
 		// Services
-
+		IoC::register('searchService', function() {
+			return new Services\Impl\SearchServiceImpl(IoC::resolve('productRepository'));
+		});
 
 		// Actions
 		IoC::register('shopGetIndexAction', function() {
@@ -40,6 +42,10 @@ class RhineIoC
 		IoC::register('shopGetProductAction', function() {
 			return new Actions\Shop\ShopGetProductAction(IoC::resolve('categoryRepository'),
 					IoC::resolve('productRepository'));
+		});
+		IoC::register('shopGetSearchAction', function() {
+			return new Actions\Shop\ShopGetSearchAction(IoC::resolve('categoryRepository'),
+					IoC::resolve('searchService'));
 		});
 
 		IoC::register('imageGetProductAction', function() {

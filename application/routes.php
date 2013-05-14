@@ -37,9 +37,13 @@ Route::get('/', array('as' => 'home', 'uses' => 'shop@index'));
 Route::get('shop', array('as' => 'shop', 'uses' => 'shop@index'));
 Route::get('category/(:num)', array('as' => 'category', 'uses' => 'shop@category'));
 
+// Image routes
 Route::get('product/(:num)/image.png', array('after' => 'image', 'as' => 'product_image', 'uses' => 'image@product'));
 
-// Image routes
+// Search routes
+Route::get('search/(:any)', array('as' => 'search', 'uses' => 'shop@search'));
+
+// Product routes
 Route::get('product/(:num)', array('as' => 'product', 'uses' => 'shop@product'));
 
 // Cart routes
@@ -53,6 +57,7 @@ Route::get('information/about', array('as' => 'information_about', 'uses' => 'in
 Route::get('information/contact', array('as' => 'information_contact', 'uses' => 'information@contact'));
 Route::get('information/tob', array('as' => 'information_tob', 'uses' => 'information@tob'));
 Route::get('information', array('as' => 'information', 'uses' => 'information@about'));
+
 
 /*
 |--------------------------------------------------------------------------
