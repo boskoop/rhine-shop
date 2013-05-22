@@ -5,16 +5,19 @@ use Laravel\CLI\Command;
 use Laravel\Session;
 use Laravel\Cookie;
 use Laravel\Config;
+use Laravel\Input;
+use Laravel\Request;
+use Laravel\Routing\Router;
 
 abstract class RouteTestCase extends PHPUnit_Framework_TestCase {
 
-	private $timeStart;
+	private $timer;
 
 	private $tempSessionDriver;
 
 	protected final function setUp()
 	{
-		$this->timeStart = microtime(true);
+		$this->timer = new TestTimer();
 		echo "\n\n================================================================================";
 		echo "\nRouteTestCase: running ".get_class($this)."->".$this->getName()."()";
 
@@ -39,10 +42,7 @@ abstract class RouteTestCase extends PHPUnit_Framework_TestCase {
 
 		$this->tearDownInternal();
 
-		$diff = microtime(true) - $this->timeStart;
-		$sec = intval($diff);
-		$micro = $diff - $sec;
-		$timeTaken = $sec . str_replace('0.', '.', sprintf('%.3f', $micro));
+		$timeTaken = $this->timer->getTimeTaken();
 		echo "\nRouteTestCase: completed ".get_class($this)."->".$this->getName()."()";
 		echo "\nRouteTestCase: took ".$timeTaken." seconds";
 		echo "\n================================================================================\n";
@@ -65,29 +65,32 @@ abstract class RouteTestCase extends PHPUnit_Framework_TestCase {
 	/*
 	 * Simulates a GET request to the router.
 	 */
-	protected function httpGet($route)
+	protected function httpGet($route, $input = array())
 	{
-		return $this->callHttp('GET', $route);
+		return $this->callHttp('GET', $route, $input);
 	}
 
 	/*
 	 * Simulates a POST request to the router.
 	 */
-	protected function httpPost($route)
+	protected function httpPost($route, $input = array())
 	{
-		return $this->callHttp('POST', $route);
+		return $this->callHttp('POST', $route, $input);
 	}
 
-	private function callHttp($method, $route)
+	private function callHttp($method, $route, $input)
 	{
+		$timer = new TestTimer();
+
 		echo "\nRouteTestCase: calling HTTP ".$method." '".$route."'";
 
-		$request = \Router::route($method, $route);
-		\Request::setMethod($method);
+		$request = Router::route($method, $route);
+		Request::setMethod($method);
 
 		$response = $request->call();
 		$foundation = $response->foundation;
-		echo "\nRouteTestCase: response HTTP/".$foundation->getProtocolVersion()." ".$foundation->getStatusCode()."\n";
+		echo "\nRouteTestCase: response HTTP/".$foundation->getProtocolVersion()." ".$foundation->getStatusCode();
+		echo "\nRouteTestCase: HTTP call took ".$timer->getTimeTaken()." seconds\n";
 		return $response;
 	}
 
