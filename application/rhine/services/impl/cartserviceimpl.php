@@ -5,9 +5,14 @@ use Rhine\Services\CartService;
 class CartServiceImpl implements CartService
 {
 
-	function addToCart($productId)
+	public function addToCart($productId)
 	{
 		// dummy implemation, does nothing
+	}
+
+	public function cartEmpty()
+	{
+		return true;
 	}
 
 }
