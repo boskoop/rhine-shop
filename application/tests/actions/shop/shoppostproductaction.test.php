@@ -68,4 +68,22 @@ class ShopPostProductActionTest extends Tests\ActionTestCase
 		$this->assertEquals(null, $response->data['activeCategory']);
 	}
 
+	/**
+	 * Tests the action, if the product is not found
+	 *
+	 * @return void
+	 */
+	public function testProductNotFound()
+	{
+		$this->productRepositoryMock
+		->expects($this->once())
+		->method('findById')
+		->with($this->equalTo(1))
+		->will($this->returnValue(null));
+
+		$response = $this->action->execute(1);
+
+		$this->assertResponse404($response);
+	}
+
 }
