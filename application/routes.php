@@ -50,6 +50,7 @@ Route::post('search', array('as' => 'searchaction', function()
 
 // Product routes
 Route::get('product/(:num)', array('as' => 'product', 'uses' => 'shop@product'));
+Route::post('product/(:num)', array('as' => 'addproduct', 'uses' => 'shop@addtocart'));
 
 // Cart routes
 Route::get('cart', array('as' => 'cart', 'uses' => 'cart@index'));

@@ -16,9 +16,12 @@
           </div>
           <div class="span3">
             <h3>SFr. {{ number_format($product->price / 100, 2) }}</h3>
-            <p>
-              <a class="btn btn-primary" href="#"><i class="icon-shopping-cart icon-white" ></i>&nbsp;{{ __('rhine/product.add_to_cart') }}</a>
-            </p>
+            {{ Form::open() }}
+
+              {{ HTML::decode(Form::button('<i class="icon-shopping-cart icon-white"></i>&nbsp;'.__('rhine/product.add_to_cart'), array('class' => 'btn btn-primary', 'type' => 'submit'))) }}
+
+            {{ Form::close() }}
+
             <p>
 @if ( $product->stocksize >= 5)
               <span class="label label-success"><i class="icon-ok-circle icon-white" ></i></span>&nbsp;<span class="text-success">{{ __('rhine/product.available') }}</span>

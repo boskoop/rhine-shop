@@ -20,6 +20,12 @@ class Shop_Controller extends Base_Controller {
 		return $action->execute($id);
 	}
 
+	public function action_addtocart($id)
+	{
+		$action = IoC::resolve('shopPostProductAction');
+		return $action->execute($id);
+	}
+
 	public function action_search($argument)
 	{
 		$action = IoC::resolve('shopGetSearchAction');

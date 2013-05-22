@@ -32,7 +32,14 @@ $row = 0;
               <span class="label label-warning"><i class="icon-ok-circle icon-white" ></i></span>&nbsp;<small class="text-warning">{{ __('rhine/product.marginalavailable') }}</small>
 @endif
               <h5>SFr. {{ number_format($product->price / 100, 2) }}</h5>
-              <p style="position: absolute; bottom: 0; right: 40px;"><a class="btn btn-primary btn-small" href="#"><i class="icon-shopping-cart icon-white" ></i>&nbsp;{{ __('rhine/product.add_to_cart') }}</a></p>
+              <div style="position: absolute; bottom: 6px; right: 40px;">
+              {{ Form::open(URL::to_route('product', array($product->id)), 'POST', array('style' => 'display: inline;')) }}
+
+                {{ HTML::decode(Form::button('<i class="icon-shopping-cart icon-white"></i>&nbsp;'.__('rhine/product.add_to_cart'), array('class' => 'btn btn-primary btn-small', 'type' => 'submit'))) }}
+
+              {{ Form::close() }}
+
+              </div>
             </div>
           </div>
 <?php

@@ -8,5 +8,9 @@ return array(
 	'notavailable' => 'pas en stock',
 
 	'add_to_cart' => 'Ajouter au panier',
+
+	'added_to_cart' => 'L’article a été ajouté à votre panier.',
+	'go_to_product' => 'A l’article',
+	'go_to_cart' => 'Au panier',
 	
 );
