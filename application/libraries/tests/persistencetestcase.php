@@ -7,10 +7,14 @@ use Laravel\Config;
 
 abstract class PersistenceTestCase extends PHPUnit_Framework_TestCase {
 
+	private $timeStart;
+
 	private $tempSessionDriver;
 
 	protected final function setUp()
 	{
+		$this->timeStart = microtime(true);
+		echo "\n\n================================================================================";
 		echo "\nPersistenceTestCase: running ".get_class($this)."->".$this->getName()."()";
 
 		PersistenceTestHelper::cleanDatabase();
@@ -29,6 +33,14 @@ abstract class PersistenceTestCase extends PHPUnit_Framework_TestCase {
 		Config::set('session.driver', $this->tempSessionDriver);
 
 		$this->tearDownInternal();
+
+		$diff = microtime(true) - $this->timeStart;
+		$sec = intval($diff);
+		$micro = $diff - $sec;
+		$timeTaken = $sec . str_replace('0.', '.', sprintf('%.3f', $micro));
+		echo "\nPersistenceTestCase: completed ".get_class($this)."->".$this->getName()."()";
+		echo "\nPersistenceTestCase: took ".$timeTaken." seconds";
+		echo "\n================================================================================\n";
 	}
 
 	/**
