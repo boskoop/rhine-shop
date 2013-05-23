@@ -2,7 +2,7 @@
 
 use Rhine\Actions\Shop\ShopGetCategoryAction;
 
-class ShopGetCategoryActionTest extends Tests\ActionTestCase
+class ShopGetCategoryActionTest extends Tests\UnitTestCase
 {
 
 	private $action;

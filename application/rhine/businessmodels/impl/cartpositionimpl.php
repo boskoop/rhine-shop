@@ -53,5 +53,14 @@ class CartPositionImpl implements CartPosition
 		return $this->getQuantity() * $this->getUnitPrice();
 	}
 
+	public function incrementQuantity()
+	{
+		$this->quantity++;
+	}
+
+	public function decrementQuantity()
+	{
+		$this->quantity--;
+	}
 
 }

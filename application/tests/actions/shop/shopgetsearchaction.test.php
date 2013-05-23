@@ -2,7 +2,7 @@
 
 use Rhine\Actions\Shop\ShopGetSearchAction;
 
-class ShopGetSearchActionTest extends Tests\ActionTestCase
+class ShopGetSearchActionTest extends Tests\UnitTestCase
 {
 
 	private $action;

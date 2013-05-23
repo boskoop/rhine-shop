@@ -2,7 +2,7 @@
 
 use Rhine\Actions\Information\InformationGetContactAction;
 
-class InformationGetContactActionTest extends Tests\ActionTestCase
+class InformationGetContactActionTest extends Tests\UnitTestCase
 {
 
 	private $action;

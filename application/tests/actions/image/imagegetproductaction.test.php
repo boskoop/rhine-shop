@@ -2,7 +2,7 @@
 
 use Rhine\Actions\Image\ImageGetProductAction;
 
-class ImageGetProductActionTest extends Tests\ActionTestCase
+class ImageGetProductActionTest extends Tests\UnitTestCase
 {
 
 	private $action;

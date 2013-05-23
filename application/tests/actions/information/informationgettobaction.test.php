@@ -2,7 +2,7 @@
 
 use Rhine\Actions\Information\InformationGetToBAction;
 
-class InformationGetToBActionTest extends Tests\ActionTestCase
+class InformationGetToBActionTest extends Tests\UnitTestCase
 {
 
 	private $action;

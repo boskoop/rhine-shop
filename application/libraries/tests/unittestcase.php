@@ -2,12 +2,12 @@
 
 use PHPUnit_Framework_TestCase;
 
-abstract class ActionTestCase extends PHPUnit_Framework_TestCase
+abstract class UnitTestCase extends PHPUnit_Framework_TestCase
 {
 
 	protected final function setUp()
 	{
-		echo "\nActionTestCase: running ".get_class($this)."->".$this->getName()."()";
+		echo "\nUnitTestCase: running ".get_class($this)."->".$this->getName()."()";
 		$this->setUpInternal();
 		echo "\n";
 	}

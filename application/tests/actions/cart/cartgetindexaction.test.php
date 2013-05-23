@@ -2,7 +2,7 @@
 
 use Rhine\Actions\Cart\CartGetIndexAction;
 
-class CartGetIndexActionTest extends Tests\ActionTestCase
+class CartGetIndexActionTest extends Tests\UnitTestCase
 {
 
 	private $action;

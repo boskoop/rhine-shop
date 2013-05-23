@@ -2,7 +2,7 @@
 
 use Rhine\Actions\Shop\ShopPostProductAction;
 
-class ShopPostProductActionTest extends Tests\ActionTestCase
+class ShopPostProductActionTest extends Tests\UnitTestCase
 {
 
 	private $action;

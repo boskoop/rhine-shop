@@ -2,7 +2,7 @@
 
 use Rhine\Actions\Account\AccountGetIndexAction;
 
-class AccountGetIndexActionTest extends Tests\ActionTestCase
+class AccountGetIndexActionTest extends Tests\UnitTestCase
 {
 
 	private $action;

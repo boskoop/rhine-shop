@@ -20,7 +20,7 @@ class CartImpl implements Cart
 
 	public function isEmpty()
 	{
-		if (count($positions) <= 0) {
+		if (count($this->positions) <= 0) {
 			return true;
 		}
 		return false;
@@ -29,13 +29,13 @@ class CartImpl implements Cart
 
 	public function getPositions()
 	{
-		return array_merge($positions);
+		return array_merge($this->positions);
 	}
 	
 	public function getTotalPrice()
 	{
 		$price = 0;
-		foreach ($posistions as $position) {
+		foreach ($this->posistions as $position) {
 			$price += $position->getTotalPrice();
 		}
 		return $price;
@@ -65,7 +65,9 @@ class CartImpl implements Cart
 			if($this->positions[$key]->getQuantity() <= 0) {
 				unset($this->positions[$key]);
 			}
+			return true;
 		}
+		return false;
 	}
 
 	public function clearPosition($productId)
@@ -76,7 +78,7 @@ class CartImpl implements Cart
 
 	public function clear()
 	{
-		$positions = array();
+		$this->positions = array();
 	}
 
 	private function getPositionKey($productId)
