@@ -16,6 +16,13 @@ interface Cart
 	function getPositions();
 
 	/**
+	 * Returns to total quantity of items the cart.
+	 * 
+	 * @return int
+	 */
+	function getTotalQuantity();
+
+	/**
 	 * Returns to total price of the cart.
 	 * 
 	 * @return int the price in minor currency unit

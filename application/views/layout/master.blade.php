@@ -39,7 +39,10 @@ $isCurrentLanguage = (Config::get('application.language') == $lang)
         </div>
         <div class="span3 text-right">
           <h4>{{ __('rhine/header.cart') }}</h4>
-          <p><a href="{{ URL::to_route('cart') }}">2 {{ __('rhine/header.item') }} - $40.00</a></p>
+<?php
+$cart = IoC::resolve('cartService')->loadCart();
+?>
+          <p><a href="{{ URL::to_route('cart') }}">{{ $cart->getTotalQuantity() }} {{ __('rhine/header.item') }} - SFr. {{ number_format($cart->getTotalPrice() / 100, 2) }}</a></p>
         </div>
       </div>
       <div class="row">

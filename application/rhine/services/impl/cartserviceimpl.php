@@ -4,7 +4,6 @@ use Rhine\Services\CartService;
 use Rhine\BusinessModels\Cart;
 use Rhine\BusinessModels\CartFactory;
 use Laravel\Session;
-
 class CartServiceImpl implements CartService
 {
 
@@ -34,8 +33,8 @@ class CartServiceImpl implements CartService
 	public function extractSessionCartArray(Cart $cart)
 	{
 		$sessionCart = array();
-		foreach($cart->getPositions() as $position) {
-			$sessionCart[strval($position->getProductId())] = $position->getQuantity();
+		foreach((array)$cart->getPositions() as $position) {
+			$sessionCart[''.$position->getProductId()] = $position->getQuantity();
 		}
 		return $sessionCart;
 	}

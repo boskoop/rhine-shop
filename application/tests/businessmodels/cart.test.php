@@ -213,6 +213,30 @@ class CartBusinessModelTest extends Tests\UnitTestCase
 		$this->assertEquals(2, $positions[1]->getProduct()->id);
 	}
 
+	public function testGetTotalQuantity()
+	{
+		$this->assertEquals(0, $this->cart->getTotalQuantity());
+
+		$this->cart->addPosition(1);
+		$this->assertEquals(1, $this->cart->getTotalQuantity());
+
+		$this->cart->addPosition(1);
+		$this->assertEquals(2, $this->cart->getTotalQuantity());
+
+		$this->cart->addPosition(2);
+		$this->cart->addPosition(2);
+		$this->assertEquals(4, $this->cart->getTotalQuantity());
+
+		$this->cart->removePosition(1);
+		$this->assertEquals(3, $this->cart->getTotalQuantity());
+
+		$this->cart->clearPosition(2);
+		$this->assertEquals(1, $this->cart->getTotalQuantity());
+
+		$this->cart->clear();
+		$this->assertEquals(0, $this->cart->getTotalQuantity());
+	}
+
 	public function testGetPrice()
 	{
 		$this->assertEquals(0, $this->cart->getTotalPrice());

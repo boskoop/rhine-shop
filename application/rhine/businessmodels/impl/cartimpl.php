@@ -2,6 +2,7 @@
 
 use Rhine\Repositories\ProductRepository;
 use Rhine\BusinessModels\Cart;
+use Laravel\Log;
 
 class CartImpl implements Cart
 {
@@ -14,7 +15,7 @@ class CartImpl implements Cart
 		$this->productRepository = $productRepository;
 		$this->positions = array();
 		foreach ($positions as $key => $quantity) {
-			$this->addPositionWithQuantity(intval($key), $quantity);
+			$this->addPositionWithQuantity($key, $quantity);
 		}
 	}
 
@@ -32,10 +33,19 @@ class CartImpl implements Cart
 		return array_merge($this->positions);
 	}
 	
+	public function getTotalQuantity()
+	{
+		$quantity = 0;
+		foreach ((array)$this->positions as $position) {
+			$quantity += $position->getQuantity();
+		}
+		return $quantity;
+	}
+	
 	public function getTotalPrice()
 	{
 		$price = 0;
-		foreach ($this->positions as $position) {
+		foreach ((array)$this->positions as $position) {
 			$price += $position->getTotalPrice();
 		}
 		return $price;
@@ -49,11 +59,11 @@ class CartImpl implements Cart
 	private function addPositionWithQuantity($productId, $quantity)
 	{
 		$key = $this->getPositionKey($productId);
-		if(array_key_exists($key, $this->positions)) {
-			$this->positions[$key]->incrementQuantity();
+		if(array_key_exists(''.$key, $this->positions)) {
+			$this->positions[''.$key]->incrementQuantity();
 		} else {
 			$position = new CartPositionImpl($productId, $this->productRepository, $quantity);
-			$this->positions[$key] = $position;
+			$this->positions[''.$key] = $position;
 		}
 	}
 
