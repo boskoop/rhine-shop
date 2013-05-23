@@ -10,12 +10,14 @@ class ShopPostProductActionTest extends Tests\ActionTestCase
 	private $categoryRepositoryMock;
 	private $productRepositoryMock;
 	private $cartServiceMock;
+	private $cartMock;
 
 	protected function setUpInternal()
 	{
 		$this->categoryRepositoryMock = $this->getMock('Rhine\Repositories\CategoryRepository');
 		$this->productRepositoryMock = $this->getMock('Rhine\Repositories\ProductRepository');
 		$this->cartServiceMock = $this->getMock('Rhine\Services\CartService');
+		$this->cartMock = $this->getMock('Rhine\BusinessModels\Cart');
 
 		$this->action = new ShopPostProductAction($this->categoryRepositoryMock,
 			$this->productRepositoryMock, $this->cartServiceMock);
@@ -39,8 +41,8 @@ class ShopPostProductActionTest extends Tests\ActionTestCase
 
 		$this->cartServiceMock
 		->expects($this->once())
-		->method('addToCart')
-		->with($this->equalTo(1));
+		->method('loadCart')
+		->will($this->returnValue($this->cartMock));
 
 		$this->productRepositoryMock
 		->expects($this->once())

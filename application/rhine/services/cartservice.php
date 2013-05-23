@@ -1,22 +1,22 @@
 <?php namespace Rhine\Services;
 
-use Product;
+use Rhine\BusinessModels\Cart;
 
 interface CartService
 {
-	
+
 	/**
-	 * Adds a product to the cart.
+	 * Returns the cart.
+	 * 
+	 * @return Cart
+	 */
+	function loadCart();
+
+	/**
+	 * Saves the cart.
 	 * 
 	 * @return void
 	 */
-	function addToCart($productId);
-	
-	/**
-	 * Checks if the cart is empty.
-	 * 
-	 * @return boolean
-	 */
-	function cartEmpty();
+	function saveCart(Cart $cart);
 
 }

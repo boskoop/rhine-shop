@@ -1,18 +1,27 @@
 <?php namespace Rhine\Services\Impl;
 
 use Rhine\Services\CartService;
+use Rhine\BusinessModels\Cart;
+use Rhine\BusinessModels\CartFactory;
 
 class CartServiceImpl implements CartService
 {
 
-	public function addToCart($productId)
+	private $cartFactory;
+
+	public function __construct(CartFactory $cartFactory)
 	{
-		// dummy implemation, does nothing
+		$this->cartFactory = $cartFactory;
 	}
 
-	public function cartEmpty()
+	public function loadCart()
 	{
-		return true;
+		return $this->cartFactory->createCart();
+	}
+
+	public function saveCart(Cart $cart)
+	{
+		// todo
 	}
 
 }

@@ -33,8 +33,9 @@ class ShopPostProductAction
 			return Response::error('404');
 		}
 
-		$this->cartService->addToCart($id);
-
+		$cart = $this->cartService->loadCart();
+		$cart->addPosition($id);
+		$this->cartService->saveCart($cart);
 
 		$productCategory = $this->categoryRepository->findByProduct($product);
 		$categories = $this->categoryRepository->findAllOrdered();

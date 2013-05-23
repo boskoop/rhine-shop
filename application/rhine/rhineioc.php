@@ -25,12 +25,21 @@ class RhineIoC
 			return new Repositories\Eloquent\EloquentProductImageRepository();
 		});
 
+		// BusinessModels
+		IoC::register('cart', function($positions = array()) {
+			return new BusinessModels\Impl\CartImpl(IoC::resolve('productRepository'),
+					$positions);
+		});
+		IoC::singleton('cartFactory', function() {
+			return new BusinessModels\Impl\IoCCartFactory();
+		});
+
 		// Services
 		IoC::singleton('searchService', function() {
 			return new Services\Impl\SearchServiceImpl(IoC::resolve('productRepository'));
 		});
 		IoC::singleton('cartService', function() {
-			return new Services\Impl\CartServiceImpl();
+			return new Services\Impl\CartServiceImpl(IoC::resolve('cartFactory'));
 		});
 
 		// Actions
