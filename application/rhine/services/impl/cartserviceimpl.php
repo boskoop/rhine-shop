@@ -3,6 +3,7 @@
 use Rhine\Services\CartService;
 use Rhine\BusinessModels\Cart;
 use Rhine\BusinessModels\CartFactory;
+use Laravel\Session;
 
 class CartServiceImpl implements CartService
 {
@@ -16,12 +17,27 @@ class CartServiceImpl implements CartService
 
 	public function loadCart()
 	{
-		return $this->cartFactory->createCart();
+		if (!Session::has('cart')) {
+			Session::put('cart', array());
+		}
+		$sessionCart = Session::get('cart');
+		$cart = $this->cartFactory->createCart($sessionCart);
+		return $cart;
 	}
 
 	public function saveCart(Cart $cart)
 	{
-		// todo
+		$sessionCart = $this->extractSessionCartArray($cart);
+		Session::put('cart', $sessionCart);
+	}
+
+	public function extractSessionCartArray(Cart $cart)
+	{
+		$sessionCart = array();
+		foreach($cart->getPositions() as $position) {
+			$sessionCart[strval($position->getProductId())] = $position->getQuantity();
+		}
+		return $sessionCart;
 	}
 
 }
