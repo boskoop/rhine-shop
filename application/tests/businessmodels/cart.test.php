@@ -94,6 +94,7 @@ class CartBusinessModelTest extends Tests\UnitTestCase
 		$this->cart->clearPosition(1);
 		$positions = $this->cart->getPositions();
 		$this->assertEquals(0, sizeof($positions));
+		$this->assertTrue($this->cart->isEmpty());
 
 		$this->cart->addPosition(1);
 		$this->cart->addPosition(2);
@@ -106,6 +107,7 @@ class CartBusinessModelTest extends Tests\UnitTestCase
 		$this->cart->clearPosition(3);
 		$positions = $this->cart->getPositions();
 		$this->assertEquals(2, sizeof($positions));
+		$this->assertFalse($this->cart->isEmpty());
 	}
 
 	public function testClear()
@@ -144,6 +146,100 @@ class CartBusinessModelTest extends Tests\UnitTestCase
 		$this->cart->clear();
 		$positions = $this->cart->getPositions();
 		$this->assertEquals(0, sizeof($positions));
+		$this->assertTrue($this->cart->isEmpty());
+	}
+
+	public function testConstructorPositions()
+	{
+		$this->cart = new CartImpl($this->productRepositoryMock, array('1' => 5));
+		$positions = $this->cart->getPositions();
+		$this->assertEquals(1, sizeof($positions));
+		$this->assertEquals(5, $positions[0]->getQuantity());
+		$this->assertFalse($this->cart->isEmpty());
+	}
+
+	public function testConstructorPositionsOrder()
+	{
+		$this->cart = new CartImpl($this->productRepositoryMock, array('1' => 5, '3' => 1, '2' => 3));
+		$positions = $this->cart->getPositions();
+		$this->assertEquals(3, sizeof($positions));
+		$this->assertEquals(5, $positions[0]->getQuantity());
+		$this->assertEquals(1, $positions[1]->getQuantity());
+		$this->assertEquals(3, $positions[2]->getQuantity());
+		$this->assertFalse($this->cart->isEmpty());
+	}
+
+	public function testConstructorPositionsStrval()
+	{
+		$this->cart = new CartImpl($this->productRepositoryMock, array(strval(10) => 2));
+		$positions = $this->cart->getPositions();
+		$this->assertEquals(1, sizeof($positions));
+		$this->assertEquals(2, $positions[0]->getQuantity());
+		$this->assertEquals(10, $positions[0]->getProductId());
+		$this->assertFalse($this->cart->isEmpty());
+	}
+
+	public function testGetProduct()
+	{
+		$product = $this->createProductForId(1);
+		$this->productRepositoryMock
+		->expects($this->once())
+		->method('findById')
+		->with($this->equalTo(1))
+		->will($this->returnValue($product));
+
+		$this->cart->addPosition(1);
+		$positions = $this->cart->getPositions();
+		$this->assertEquals($product, $positions[0]->getProduct());
+		$this->assertEquals($product, $positions[0]->getProduct());
+		$this->assertEquals($product, $positions[0]->getProduct());
+	}
+
+	public function testGetProductLazy()
+	{
+		$this->productRepositoryMock
+		->expects($this->exactly(2))
+		->method('findById')
+		->with($this->logicalOr($this->equalTo(1), $this->equalTo(2)))
+		->will($this->returnCallback(array($this, 'createProductForId')));
+
+		$this->cart->addPosition(1);
+		$positions = $this->cart->getPositions();
+		$this->assertEquals(1, $positions[0]->getProduct()->id);
+
+		$this->cart->addPosition(2);
+		$positions = $this->cart->getPositions();
+		$this->assertEquals(1, $positions[0]->getProduct()->id);
+		$this->assertEquals(2, $positions[1]->getProduct()->id);
+	}
+
+	public function testGetPrice()
+	{
+		$this->assertEquals(0, $this->cart->getTotalPrice());
+
+		$this->productRepositoryMock
+		->expects($this->exactly(2))
+		->method('findById')
+		->with($this->logicalOr($this->equalTo(1), $this->equalTo(2)))
+		->will($this->returnCallback(array($this, 'createProductForId')));
+
+		$this->cart->addPosition(1);
+		$this->cart->addPosition(2);
+		$this->cart->addPosition(2);
+		$this->cart->addPosition(2);
+		$positions = $this->cart->getPositions();
+		$this->assertEquals(100, $positions[0]->getUnitPrice());
+		$this->assertEquals(200, $positions[1]->getUnitPrice());
+		$this->assertEquals(100, $positions[0]->getTotalPrice());
+		$this->assertEquals(600, $positions[1]->getTotalPrice());
+
+		$this->assertEquals(700, $this->cart->getTotalPrice());
+	}
+
+	public function createProductForId($id)
+	{
+		return new Product(array('id' => $id,
+			'price' => (100 * $id)));
 	}
 
 }

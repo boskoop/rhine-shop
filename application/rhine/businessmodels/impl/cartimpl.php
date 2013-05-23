@@ -35,7 +35,7 @@ class CartImpl implements Cart
 	public function getTotalPrice()
 	{
 		$price = 0;
-		foreach ($this->posistions as $position) {
+		foreach ($this->positions as $position) {
 			$price += $position->getTotalPrice();
 		}
 		return $price;
