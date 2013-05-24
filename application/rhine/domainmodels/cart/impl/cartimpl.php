@@ -2,21 +2,16 @@
 
 use Rhine\Repositories\ProductRepository;
 use Rhine\DomainModels\Cart\Cart;
-use Laravel\Log;
 
 class CartImpl implements Cart
 {
 
 	private $productRepository;
-	private $positions;
+	private $positions = array();
 
-	public function __construct(ProductRepository $productRepository, $positions = array())
+	public function __construct(ProductRepository $productRepository)
 	{
 		$this->productRepository = $productRepository;
-		$this->positions = array();
-		foreach ($positions as $key => $quantity) {
-			$this->addPositionWithQuantity($key, $quantity);
-		}
 	}
 
 	public function isEmpty()
@@ -26,7 +21,6 @@ class CartImpl implements Cart
 		}
 		return false;
 	}
-
 
 	public function getPositions()
 	{
@@ -56,7 +50,7 @@ class CartImpl implements Cart
 		$this->addPositionWithQuantity($productId, 1);
 	}
 
-	private function addPositionWithQuantity($productId, $quantity)
+	function addPositionWithQuantity($productId, $quantity)
 	{
 		$key = $this->getPositionKey($productId);
 		if(array_key_exists(''.$key, $this->positions)) {

@@ -149,36 +149,6 @@ class CartBusinessModelTest extends Tests\UnitTestCase
 		$this->assertTrue($this->cart->isEmpty());
 	}
 
-	public function testConstructorPositions()
-	{
-		$this->cart = new CartImpl($this->productRepositoryMock, array('1' => 5));
-		$positions = $this->cart->getPositions();
-		$this->assertEquals(1, sizeof($positions));
-		$this->assertEquals(5, $positions[0]->getQuantity());
-		$this->assertFalse($this->cart->isEmpty());
-	}
-
-	public function testConstructorPositionsOrder()
-	{
-		$this->cart = new CartImpl($this->productRepositoryMock, array('1' => 5, '3' => 1, '2' => 3));
-		$positions = $this->cart->getPositions();
-		$this->assertEquals(3, sizeof($positions));
-		$this->assertEquals(5, $positions[0]->getQuantity());
-		$this->assertEquals(1, $positions[1]->getQuantity());
-		$this->assertEquals(3, $positions[2]->getQuantity());
-		$this->assertFalse($this->cart->isEmpty());
-	}
-
-	public function testConstructorPositionsStrval()
-	{
-		$this->cart = new CartImpl($this->productRepositoryMock, array(strval(10) => 2));
-		$positions = $this->cart->getPositions();
-		$this->assertEquals(1, sizeof($positions));
-		$this->assertEquals(2, $positions[0]->getQuantity());
-		$this->assertEquals(10, $positions[0]->getProductId());
-		$this->assertFalse($this->cart->isEmpty());
-	}
-
 	public function testGetProduct()
 	{
 		$product = $this->createProductForId(1);

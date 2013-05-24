@@ -6,6 +6,6 @@ interface CartFactory
 	/**
 	 * @return Cart
 	 */
-	function createCart($positions);
+	function createCartFromDto(CartDto $dto);
 
 }
