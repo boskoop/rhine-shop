@@ -1,6 +1,6 @@
-<?php namespace Rhine\DomainModels\Impl;
+<?php namespace Rhine\DomainModels\Cart\Impl;
 
-use Rhine\DomainModels\CartFactory;
+use Rhine\DomainModels\Cart\CartFactory;
 use Laravel\IoC;
 
 class IoCCartFactory implements CartFactory

@@ -17,7 +17,7 @@ class ShopPostProductActionTest extends Tests\UnitTestCase
 		$this->categoryRepositoryMock = $this->getMock('Rhine\Repositories\CategoryRepository');
 		$this->productRepositoryMock = $this->getMock('Rhine\Repositories\ProductRepository');
 		$this->cartServiceMock = $this->getMock('Rhine\Services\CartService');
-		$this->cartMock = $this->getMock('Rhine\DomainModels\Cart');
+		$this->cartMock = $this->getMock('Rhine\DomainModels\Cart\Cart');
 
 		$this->action = new ShopPostProductAction($this->categoryRepositoryMock,
 			$this->productRepositoryMock, $this->cartServiceMock);

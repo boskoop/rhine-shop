@@ -1,4 +1,4 @@
-<?php namespace Rhine\DomainModels;
+<?php namespace Rhine\DomainModels\Cart;
 
 interface CartFactory
 {

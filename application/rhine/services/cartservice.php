@@ -1,6 +1,6 @@
 <?php namespace Rhine\Services;
 
-use Rhine\DomainModels\Cart;
+use Rhine\DomainModels\Cart\Cart;
 
 interface CartService
 {
