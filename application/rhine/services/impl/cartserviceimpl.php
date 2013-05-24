@@ -1,8 +1,8 @@
 <?php namespace Rhine\Services\Impl;
 
 use Rhine\Services\CartService;
-use Rhine\BusinessModels\Cart;
-use Rhine\BusinessModels\CartFactory;
+use Rhine\DomainModels\Cart;
+use Rhine\DomainModels\CartFactory;
 use Laravel\Session;
 class CartServiceImpl implements CartService
 {

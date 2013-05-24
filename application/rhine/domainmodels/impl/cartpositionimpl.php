@@ -1,7 +1,7 @@
-<?php namespace Rhine\BusinessModels\Impl;
+<?php namespace Rhine\DomainModels\Impl;
 
 use Rhine\Repositories\ProductRepository;
-use Rhine\BusinessModels\CartPosition;
+use Rhine\DomainModels\CartPosition;
 
 class CartPositionImpl implements CartPosition
 {

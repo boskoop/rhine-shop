@@ -1,4 +1,4 @@
-<?php namespace Rhine\BusinessModels;
+<?php namespace Rhine\DomainModels;
 
 interface CartPosition
 {

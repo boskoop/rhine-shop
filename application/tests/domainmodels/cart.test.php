@@ -1,7 +1,7 @@
 <?php
 
-use Rhine\BusinessModels\Impl\CartImpl;
-use Rhine\BusinessModels\Impl\CartPositionImpl;
+use Rhine\DomainModels\Impl\CartImpl;
+use Rhine\DomainModels\Impl\CartPositionImpl;
 
 class CartBusinessModelTest extends Tests\UnitTestCase
 {

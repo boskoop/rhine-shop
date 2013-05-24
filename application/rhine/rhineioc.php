@@ -25,13 +25,13 @@ class RhineIoC
 			return new Repositories\Eloquent\EloquentProductImageRepository();
 		});
 
-		// BusinessModels
+		// DomainModels
 		IoC::register('cart', function($positions = array()) {
-			return new BusinessModels\Impl\CartImpl(IoC::resolve('productRepository'),
+			return new DomainModels\Impl\CartImpl(IoC::resolve('productRepository'),
 					$positions);
 		});
 		IoC::singleton('cartFactory', function() {
-			return new BusinessModels\Impl\IoCCartFactory();
+			return new DomainModels\Impl\IoCCartFactory();
 		});
 
 		// Services

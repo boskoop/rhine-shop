@@ -1,7 +1,7 @@
-<?php namespace Rhine\BusinessModels\Impl;
+<?php namespace Rhine\DomainModels\Impl;
 
 use Rhine\Repositories\ProductRepository;
-use Rhine\BusinessModels\Cart;
+use Rhine\DomainModels\Cart;
 use Laravel\Log;
 
 class CartImpl implements Cart
