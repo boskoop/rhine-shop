@@ -29,4 +29,9 @@ class CartDto
 		return array_merge($this->positions);
 	}
 
+	public function setPositions(array $positions)
+	{
+		$this->positions = array_merge($positions);
+	}
+
 }

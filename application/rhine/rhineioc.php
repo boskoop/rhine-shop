@@ -26,11 +26,8 @@ class RhineIoC
 		});
 
 		// DomainModels
-		IoC::register('cart', function($positions = array()) {
-			return new DomainModels\Cart\Impl\CartImpl(IoC::resolve('productRepository'));
-		});
 		IoC::singleton('cartFactory', function() {
-			return new DomainModels\Cart\Impl\CartFactoryImpl();
+			return new DomainModels\Cart\Impl\CartFactoryImpl(IoC::resolve('productRepository'));
 		});
 
 		// Services
