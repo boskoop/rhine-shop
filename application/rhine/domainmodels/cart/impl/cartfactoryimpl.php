@@ -11,7 +11,7 @@ class CartFactoryImpl implements CartFactory
 	{
 		$cart = IoC::resolve('cart');
 		foreach ($dto->getPositions() as $position) {
-			$cart->addPositionWithQuantity($position->getId(), $position->getQuantity);
+			$cart->addPositionWithQuantity($position->getId(), $position->getQuantity());
 		}
 		return $cart;
 	}
