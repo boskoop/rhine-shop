@@ -14,13 +14,6 @@
 
 @section('content')
           <div class="span12">
-@unless($cart->isEmpty())
-            <div class="pull-right">
-              <form class="form-inline" method="get" action="#">
-                <button class="btn btn-success" type="submit"><i class="icon-check icon-white"></i> Checkout</button>
-              </form>
-            </div>
-@endunless
             <h2>Cart</h2>
 @if($cart->isEmpty())
             <p class="text-info">Your cart is empty.</p>
@@ -51,19 +44,31 @@
                   <td>{{ $position->getQuantity() }}</td>
                   <td>SFr. {{ number_format($position->getTotalPrice() / 100, 2) }}</td>
                   <td style="padding-left: 0px; padding-right: 0px">
-                    <form class="form-inline" method="post" action="{{ URL::to_route('cartadd', $position->getProductId()) }}">
+                    {{ Form::open(URL::to_route('cartadd', array($position->getProductId())), 'POST', array('class' => 'form-inline')) }}
+
                       <button class="btn btn-primary btn-mini" type="submit"><i class="icon-plus icon-white"></i></button>
-                    </form>
+                      {{ Form::token() }}
+
+                    {{ Form::close() }}
+
                   </td>
                   <td style="padding-left: 4px; padding-right: 0px">
-                    <form class="form-inline" method="post" action="{{ URL::to_route('cartsub', $position->getProductId()) }}">
+                    {{ Form::open(URL::to_route('cartsub', array($position->getProductId())), 'POST', array('class' => 'form-inline')) }}
+
                       <button class="btn btn-primary btn-mini" type="submit"><i class="icon-minus icon-white"></i></button>
-                    </form>
+                      {{ Form::token() }}
+                      
+                    {{ Form::close() }}
+
                   </td>
                   <td style="padding-left: 4px; padding-right: 8px">
-                    <form class="form-inline" method="post" action="{{ URL::to_route('cartdel', $position->getProductId()) }}">
+                    {{ Form::open(URL::to_route('cartdel', array($position->getProductId())), 'POST', array('class' => 'form-inline')) }}
+
                       <button class="btn btn-danger btn-mini" type="submit"><i class="icon-remove icon-white"></i></button>
-                    </form>
+                      {{ Form::token() }}
+                      
+                    {{ Form::close() }}
+
                   </td>
                 </tr>
 @endforeach
@@ -75,9 +80,11 @@
                   <td></td>
                   <td><strong>{{ $cart->getTotalQuantity() }}</td>
                   <td><strong>SFr. {{ number_format($cart->getTotalPrice() / 100, 2) }}</strong></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td style="padding-left: 0px; padding-right: 8px" colspan=3>
+                    <form class="form-inline" method="get" action="#">
+                      <button class="btn btn-success btn-small" type="submit"><i class="icon-check icon-white"></i> Checkout</button>
+                    </form>
+                  </td>
                 </tr>
               </tbody>
             </table>

@@ -55,7 +55,7 @@ Route::post('product/(:num)', array('as' => 'addproduct', 'uses' => 'shop@addtoc
 
 // Cart routes
 Route::get('cart', array('as' => 'cart', 'uses' => 'cart@index'));
-Route::post('cart/add/(:num)', array('as' => 'cartadd', function($productId)
+Route::post('cart/add/(:num)', array('as' => 'cartadd', 'before' => 'csrf', function($productId)
 	{
 		$cartService = IoC::resolve('cartService');
 		$cart = $cartService->loadCart();
@@ -63,7 +63,7 @@ Route::post('cart/add/(:num)', array('as' => 'cartadd', function($productId)
 		$cartService->saveCart($cart);
 		return Redirect::to_route('cart');
 	}));
-Route::post('cart/sub/(:num)', array('as' => 'cartsub', function($productId)
+Route::post('cart/sub/(:num)', array('as' => 'cartsub', 'before' => 'csrf', function($productId)
 	{
 		$cartService = IoC::resolve('cartService');
 		$cart = $cartService->loadCart();
@@ -71,7 +71,7 @@ Route::post('cart/sub/(:num)', array('as' => 'cartsub', function($productId)
 		$cartService->saveCart($cart);
 		return Redirect::to_route('cart');
 	}));
-Route::post('cart/del/(:num)', array('as' => 'cartdel', function($productId)
+Route::post('cart/del/(:num)', array('as' => 'cartdel', 'before' => 'csrf', function($productId)
 	{
 		$cartService = IoC::resolve('cartService');
 		$cart = $cartService->loadCart();
