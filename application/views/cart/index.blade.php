@@ -14,6 +14,13 @@
 
 @section('content')
           <div class="span12">
+@unless($cart->isEmpty())
+            <div class="pull-right">
+              <form class="form-inline" method="get" action="#">
+                <button class="btn btn-success" type="submit"><i class="icon-check icon-white"></i> Checkout</button>
+              </form>
+            </div>
+@endunless
             <h2>Cart</h2>
 @if($cart->isEmpty())
             <p class="text-info">Your cart is empty.</p>
@@ -28,9 +35,9 @@
                   <th>Price</th>
                   <th>Quantity</th>
                   <th>Price total</th>
-                  <th style="width: 30px"></th>
-                  <th style="width: 30px"></th>
-                  <th style="width: 30px"></th>
+                  <th style="width: 20px; padding-left: 0px; padding-right: 0px"></th>
+                  <th style="width: 20px; padding-left: 0px; padding-right: 0px"></th>
+                  <th style="width: 20px; padding-left: 0px; padding-right: 0px"></th>
                 </tr>
               </thead>
               <tbody>
@@ -43,17 +50,17 @@
                   <td>SFr. {{ number_format($position->getUnitPrice() / 100, 2) }}</td>
                   <td>{{ $position->getQuantity() }}</td>
                   <td>SFr. {{ number_format($position->getTotalPrice() / 100, 2) }}</td>
-                  <td>
+                  <td style="padding-left: 0px; padding-right: 0px">
                     <form class="form-inline" method="post" action="{{ URL::to_route('cartadd', $position->getProductId()) }}">
                       <button class="btn btn-primary btn-mini" type="submit"><i class="icon-plus icon-white"></i></button>
                     </form>
                   </td>
-                  <td>
+                  <td style="padding-left: 4px; padding-right: 0px">
                     <form class="form-inline" method="post" action="{{ URL::to_route('cartsub', $position->getProductId()) }}">
                       <button class="btn btn-primary btn-mini" type="submit"><i class="icon-minus icon-white"></i></button>
                     </form>
                   </td>
-                  <td>
+                  <td style="padding-left: 4px; padding-right: 8px">
                     <form class="form-inline" method="post" action="{{ URL::to_route('cartdel', $position->getProductId()) }}">
                       <button class="btn btn-danger btn-mini" type="submit"><i class="icon-remove icon-white"></i></button>
                     </form>
