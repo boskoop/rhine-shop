@@ -95,6 +95,38 @@ class ProductRepositoryTest extends Tests\PersistenceTestCase
 		$this->assertNull($this->productRepository->findById(20));
 	}
 
+	/**
+	 * Tests the function searchByProductNamePaginated().
+	 *
+	 * @return void
+	 */
+	public function testSearchByProductNamePaginated()
+	{
+		$result = $this->productRepository->searchByProductNamePaginated(null);
+		$this->assertEquals(0, sizeof($result->results));
+		$result = $this->productRepository->searchByProductNamePaginated('don');
+		$this->assertEquals(0, sizeof($result->results));
+
+		Product::create(array(
+			'id' => 10,
+			'name' => 'donald',
+			'price' => 100,
+			'stocksize' => 100
+			));
+		$result = $this->productRepository->searchByProductNamePaginated('don');
+		$this->assertEquals(1, sizeof($result->results));
+		$this->assertEquals('donald', $result->results[0]->name);
+
+		Product::create(array(
+			'id' => 20,
+			'name' => 'don',
+			'price' => 200,
+			'stocksize' => 200
+			));
+		$result = $this->productRepository->searchByProductNamePaginated('don');
+		$this->assertEquals(2, sizeof($result->results));
+	}
+
 	private function insertCategory($name, $order)
 	{
 		return Category::create(array(

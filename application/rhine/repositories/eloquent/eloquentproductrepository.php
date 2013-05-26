@@ -27,7 +27,8 @@ class EloquentProductRepository implements ProductRepository
 
 	function searchByProductNamePaginated($nameQuery)
 	{
-		return Paginator::make(array(), 0, 6);
+		$productsPerPage = Config::get('rhine.products#per_page', 9);
+		return Product::where('name', 'like', '%'.$nameQuery.'%')->paginate($productsPerPage);
 	}
 
 }
