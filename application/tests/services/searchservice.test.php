@@ -34,5 +34,20 @@ class SearchServiceTest extends Tests\UnitTestCase
 		$this->assertEquals(1, sizeof($response));
 	}
 
+	/**
+	 * @expectedException Rhine\Services\SearchQueryTooShortException
+	 */
+	public function testQueryTooShort()
+	{
+		$response = $this->searchService->searchProduct('do');
+	}
+
+	/**
+	 * @expectedException Rhine\Services\SearchQueryTooShortException
+	 */
+	public function testQueryNull()
+	{
+		$response = $this->searchService->searchProduct(null);
+	}
 
 }
