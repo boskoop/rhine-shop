@@ -8,7 +8,7 @@ return array(
 	'de'      => 'Deutsch',
 	'fr'      => 'Français',
 
-	'cart' => 'Panier d\'achat',
+	'cart' => 'Panier d’achat',
 	'item' => 'article(s)',
 
 );
