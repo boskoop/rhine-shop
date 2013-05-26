@@ -55,6 +55,30 @@ Route::post('product/(:num)', array('as' => 'addproduct', 'uses' => 'shop@addtoc
 
 // Cart routes
 Route::get('cart', array('as' => 'cart', 'uses' => 'cart@index'));
+Route::post('cart/add/(:num)', array('as' => 'cartadd', function($productId)
+	{
+		$cartService = IoC::resolve('cartService');
+		$cart = $cartService->loadCart();
+		$cart->addPosition($productId);
+		$cartService->saveCart($cart);
+		return Redirect::to_route('cart');
+	}));
+Route::post('cart/sub/(:num)', array('as' => 'cartsub', function($productId)
+	{
+		$cartService = IoC::resolve('cartService');
+		$cart = $cartService->loadCart();
+		$cart->removePosition($productId);
+		$cartService->saveCart($cart);
+		return Redirect::to_route('cart');
+	}));
+Route::post('cart/del/(:num)', array('as' => 'cartdel', function($productId)
+	{
+		$cartService = IoC::resolve('cartService');
+		$cart = $cartService->loadCart();
+		$cart->clearPosition($productId);
+		$cartService->saveCart($cart);
+		return Redirect::to_route('cart');
+	}));
 
 // Account routes
 Route::get('account', array('as' => 'account', 'uses' => 'account@index'));
