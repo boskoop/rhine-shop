@@ -99,12 +99,21 @@ class ProductRepositoryTest extends Tests\PersistenceTestCase
 	 * Tests the function searchByProductNamePaginated().
 	 *
 	 * @return void
+	 * @expectedException \InvalidArgumentException
+	 */
+	public function testSearchByProductNamePaginated_Null()
+	{
+		$result = $this->productRepository->searchByProductNamePaginated(array());
+	}
+
+	/**
+	 * Tests the function searchByProductNamePaginated().
+	 *
+	 * @return void
 	 */
 	public function testSearchByProductNamePaginated()
 	{
-		$result = $this->productRepository->searchByProductNamePaginated(null);
-		$this->assertEquals(0, sizeof($result->results));
-		$result = $this->productRepository->searchByProductNamePaginated('don');
+		$result = $this->productRepository->searchByProductNamePaginated(array('don'));
 		$this->assertEquals(0, sizeof($result->results));
 
 		Product::create(array(
@@ -113,7 +122,7 @@ class ProductRepositoryTest extends Tests\PersistenceTestCase
 			'price' => 100,
 			'stocksize' => 100
 			));
-		$result = $this->productRepository->searchByProductNamePaginated('don');
+		$result = $this->productRepository->searchByProductNamePaginated(array('don'));
 		$this->assertEquals(1, sizeof($result->results));
 		$this->assertEquals('donald', $result->results[0]->name);
 
@@ -123,7 +132,7 @@ class ProductRepositoryTest extends Tests\PersistenceTestCase
 			'price' => 200,
 			'stocksize' => 200
 			));
-		$result = $this->productRepository->searchByProductNamePaginated('don');
+		$result = $this->productRepository->searchByProductNamePaginated(array('don'));
 		$this->assertEquals(2, sizeof($result->results));
 	}
 

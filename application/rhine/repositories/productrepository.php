@@ -24,6 +24,6 @@ interface ProductRepository
 	/**
 	 * @return Product[] (paginated)
 	 */
-	function searchByProductNamePaginated($nameQuery);
+	function searchByProductNamePaginated(array $nameQuery);
 
 }

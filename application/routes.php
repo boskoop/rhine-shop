@@ -41,10 +41,11 @@ Route::get('category/(:num)', array('as' => 'category', 'uses' => 'shop@category
 Route::get('product/(:num)/image.png', array('after' => 'image', 'as' => 'product_image', 'uses' => 'image@product'));
 
 // Search routes
-Route::get('search/(:any)', array('as' => 'search', 'uses' => 'shop@search'));
+Route::get('search/(.*)', array('as' => 'search', 'uses' => 'shop@search'));
 Route::post('search', array('as' => 'searchaction', function()
 	{
 		$query = Input::get('query');
+		$query = str_replace(' ', '/', $query);
 		return Redirect::to_route('search', $query);
 	}));
 

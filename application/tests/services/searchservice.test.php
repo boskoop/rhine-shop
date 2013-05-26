@@ -25,10 +25,10 @@ class SearchServiceTest extends Tests\UnitTestCase
 		$this->productRepositoryMock
 		->expects($this->once())
 		->method('searchByProductNamePaginated')
-		->with($this->equalTo('don'))
+		->with($this->equalTo(array('don')))
 		->will($this->returnValue(array($product)));
 
-		$response = $this->searchService->searchProduct('don');
+		$response = $this->searchService->searchProduct(array('don'));
 
 		$this->assertEquals('donald', $response[0]->name);
 		$this->assertEquals(1, sizeof($response));
@@ -39,15 +39,7 @@ class SearchServiceTest extends Tests\UnitTestCase
 	 */
 	public function testQueryTooShort()
 	{
-		$response = $this->searchService->searchProduct('do');
-	}
-
-	/**
-	 * @expectedException Rhine\Services\SearchQueryTooShortException
-	 */
-	public function testQueryNull()
-	{
-		$response = $this->searchService->searchProduct(null);
+		$response = $this->searchService->searchProduct(array('do'));
 	}
 
 }

@@ -15,9 +15,9 @@ class SearchServiceImpl implements SearchService
 		$this->productRepository = $productRepository;
 	}
 
-	function searchProduct($query)
+	function searchProduct(array $query)
 	{
-		if (strlen($query) < 3) {
+		if (count($query) < 1 || (count($query) == 1 && strlen($query[0]) < 3))  {
 			throw new SearchQueryTooShortException($query);
 		}
 

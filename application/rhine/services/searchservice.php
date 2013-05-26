@@ -7,6 +7,6 @@ interface SearchService
 	/**
 	 * @return Product[] (paginated)
 	 */
-	function searchProduct($query);
+	function searchProduct(array $query);
 
 }

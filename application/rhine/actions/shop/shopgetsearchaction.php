@@ -25,9 +25,10 @@ class ShopGetSearchAction
 		$categories = $this->categoryRepository->findAllOrdered();
 		$activeCategory = null;
 
-		$query = $argument;
+		$queryWords = explode('/', $argument);
+		$query = str_replace('/', ' ', $argument);
 		try {
-			$products = $this->searchService->searchProduct($argument);
+			$products = $this->searchService->searchProduct($queryWords);
 		} catch (SearchQueryTooShortException $e) {
 			return View::make('shop.searcherror')
 			->with(compact('categories'))

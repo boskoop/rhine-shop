@@ -25,10 +25,17 @@ class EloquentProductRepository implements ProductRepository
 		return Product::where('id', '=', $id)->first();
 	}
 
-	function searchByProductNamePaginated($nameQuery)
+	function searchByProductNamePaginated(array $nameQuery)
 	{
+		if (count($nameQuery) < 1) {
+			throw new \InvalidArgumentException('Search query must at least contain one element.');
+		}
 		$productsPerPage = Config::get('rhine.products#per_page', 9);
-		return Product::where('name', 'like', '%'.$nameQuery.'%')->paginate($productsPerPage);
+		$query = Product::where('name', 'like', '%'.$nameQuery[0].'%');
+		for ($i = 1; $i < count($nameQuery); $i++) {
+			$query = $query->where('name', 'like', '%'.$nameQuery[$i].'%');
+		}
+		return $query->paginate($productsPerPage);
 	}
 
 }
