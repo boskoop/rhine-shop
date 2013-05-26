@@ -14,6 +14,13 @@
 
 @section('content')
           <div class="span12">
+@unless($cart->isEmpty())
+            <div class="pull-right">
+              <form class="form-inline" method="get" action="#">
+                <button class="btn btn-success" type="submit"><i class="icon-check icon-white"></i> Checkout</button>
+              </form>
+            </div>
+@endunless
             <h2>Cart</h2>
 @if($cart->isEmpty())
             <p class="text-info">Your cart is empty.</p>
