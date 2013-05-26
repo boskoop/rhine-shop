@@ -1,6 +1,7 @@
 <?php
 
 use Rhine\Actions\Shop\ShopGetSearchAction;
+use Rhine\Services\SearchQueryTooShortException;
 
 class ShopGetSearchActionTest extends Tests\UnitTestCase
 {
@@ -53,6 +54,42 @@ class ShopGetSearchActionTest extends Tests\UnitTestCase
 		$this->assertEquals(1, count($response->data['categories']));
 		$this->assertEquals('comic', $response->data['categories'][0]->name);
 		$this->assertEquals('don', $response->data['query']);
+		$this->assertEquals(null, $response->data['activeCategory']);
+	}
+
+	/**
+	 * Tests the action if the search service raises an exception.
+	 *
+	 * @return void
+	 */
+	public function testQueryTooShort()
+	{
+		$category = new Category(array('id' => 1,
+			'name' => 'comic',
+			'order' => 1));
+		$product = new Product(array('id' => 1,
+			'name' => 'donald',
+			'category_id' => 1,
+			'price' => 1000,
+			'stocksize' => 10));
+
+		$this->categoryRepositoryMock
+		->expects($this->once())
+		->method('findAllOrdered')
+		->will($this->returnValue(array($category)));
+
+		$this->searchServiceMock
+		->expects($this->once())
+		->method('searchProduct')
+		->with($this->equalTo('do'))
+		->will($this->throwException(new SearchQueryTooShortException('do')));
+
+		$response = $this->action->execute('do');
+
+		$this->assertResponseViewNameIs('shop.searcherror', $response);
+		$this->assertEquals(1, count($response->data['categories']));
+		$this->assertEquals('comic', $response->data['categories'][0]->name);
+		$this->assertEquals('do', $response->data['query']);
 		$this->assertEquals(null, $response->data['activeCategory']);
 	}
 

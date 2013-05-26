@@ -5,5 +5,5 @@
     $query -> search query
     $products -> paginated result of Product
 --}}
-        <h2>Search for: '{{ $query }}'</h2>
-        <p>{{ $products->total }} hits</p>
+        <h2>{{ __('rhine/search.search_for') }}: '{{ $query }}'</h2>
+        <p class="text-info">{{ $products->total }} {{ __('rhine/search.hits') }}</p>

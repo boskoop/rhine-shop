@@ -3,6 +3,7 @@
 use Laravel\View;
 use Rhine\Services\SearchService;
 use Rhine\Repositories\CategoryRepository;
+use Rhine\Services\SearchQueryTooShortException;
 
 class ShopGetSearchAction
 {
@@ -21,11 +22,18 @@ class ShopGetSearchAction
 	 */
 	public function execute($argument)
 	{
-		$query = $argument;
-		$products = $this->searchService->searchProduct($argument);
-
 		$categories = $this->categoryRepository->findAllOrdered();
 		$activeCategory = null;
+
+		$query = $argument;
+		try {
+			$products = $this->searchService->searchProduct($argument);
+		} catch (SearchQueryTooShortException $e) {
+			return View::make('shop.searcherror')
+			->with(compact('categories'))
+			->with(compact('query'))
+			->with(compact('activeCategory'));
+		}
 
 		return View::make('shop.search')
 		->with(compact('products'))
