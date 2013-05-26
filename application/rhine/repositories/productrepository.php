@@ -20,5 +20,10 @@ interface ProductRepository
 	 * @return Product
 	 */
 	function findById($id);
+	
+	/**
+	 * @return Product[] (paginated)
+	 */
+	function searchByProductNamePaginated($nameQuery);
 
 }

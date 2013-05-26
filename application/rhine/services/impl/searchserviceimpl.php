@@ -3,7 +3,6 @@
 use Rhine\Services\SearchService;
 use Rhine\Repositories\ProductRepository;
 use Product;
-use Laravel\Paginator;
 
 class SearchServiceImpl implements SearchService
 {
@@ -17,8 +16,8 @@ class SearchServiceImpl implements SearchService
 
 	function searchProduct($query)
 	{
-		// dummy implemation
-		return Paginator::make(array(), 0, 6);
+		$response = $this->productRepository->searchByProductNamePaginated($query);
+		return $response;
 	}
 
 }

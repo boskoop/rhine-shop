@@ -3,6 +3,7 @@
 use Product;
 use Laravel\Config;
 use Rhine\Repositories\ProductRepository;
+use Laravel\Paginator;
 
 class EloquentProductRepository implements ProductRepository
 {
@@ -22,6 +23,11 @@ class EloquentProductRepository implements ProductRepository
 	function findById($id)
 	{
 		return Product::where('id', '=', $id)->first();
+	}
+
+	function searchByProductNamePaginated($nameQuery)
+	{
+		return Paginator::make(array(), 0, 6);
 	}
 
 }
