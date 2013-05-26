@@ -6,10 +6,12 @@ class CartGetIndexActionTest extends Tests\UnitTestCase
 {
 
 	private $action;
+	private $cartServiceMock;
 
 	protected function setUpInternal()
 	{
-		$this->action = new CartGetIndexAction();
+		$this->cartServiceMock = $this->getMock('Rhine\Services\CartService');
+		$this->action = new CartGetIndexAction($this->cartServiceMock);
 	}
 
 	/**
