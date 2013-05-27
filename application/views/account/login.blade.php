@@ -8,7 +8,6 @@
 
 @section('sidenavigation')
           <div class="span3">
-Sidenavigation
           </div>
 @endsection
 

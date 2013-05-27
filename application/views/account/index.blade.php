@@ -8,7 +8,7 @@
 
 @section('sidenavigation')
           <div class="span3">
-Sidenavigation
+@include('account.partials.account_sidenavigation')
           </div>
 @endsection
 
