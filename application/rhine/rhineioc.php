@@ -67,6 +67,15 @@ class RhineIoC
 		IoC::register('cartGetIndexAction', function() {
 			return new Actions\Cart\CartGetIndexAction(IoC::resolve('cartService'));
 		});
+		IoC::register('cartPostAddProductAction', function() {
+			return new Actions\Cart\CartPostAddProductAction(IoC::resolve('cartService'));
+		});
+		IoC::register('cartPostSubtractProductAction', function() {
+			return new Actions\Cart\CartPostSubtractProductAction(IoC::resolve('cartService'));
+		});
+		IoC::register('cartPostDeleteProductAction', function() {
+			return new Actions\Cart\CartPostDeleteProductAction(IoC::resolve('cartService'));
+		});
 
 		IoC::register('accountGetIndexAction', function() {
 			return new Actions\Account\AccountGetIndexAction();

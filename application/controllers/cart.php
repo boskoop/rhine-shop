@@ -8,4 +8,22 @@ class Cart_Controller extends Base_Controller {
 		return $action->execute();
 	}
 
+	public function action_addproduct($productId)
+	{
+		$action = IoC::resolve('cartPostAddProductAction');
+		return $action->execute($productId);
+	}
+
+	public function action_subtractproduct($productId)
+	{
+		$action = IoC::resolve('cartPostSubtractProductAction');
+		return $action->execute($productId);
+	}
+
+	public function action_deleteproduct($productId)
+	{
+		$action = IoC::resolve('cartPostDeleteProductAction');
+		return $action->execute($productId);
+	}
+
 }
