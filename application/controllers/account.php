@@ -8,4 +8,10 @@ class Account_Controller extends Base_Controller {
 		return $action->execute();
 	}
 
+	public function action_login()
+	{
+		$action = IoC::resolve('accountGetLoginAction');
+		return $action->execute();
+	}
+
 }

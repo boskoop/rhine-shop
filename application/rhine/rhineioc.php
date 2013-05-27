@@ -80,6 +80,9 @@ class RhineIoC
 		IoC::register('accountGetIndexAction', function() {
 			return new Actions\Account\AccountGetIndexAction();
 		});
+		IoC::register('accountGetLoginAction', function() {
+			return new Actions\Account\AccountGetLoginAction();
+		});
 
 		IoC::register('informationGetAboutAction', function() {
 			return new Actions\Information\InformationGetAboutAction();

@@ -63,7 +63,11 @@ Route::group(array('before' => 'csrf'), function()
 });
 
 // Account routes
-Route::get('account', array('as' => 'account', 'uses' => 'account@index'));
+Route::group(array('before' => 'auth'), function()
+{
+	Route::get('account', array('as' => 'account', 'uses' => 'account@index'));
+});
+Route::get('account/login', array('as' => 'login', 'uses' => 'account@login'));
 
 // Information routes
 Route::get('information/about', array('as' => 'information_about', 'uses' => 'information@about'));
@@ -148,5 +152,7 @@ Route::filter('csrf', function()
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::to('login');
+	if (Auth::guest()) {
+		return Redirect::to_route('login');
+	}
 });
