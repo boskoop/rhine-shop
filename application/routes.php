@@ -55,9 +55,12 @@ Route::post('product/(:num)', array('as' => 'addproduct', 'uses' => 'shop@addtoc
 
 // Cart routes
 Route::get('cart', array('as' => 'cart', 'uses' => 'cart@index'));
-Route::post('cart/add/(:num)', array('as' => 'cartadd', 'before' => 'csrf', 'uses' => 'cart@addproduct'));
-Route::post('cart/sub/(:num)', array('as' => 'cartsub', 'before' => 'csrf', 'uses' => 'cart@subtractproduct'));
-Route::post('cart/del/(:num)', array('as' => 'cartdel', 'before' => 'csrf', 'uses' => 'cart@deleteproduct'));
+Route::group(array('before' => 'csrf'), function()
+{
+	Route::post('cart/add/(:num)', array('as' => 'cartadd', 'uses' => 'cart@addproduct'));
+	Route::post('cart/sub/(:num)', array('as' => 'cartsub', 'uses' => 'cart@subtractproduct'));
+	Route::post('cart/del/(:num)', array('as' => 'cartdel', 'uses' => 'cart@deleteproduct'));
+});
 
 // Account routes
 Route::get('account', array('as' => 'account', 'uses' => 'account@index'));
