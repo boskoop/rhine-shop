@@ -10,6 +10,11 @@ class Seed_Data_Task
 			'email' => 'admin@localhost',
 			'password' => Hash::make('1234')
 			));
+		User::create(array(
+			'username' => 'user',
+			'email' => 'user@localhost',
+			'password' => Hash::make('1234')
+			));
 
 		$pcGames = Category::create(array(
 			'name' => 'PC Games',

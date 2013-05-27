@@ -68,6 +68,21 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('account', array('as' => 'account', 'uses' => 'account@index'));
 });
 Route::get('account/login', array('as' => 'login', 'uses' => 'account@login'));
+Route::post('account/login', array('as' => 'loginaction', 'before' => 'csrf', function()
+	{
+		$username = Input::get('username');
+		$password = Input::get('password');
+		$credentials = array('username' => $username, 'password' => $password);
+		if (Auth::attempt($credentials)) {
+			return Redirect::to_route('account');
+		}
+		return Redirect::to_route('login');
+	}));
+Route::get('account/logout', array('as' => 'logout', function()
+	{
+		Auth::logout();
+		return Redirect::to_route('login');
+	}));
 
 // Information routes
 Route::get('information/about', array('as' => 'information_about', 'uses' => 'information@about'));
