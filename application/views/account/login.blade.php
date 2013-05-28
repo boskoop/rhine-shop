@@ -16,7 +16,7 @@
           <div class="span6">
             <h2>Login</h2>
             <div class="well">
-              {{ Form::open('account/login', 'POST', array('class' => 'form-horizontal')) }}
+              {{ Form::open(URL::to_route('login'), 'POST', array('class' => 'form-horizontal')) }}
 
                 <div class="control-group">
                   <label class="control-label" for="username">Username</label>

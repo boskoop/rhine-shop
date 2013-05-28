@@ -18,3 +18,11 @@ ul.nav.nav-tabs.nav-stacked li.active a i.icon-chevron-right {
   opacity: 0.25;
   visibility: visible;
 }
+
+/*
+ * Style for mandatory fields
+ */
+.mandatory {
+    color: red;
+    font-weight: bolder;
+}

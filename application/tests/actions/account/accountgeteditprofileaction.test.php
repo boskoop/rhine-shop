@@ -1,15 +1,15 @@
 <?php
 
-use Rhine\Actions\Account\AccountGetIndexAction;
+use Rhine\Actions\Account\AccountGetEditProfileAction;
 
-class AccountGetIndexActionTest extends Tests\PersistenceTestCase
+class AccountGetEditActionTest extends Tests\PersistenceTestCase
 {
 
 	private $action;
 
 	protected function setUpInternal()
 	{
-		$this->action = new AccountGetIndexAction();
+		$this->action = new AccountGetEditProfileAction();
 	}
 
 	/**
@@ -24,7 +24,7 @@ class AccountGetIndexActionTest extends Tests\PersistenceTestCase
 
 		$response = $this->action->execute();
 
-		$this->assertResponseViewNameIs('account.index', $response);
+		$this->assertResponseViewNameIs('account.editprofile', $response);
 		Auth::logout();
 	}
 
@@ -34,7 +34,7 @@ class AccountGetIndexActionTest extends Tests\PersistenceTestCase
 	 * @return void
 	 * @expectedException \LogicException
 	 */
-	public function testNotAuthenticated()
+	public function testNotAuthorized()
 	{
 		$this->assertFalse(Auth::check());
 

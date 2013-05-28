@@ -8,6 +8,12 @@ class Account_Controller extends Base_Controller {
 		return $action->execute();
 	}
 
+	public function action_editprofile()
+	{
+		$action = IoC::resolve('accountGetEditProfileAction');
+		return $action->execute();
+	}
+
 	public function action_login()
 	{
 		$action = IoC::resolve('accountGetLoginAction');

@@ -24,7 +24,7 @@
 @endif
                       <a href="{{ URL::to_route('cart') }}"><i class="icon-shopping-cart icon-white"></i> {{ __('rhine/nav.cart') }}</a></li>
                     <li class="divider-vertical"></li>
-@if(in_array(Request::route()->action['as'], array('account','login', 'user', 'address', 'orders', 'orderhistory')))
+@if(in_array(Request::route()->action['as'], array('account','login', 'profile', 'editprofile', 'address', 'orders', 'orderhistory')))
                     <li class="active">
 @else
                     <li>

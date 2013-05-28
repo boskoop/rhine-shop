@@ -5,12 +5,12 @@
     -
 --}}
         <ul class="nav nav-tabs nav-stacked">
-@if(in_array(Request::route()->action['as'], array('account', 'user')))
+@if(in_array(Request::route()->action['as'], array('account', 'profile', 'editprofile')))
           <li class="active">
 @else
           <li>
 @endif
-          	<a href="{{ URL::to_route('user') }}"><i class="icon-chevron-right"></i>User</a>
+          	<a href="{{ URL::to_route('profile') }}"><i class="icon-chevron-right"></i>Profile</a>
           </li>
 @if(in_array(Request::route()->action['as'], array('address')))
           <li class="active">

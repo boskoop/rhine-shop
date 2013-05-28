@@ -29,6 +29,8 @@ abstract class PersistenceTestCase extends PHPUnit_Framework_TestCase {
 
 	protected final function tearDown()
 	{
+		Session::flush();
+		
 		// Reset session driver
 		Config::set('session.driver', $this->tempSessionDriver);
 

@@ -4,7 +4,7 @@ use Laravel\View;
 use Laravel\Auth;
 use Laravel\Redirect;
 
-class AccountGetIndexAction
+class AccountGetEditProfileAction
 {
 
 	/**
@@ -17,7 +17,7 @@ class AccountGetIndexAction
 			throw new \LogicException('User not authenticated!');
 		}
 
-		return View::make('account.index')
+		return View::make('account.editprofile')
 		->with(compact('user'));
 	}
 
