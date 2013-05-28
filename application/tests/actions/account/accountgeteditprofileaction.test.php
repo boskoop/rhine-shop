@@ -34,7 +34,7 @@ class AccountGetEditActionTest extends Tests\PersistenceTestCase
 	 * @return void
 	 * @expectedException \LogicException
 	 */
-	public function testNotAuthorized()
+	public function testNotAuthenticated()
 	{
 		$this->assertFalse(Auth::check());
 

@@ -14,6 +14,13 @@ class Account_Controller extends Base_Controller {
 		return $action->execute();
 	}
 
+	public function action_saveprofile()
+	{
+		$input = Input::all();
+		$action = IoC::resolve('accountPostEditProfileAction');
+		return $action->execute($input);
+	}
+
 	public function action_login()
 	{
 		$action = IoC::resolve('accountGetLoginAction');

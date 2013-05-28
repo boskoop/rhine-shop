@@ -38,6 +38,11 @@ class RhineIoC
 			return new Services\Impl\CartServiceImpl(IoC::resolve('cartFactory'));
 		});
 
+		// Validators
+		IoC::singleton('userValidator', function() {
+			return new Services\Validators\User\UserValidator();
+		});
+
 		// Actions
 		IoC::register('shopGetIndexAction', function() {
 			return new Actions\Shop\ShopGetIndexAction(IoC::resolve('categoryRepository'),
@@ -82,6 +87,9 @@ class RhineIoC
 		});
 		IoC::register('accountGetEditProfileAction', function() {
 			return new Actions\Account\AccountGetEditProfileAction();
+		});
+		IoC::register('accountPostEditProfileAction', function() {
+			return new Actions\Account\AccountPostEditProfileAction(IoC::resolve('userValidator'));
 		});
 		IoC::register('accountGetLoginAction', function() {
 			return new Actions\Account\AccountGetLoginAction();

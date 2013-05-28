@@ -14,7 +14,7 @@ class AccountGetEditProfileAction
 	{
 		$user = Auth::user();
 		if ($user == null) {
-			throw new \LogicException('User not authenticated!');
+			throw new \LogicException('User not authorized!');
 		}
 
 		return View::make('account.editprofile')

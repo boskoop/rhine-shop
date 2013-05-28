@@ -10,20 +10,33 @@
               <div class="control-group">
                 <label class="control-label" for="username">Username <span class="mandatory">*</span></label>
                 <div class="controls">
-                  <input type="text" id="username" placeholder="Username" value="{{ $user->username }}" required>
+                  <input type="text" id="username" name="username" placeholder="Username" value="{{ $user->username }}" required>
                 </div>
               </div>
               <div class="control-group">
                 <label class="control-label" for="email">Email <span class="mandatory">*</span></label>
                 <div class="controls">
-                  <input type="email" id="email" placeholder="Email" value="{{ $user->email }}" required>
+                  <input type="email" id="email" name="email" placeholder="Email" value="{{ $user->email }}" required>
+                </div>
+              </div>
+              <hr>
+              <div class="control-group">
+                <label class="control-label" for="old_password">Old Password</label>
+                <div class="controls">
+                  <input type="password" id="old_password" name="old_password" placeholder="Old password">
+                  <span class="help-block">Leave empty if you don't want to change the password</span>
                 </div>
               </div>
               <div class="control-group">
-                <label class="control-label" for="password">Password</label>
+                <label class="control-label" for="password">New Password</label>
                 <div class="controls">
-                  <input type="password" id="password" placeholder="Password">
-                  <span class="help-block">Leave password empty if you don't want to change it</span>
+                  <input type="password" id="password" name="password" placeholder="New password">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="password_confirmation">Confirm</label>
+                <div class="controls">
+                  <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirm">
                 </div>
               </div>
               <div class="form-actions">
