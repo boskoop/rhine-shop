@@ -24,9 +24,17 @@
                 <div class="controls">
                   <span class="uneditable-input" id="password">************</span>
                 </div>
+              </div>  
+@if(Session::get('status') != null)
+              <div class="alert alert-success fade in">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                {{ __('rhine/status.'.Session::get('status')) }}
+
               </div>
+@endif
               <div class="form-actions">
                   {{ HTML::link_to_route('editprofile', 'Edit', array() ,array('class' => 'btn')) }}
 
               </div>
             {{ Form::close() }}
+

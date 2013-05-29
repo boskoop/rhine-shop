@@ -1,21 +1,21 @@
 <?php namespace Rhine\Services\Validators;
 
-use \Laravel\Messages;
+use \Laravel\Validator;
 use \Exception;
 
 class ValidationException extends Exception
 {
 	
-	private $validationMessages;
+	private $validation;
 
-	public function __construct(Messages $messages) {
-		parent::__construct(implode(' ', $messages->all()));
-		$this->validationMessages = $messages;
+	public function __construct(Validator $validation) {
+		parent::__construct(implode(' ', $validation->errors->all()));
+		$this->validation = $validation;
 	}
 
-	public function getValidationMessages()
+	public function getValidation()
 	{
-		return $this->validationMessages;
+		return $this->validation;
 	}
 
 }

@@ -67,6 +67,9 @@ return array(
 	"unique"         => "Le champ :attribute est déjà utilisé.",
 	"url"            => "Le champ :attribute a un format invalide.",
 
+
+	"hashed_password" => "L’ancien mot de passe n’est pas correct.",
+
 	/*
 	|--------------------------------------------------------------------------
 	| Custom Validation Language Lines

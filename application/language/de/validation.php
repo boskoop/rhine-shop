@@ -67,6 +67,9 @@ return array(
 	"unique"         => ":attribute ist schon vergeben.",
 	"url"            => "Das Format von :attribute ist ung&uuml;ltig.",
 
+
+	"hashed_password" => "Das alte Passwort ist nicht korrekt.",
+
 	/*
 	|--------------------------------------------------------------------------
 	| Custom Validation Language Lines
