@@ -11,4 +11,8 @@ return array(
 	'cart' => 'Panier d’achat',
 	'item' => 'article(s)',
 
+	'logged_in' => 'Connecté comme',
+	'logged_out' => 'Pas connecté',
+	'login' => 'Connexion',
+
 );

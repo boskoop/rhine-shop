@@ -4,23 +4,23 @@
     Variables needed:
     - user -> the user
 --}}
-            <h2>Profile</h2>
+            <h2>{{ __('rhine/account.profile') }}</h2>
             {{ Form::open(URL::current(), 'POST', array('class' => 'form-horizontal')) }}
 
               <div class="control-group">
-                <label class="control-label" for="username">Username</label>
+                <label class="control-label" for="username">{{ __('rhine/account.username') }}</label>
                 <div class="controls">
                   <span class="uneditable-input" id="username">{{ $user->username }}</span>
                 </div>
               </div>
               <div class="control-group">
-                <label class="control-label" for="email">Email</label>
+                <label class="control-label" for="email">{{ __('rhine/account.email') }}</label>
                 <div class="controls">
                   <span class="uneditable-input" id="email">{{ $user->email }}</span>
                 </div>
               </div>
               <div class="control-group">
-                <label class="control-label" for="password">Password</label>
+                <label class="control-label" for="password">{{ __('rhine/account.password') }}</label>
                 <div class="controls">
                   <span class="uneditable-input" id="password">************</span>
                 </div>
@@ -33,7 +33,7 @@
               </div>
 @endif
               <div class="form-actions">
-                  {{ HTML::link_to_route('editprofile', 'Edit', array() ,array('class' => 'btn')) }}
+                  {{ HTML::link_to_route('editprofile', __('rhine/account.edit'), array() ,array('class' => 'btn')) }}
 
               </div>
             {{ Form::close() }}

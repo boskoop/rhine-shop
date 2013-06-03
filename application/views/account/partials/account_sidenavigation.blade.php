@@ -10,27 +10,27 @@
 @else
           <li>
 @endif
-          	<a href="{{ URL::to_route('profile') }}"><i class="icon-chevron-right"></i>Profile</a>
+          	<a href="{{ URL::to_route('profile') }}"><i class="icon-chevron-right"></i>{{ __('rhine/account.profile') }}</a>
           </li>
 @if(in_array(Request::route()->action['as'], array('address')))
           <li class="active">
 @else
           <li>
 @endif
-            <a href="{{ URL::to_route('address') }}"><i class="icon-chevron-right"></i>Address</a>
+            <a href="{{ URL::to_route('address') }}"><i class="icon-chevron-right"></i>{{ __('rhine/account.address') }}</a>
           </li>
 @if(in_array(Request::route()->action['as'], array('orders')))
           <li class="active">
 @else
           <li>
 @endif
-          	<a href="{{ URL::to_route('orders') }}"><i class="icon-chevron-right"></i>Orders</a>
+          	<a href="{{ URL::to_route('orders') }}"><i class="icon-chevron-right"></i>{{ __('rhine/account.orders') }}</a>
           </li>
 @if(in_array(Request::route()->action['as'], array('orderhistory')))
           <li class="active">
 @else
           <li>
 @endif
-          	<a href="{{ URL::to_route('orderhistory') }}"><i class="icon-chevron-right"></i>Completed orders</a>
+          	<a href="{{ URL::to_route('orderhistory') }}"><i class="icon-chevron-right"></i>{{ __('rhine/account.completed_orders') }}</a>
           </li>
         </ul>
