@@ -8,6 +8,7 @@ use Laravel\Config;
 use Laravel\Input;
 use Laravel\Request;
 use Laravel\Routing\Router;
+use Laravel\Auth;
 
 abstract class RouteTestCase extends PHPUnit_Framework_TestCase {
 
@@ -38,6 +39,7 @@ abstract class RouteTestCase extends PHPUnit_Framework_TestCase {
 	protected final function tearDown()
 	{
 		Session::flush();
+		Auth::logout();
 
 		// Reset session driver
 		Config::set('session.driver', $this->tempSessionDriver);

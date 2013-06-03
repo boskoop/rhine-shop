@@ -4,6 +4,8 @@ use PHPUnit_Framework_TestCase;
 use Laravel\Session;
 use Laravel\Cookie;
 use Laravel\Config;
+use Laravel\Auth;
+
 
 abstract class PersistenceTestCase extends PHPUnit_Framework_TestCase {
 
@@ -30,6 +32,7 @@ abstract class PersistenceTestCase extends PHPUnit_Framework_TestCase {
 	protected final function tearDown()
 	{
 		Session::flush();
+		Auth::logout();
 		
 		// Reset session driver
 		Config::set('session.driver', $this->tempSessionDriver);
