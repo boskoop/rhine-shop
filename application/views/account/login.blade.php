@@ -14,21 +14,21 @@
 
 @section('content')
           <div class="span6">
-            <h2>Login</h2>
+            <h2>{{ __('rhine/account.login') }}</h2>
             <div class="well">
               {{ Form::open(URL::to_route('login'), 'POST', array('class' => 'form-horizontal')) }}
 
                 <div class="control-group">
-                  <label class="control-label" for="username">Username</label>
+                  <label class="control-label" for="username">{{ __('rhine/account.username') }}</label>
                   <div class="controls">
-                    {{ Form::text('username', '', array('placeholder' => 'Username', 'required')) }}
+                    {{ Form::text('username', '', array('placeholder' => __('rhine/account.username'), 'required')) }}
                   </div>
                 </div>
 
                 <div class="control-group">
-                  <label class="control-label" for="password">Password</label>
+                  <label class="control-label" for="password">{{ __('rhine/account.password') }}</label>
                   <div class="controls">
-                    {{ Form::password('password', array('placeholder' => 'Password', 'required')) }}
+                    {{ Form::password('password', array('placeholder' => __('rhine/account.password'), 'required')) }}
                   </div>
                 </div>
                 
@@ -42,7 +42,7 @@
                 
                 <div class="control-group">
                   <div class="controls">
-                    {{ Form::button('Sign in', array('class' => 'btn btn-primary', 'type' => 'submit')) }}
+                    {{ Form::button(__('rhine/account.do_login'), array('class' => 'btn btn-primary', 'type' => 'submit')) }}
                   </div>
                 </div>
                 {{ Form::token() }}
