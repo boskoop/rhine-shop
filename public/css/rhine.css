@@ -26,3 +26,11 @@ ul.nav.nav-tabs.nav-stacked li.active a i.icon-chevron-right {
     color: red;
     font-weight: bolder;
 }
+
+/*
+ * Always show scrollbar.
+ */
+html {
+     overflow-y: scroll;
+     overflow-x: auto;
+}
