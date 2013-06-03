@@ -86,7 +86,7 @@ Route::post('account/login', array('as' => 'loginaction', 'before' => 'csrf', fu
 		if (Auth::attempt($credentials)) {
 			return Redirect::to_route('account');
 		}
-		return Redirect::to_route('login');
+		return Redirect::to_route('login')->with('status', 'login_error');;
 	}));
 Route::get('account/logout', array('as' => 'logout', function()
 	{

@@ -32,13 +32,13 @@
                   </div>
                 </div>
                 
-                <div class="control-group">
-                  <div class="controls">
-                    <label class="checkbox">
-                      {{ Form::checkbox('remember', 1, false, array()) }} Keep me logged in
-                    </label>
-                  </div>
+@if(Session::get('status') != null)
+                <div class="alert alert-error fade in">
+                  <a href="#" class="close" data-dismiss="alert">&times;</a>
+                  {{ __('rhine/status.'.Session::get('status')) }}
+
                 </div>
+@endif
                 
                 <div class="control-group">
                   <div class="controls">
