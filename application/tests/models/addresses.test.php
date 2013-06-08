@@ -55,5 +55,22 @@ class AddressesTest extends Tests\PersistenceTestCase
 			'gender_id' => 2,
 		));
 	}
-	
+
+	/**
+	 * Tests if the gender constants are seeded into the db.
+	 * 
+	 * @return void
+	 */
+	public function testGenderSeeded()
+	{
+		$male = Gender::find(GenderEnum::MALE);
+		$this->assertEquals('male', $male->gender);
+
+		$female = Gender::find(GenderEnum::FEMALE);
+		$this->assertEquals('female', $female->gender);
+
+		$genders = Gender::all();
+		$this->assertEquals(2, sizeof($genders));
+	}
+
 }

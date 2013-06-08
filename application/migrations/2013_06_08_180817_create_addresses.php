@@ -15,6 +15,15 @@ class Create_Addresses {
 			$table->timestamps();
 		});
 
+		Gender::create(array(
+			'id' => GenderEnum::MALE,
+			'gender' => 'male'
+		));
+		Gender::create(array(
+			'id' => GenderEnum::FEMALE,
+			'gender' => 'female'
+		));
+
 		Schema::create('addresses', function($table) {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned()->unique();
