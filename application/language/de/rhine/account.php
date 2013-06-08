@@ -25,6 +25,8 @@ return array(
 	'address_info' => 'Ihre Bestellungen werden an die folgende Adresse geliefert:',
 	'title_male' => 'Herrn',
 	'title_female' => 'Frau',
+	'edit_address' => 'Adresse bearbeiten',
+	'title' => 'Anrede',
 
 	'orders' => 'Bestellungen',
 

@@ -25,7 +25,8 @@ return array(
 	'address_info' => 'Your orders will be shipped to the following address:',
 	'title_male' => 'Mr.',
 	'title_female' => 'Ms.',
-
+	'edit_address' => 'Edit address',
+	'title' => 'Title',
 
 	'orders' => 'Orders',
 

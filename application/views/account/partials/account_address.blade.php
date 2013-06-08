@@ -31,7 +31,7 @@
             </div>
 @endif
             <div class="form-actions">
-                {{ HTML::link_to_route('address', __('rhine/account.edit'), array() ,array('class' => 'btn')) }}
+                {{ HTML::link_to_route('editaddress', __('rhine/account.edit'), array() ,array('class' => 'btn')) }}
 
             </div>
             {{ Form::close() }}

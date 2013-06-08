@@ -42,4 +42,11 @@ class Account_Controller extends Base_Controller {
 		return $action->execute($user);
 	}
 
+	public function action_editaddress()
+	{
+		$action = IoC::resolve('accountGetEditAddressAction');
+		$user = Auth::user();
+		return $action->execute($user);
+	}
+
 }

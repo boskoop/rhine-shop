@@ -85,4 +85,19 @@ class AccountRoutesTest extends Tests\RouteTestCase
 		Auth::logout();
 	}
 
+	/**
+	 * Tests the account-address-edit-route.
+	 *
+	 * @return void
+	 */
+	public function testAccountAddressEdit()
+	{
+		Auth::login(1);
+
+		$response = $this->httpGet('account/address/edit');
+		$this->assertTrue($response->foundation->isOk());
+		
+		Auth::logout();
+	}
+
 }

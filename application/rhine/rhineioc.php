@@ -97,6 +97,9 @@ class RhineIoC
 		IoC::register('accountGetAddressAction', function() {
 			return new Actions\Account\AccountGetAddressAction(IoC::resolve('addressRepository'));
 		});
+		IoC::register('accountGetEditAddressAction', function() {
+			return new Actions\Account\AccountGetEditAddressAction(IoC::resolve('addressRepository'));
+		});
 		IoC::register('accountGetLoginAction', function() {
 			return new Actions\Account\AccountGetLoginAction();
 		});

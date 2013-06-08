@@ -17,11 +17,11 @@ class Create_Addresses {
 
 		Gender::create(array(
 			'id' => GenderEnum::MALE,
-			'gender' => 'male'
+			'gender' => GenderEnum::MALE_VALUE
 		));
 		Gender::create(array(
 			'id' => GenderEnum::FEMALE,
-			'gender' => 'female'
+			'gender' => GenderEnum::FEMALE_VALUE
 		));
 
 		Schema::create('addresses', function($table) {

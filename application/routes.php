@@ -71,6 +71,7 @@ Route::group(array('before' => 'auth'), function()
 	Route::post('account/profile/edit', array('before' => 'csrf', 'as' => 'saveprofile', 'uses' => 'account@saveprofile'));
 
 	Route::get('account/address', array('as' => 'address', 'uses' => 'account@address'));
+	Route::get('account/address/edit', array('as' => 'editaddress', 'uses' => 'account@editaddress'));
 
 	
 	Route::get('account/orders', array('as' => 'orders', 'uses' => 'account@index'));

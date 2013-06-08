@@ -25,6 +25,8 @@ return array(
 	'address_info' => 'Vos commandes seront livrées à l’adresse suivante:',
 	'title_male' => 'M.',
 	'title_female' => 'Mme',
+	'edit_address' => 'Modifier l’adresse',
+	'title' => 'Titre',
 
 	'orders' => 'Commandes',
 
