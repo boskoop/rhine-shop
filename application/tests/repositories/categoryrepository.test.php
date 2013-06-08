@@ -1,6 +1,6 @@
 <?php
 
-use Rhine\Repositories\Eloquent\EloquentCategoryRepository;
+use Laravel\IoC;
 
 class CategoryRepositoryTest extends Tests\PersistenceTestCase
 {
@@ -9,7 +9,7 @@ class CategoryRepositoryTest extends Tests\PersistenceTestCase
 
 	protected function setUpInternal()
 	{
-		$this->categoryRepository = new EloquentCategoryRepository;
+		$this->categoryRepository = IoC::resolve('categoryRepository');
 	}
 
 	/**

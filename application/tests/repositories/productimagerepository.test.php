@@ -1,6 +1,6 @@
 <?php
 
-use Rhine\Repositories\Eloquent\EloquentProductImageRepository;
+use Laravel\IoC;
 
 class ProductImageRepositoryTest extends Tests\PersistenceTestCase
 {
@@ -9,7 +9,7 @@ class ProductImageRepositoryTest extends Tests\PersistenceTestCase
 
 	protected function setUpInternal()
 	{
-		$this->productImageRepository = new EloquentProductImageRepository;
+		$this->productImageRepository = IoC::resolve('productImageRepository');
 	}
 
 	/**
