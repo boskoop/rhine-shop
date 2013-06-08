@@ -3,8 +3,8 @@
 final class GenderEnum
 {
 
-	const MALE = 0;
-	const FEMALE = 1;
+	const MALE = 1;
+	const FEMALE = 2;
 
 	/**
 	 * Constructor should not be visible
