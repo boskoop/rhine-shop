@@ -24,6 +24,9 @@ class RhineIoC
 		IoC::singleton('productImageRepository', function() {
 			return new Repositories\Eloquent\EloquentProductImageRepository();
 		});
+		IoC::singleton('addressRepository', function() {
+			return new Repositories\Eloquent\EloquentAddressRepository();
+		});
 
 		// DomainModels
 		IoC::singleton('cartFactory', function() {
