@@ -13,12 +13,14 @@
               <label class="control-label" for="address">&nbsp;</label>
               <div class="controls">
                 <address id="address">
-                  Mr.<br>
-                  Bart Simpson<br>
-                  c/o Homer Simpson<br>
-                  742 Evergreen Terrace<br>
-                  1337 <strong>Springfield</strong><br>
-                  USA<br>
+                  {{ __('rhine/account.title_'.$address->gender->gender) }}<br>
+                  {{ $address->forename }} {{ $address->surname }}<br>
+                  {{ $address->street1 }}<br>
+@unless($address->street2 == null)
+                  {{ $address->street2 }}<br>
+@endunless
+                  {{ $address->zip }} <strong>{{ $address->city }}</strong><br>
+                  {{ $address->country }}<br>
                 </address>
               </div>
             </div>

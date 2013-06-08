@@ -22,6 +22,8 @@ return array(
 	'cancel' => 'Annuler',
 
 	'address' => 'Addresse',
+	'title_male' => 'M.',
+	'title_female' => 'Mme',
 
 	'orders' => 'Commandes',
 

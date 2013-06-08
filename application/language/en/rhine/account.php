@@ -22,6 +22,9 @@ return array(
 	'cancel' => 'Cancel',
 
 	'address' => 'Address',
+	'title_male' => 'Mr.',
+	'title_female' => 'Ms.',
+
 
 	'orders' => 'Orders',
 
