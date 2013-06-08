@@ -39,6 +39,7 @@ class AccountRoutesTest extends Tests\RouteTestCase
 		$response = $this->httpGet('account/login');
 		$this->assertTrue($response->foundation->isOk());
 	}
+
 	/**
 	 * Tests the account-profile-route.
 	 *
@@ -66,6 +67,21 @@ class AccountRoutesTest extends Tests\RouteTestCase
 		$response = $this->httpGet('account/profile/edit');
 		$this->assertTrue($response->foundation->isOk());
 
+		Auth::logout();
+	}
+
+	/**
+	 * Tests the account-address-route.
+	 *
+	 * @return void
+	 */
+	public function testAccountAddress()
+	{
+		Auth::login(1);
+
+		$response = $this->httpGet('account/address');
+		$this->assertTrue($response->foundation->isOk());
+		
 		Auth::logout();
 	}
 
