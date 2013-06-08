@@ -1,16 +1,10 @@
 <?php
 
-final class GenderEnum
+abstract class GenderEnum
 {
 
 	const MALE = 1;
 	const FEMALE = 2;
-
-	/**
-	 * Constructor should not be visible
-	 */
-	private function __construct()
-	{}
 
 	/**
 	 * Retuns all available genders in an array
@@ -19,7 +13,7 @@ final class GenderEnum
 	 */
 	public static function all()
 	{
-		return array(MALE, FEMALE);
+		return array(GenderEnum::MALE, GenderEnum::FEMALE);
 	}
 
 }
