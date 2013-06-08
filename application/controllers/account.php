@@ -5,17 +5,20 @@ class Account_Controller extends Base_Controller {
 	public function action_index()
 	{
 		$action = IoC::resolve('accountGetIndexAction');
-		return $action->execute();
+		$user = Auth::user();
+		return $action->execute($user);
 	}
 
 	public function action_editprofile()
 	{
+		$user = Auth::user();
+
 		$username = Input::old('username');
 		$email = Input::old('email');
-		$user = new User(array('username' => $username, 'email' => $email));
+		$inputUser = new User(array('username' => $username, 'email' => $email));
 
 		$action = IoC::resolve('accountGetEditProfileAction');
-		return $action->execute($user);
+		return $action->execute($user, $inputUser);
 	}
 
 	public function action_saveprofile()
@@ -30,6 +33,13 @@ class Account_Controller extends Base_Controller {
 	{
 		$action = IoC::resolve('accountGetLoginAction');
 		return $action->execute();
+	}
+
+	public function action_address()
+	{
+		$action = IoC::resolve('accountGetAddressAction');
+		$user = Auth::user();
+		return $action->execute($user);
 	}
 
 }

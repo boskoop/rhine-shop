@@ -1,8 +1,6 @@
 <?php namespace Rhine\Actions\Account;
 
 use Laravel\View;
-use Laravel\Auth;
-use Laravel\Redirect;
 use User;
 
 class AccountGetEditProfileAction
@@ -11,9 +9,8 @@ class AccountGetEditProfileAction
 	/**
 	 * @return View
 	 */
-	public function execute(User $input = null)
+	public function execute(User $user = null, User $input = null)
 	{
-		$user = Auth::user();
 		if ($user == null) {
 			throw new \LogicException('User not authorized!');
 		}

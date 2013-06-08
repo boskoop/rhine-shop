@@ -94,6 +94,9 @@ class RhineIoC
 		IoC::register('accountPostEditProfileAction', function() {
 			return new Actions\Account\AccountPostEditProfileAction(IoC::resolve('userValidator'));
 		});
+		IoC::register('accountGetAddressAction', function() {
+			return new Actions\Account\AccountGetAddressAction();
+		});
 		IoC::register('accountGetLoginAction', function() {
 			return new Actions\Account\AccountGetLoginAction();
 		});

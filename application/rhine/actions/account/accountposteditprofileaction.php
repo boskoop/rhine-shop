@@ -6,6 +6,7 @@ use Laravel\Config;
 use Laravel\Hash;
 use Rhine\Services\Validators\User\UserValidator;
 use Rhine\Services\Validators\ValidationException;
+use User;
 
 class AccountPostEditProfileAction
 {
@@ -20,9 +21,8 @@ class AccountPostEditProfileAction
 	/**
 	 * @return Redirect
 	 */
-	public function execute($input)
+	public function execute(User $user, $input)
 	{
-		$user = Auth::user();
 		if ($user == null) {
 			throw new \LogicException('User not authorized!');
 		}

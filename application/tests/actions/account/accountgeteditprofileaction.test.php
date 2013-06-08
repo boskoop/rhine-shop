@@ -2,7 +2,7 @@
 
 use Rhine\Actions\Account\AccountGetEditProfileAction;
 
-class AccountGetEditActionTest extends Tests\PersistenceTestCase
+class AccountGetEditProfileActionTest extends Tests\UnitTestCase
 {
 
 	private $action;
@@ -19,13 +19,11 @@ class AccountGetEditActionTest extends Tests\PersistenceTestCase
 	 */
 	public function testOk()
 	{
-		User::create(array('id' => 1, 'username' => 'user'));
-		Auth::login(1);
+		$user = new User(array('id' => 1, 'username' => 'user'));
 
-		$response = $this->action->execute();
+		$response = $this->action->execute($user);
 
 		$this->assertResponseViewNameIs('account.editprofile', $response);
-		Auth::logout();
 	}
 
 	/**
@@ -36,14 +34,7 @@ class AccountGetEditActionTest extends Tests\PersistenceTestCase
 	 */
 	public function testNotAuthenticated()
 	{
-		$this->assertFalse(Auth::check());
-
-		$this->action->execute();
-	}
-
-	private function assertResponseViewNameIs($name, $response)
-	{
-		$this->assertEquals($name, $response->view, 'Expected view name $name, but was: '.$response->view);
+		$this->action->execute(null);
 	}
 
 }

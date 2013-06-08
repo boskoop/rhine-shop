@@ -1,15 +1,15 @@
 <?php
 
-use Rhine\Actions\Account\AccountGetIndexAction;
+use Rhine\Actions\Account\AccountGetAddressAction;
 
-class AccountGetIndexActionTest extends Tests\UnitTestCase
+class AccountGetAddressActionTest extends Tests\UnitTestCase
 {
 
 	private $action;
 
 	protected function setUpInternal()
 	{
-		$this->action = new AccountGetIndexAction();
+		$this->action = new AccountGetAddressAction();
 	}
 
 	/**
@@ -23,7 +23,7 @@ class AccountGetIndexActionTest extends Tests\UnitTestCase
 
 		$response = $this->action->execute($user);
 
-		$this->assertResponseViewNameIs('account.index', $response);
+		$this->assertResponseViewNameIs('account.address', $response);
 	}
 
 	/**

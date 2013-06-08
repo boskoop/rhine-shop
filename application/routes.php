@@ -68,10 +68,11 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('account', array('as' => 'account', 'uses' => 'account@index'));
 	Route::get('account/profile', array('as' => 'profile', 'uses' => 'account@index'));
 	Route::get('account/profile/edit', array('as' => 'editprofile', 'uses' => 'account@editprofile'));
-
 	Route::post('account/profile/edit', array('before' => 'csrf', 'as' => 'saveprofile', 'uses' => 'account@saveprofile'));
 
-	Route::get('account/address', array('as' => 'address', 'uses' => 'account@index'));
+	Route::get('account/address', array('as' => 'address', 'uses' => 'account@address'));
+
+	
 	Route::get('account/orders', array('as' => 'orders', 'uses' => 'account@index'));
 	Route::get('account/orderhistory', array('as' => 'orderhistory', 'uses' => 'account@index'));
 });

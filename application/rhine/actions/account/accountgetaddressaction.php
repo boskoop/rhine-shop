@@ -3,7 +3,7 @@
 use Laravel\View;
 use User;
 
-class AccountGetIndexAction
+class AccountGetAddressAction
 {
 
 	/**
@@ -15,7 +15,7 @@ class AccountGetIndexAction
 			throw new \LogicException('User not authenticated!');
 		}
 
-		return View::make('account.index')
+		return View::make('account.address')
 		->with(compact('user'));
 	}
 
