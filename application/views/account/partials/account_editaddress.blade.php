@@ -1,9 +1,8 @@
 {{--
-    account_editprofile.blade.php
+    account_editaddress.blade.php
 
     Variables needed:
-    - username -> the username
-    - email -> the email
+    - address -> the values to be prefilled
 --}}
             <h2>{{ __('rhine/account.edit_profile') }}</h2>
             {{ Form::open(URL::to_route('saveprofile'), 'POST', array('class' => 'form-horizontal')) }}

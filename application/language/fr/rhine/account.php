@@ -21,7 +21,8 @@ return array(
 	'save' => 'Enregistrer les modifications',
 	'cancel' => 'Annuler',
 
-	'address' => 'Addresse',
+	'address' => 'Adresse',
+	'address_info' => 'Vos commandes seront livrées à l’adresse suivante:',
 	'title_male' => 'M.',
 	'title_female' => 'Mme',
 

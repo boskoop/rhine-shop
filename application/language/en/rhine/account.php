@@ -22,6 +22,7 @@ return array(
 	'cancel' => 'Cancel',
 
 	'address' => 'Address',
+	'address_info' => 'Your orders will be shipped to the following address:',
 	'title_male' => 'Mr.',
 	'title_female' => 'Ms.',
 

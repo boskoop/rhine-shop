@@ -22,6 +22,7 @@ return array(
 	'cancel' => 'Abbrechen',
 
 	'address' => 'Adresse',
+	'address_info' => 'Ihre Bestellungen werden an die folgende Adresse geliefert:',
 	'title_male' => 'Herrn',
 	'title_female' => 'Frau',
 

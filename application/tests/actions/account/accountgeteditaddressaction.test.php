@@ -1,8 +1,8 @@
 <?php
 
-use Rhine\Actions\Account\AccountGetAddressAction;
+use Rhine\Actions\Account\AccountGetEditAddressAction;
 
-class AccountGetAddressActionTest extends Tests\UnitTestCase
+class AccountGetEditAddressActionTest extends Tests\UnitTestCase
 {
 
 	private $action;
@@ -12,7 +12,7 @@ class AccountGetAddressActionTest extends Tests\UnitTestCase
 	protected function setUpInternal()
 	{
 		$this->addressRepositoryMock = $this->getMock('Rhine\Repositories\AddressRepository');
-		$this->action = new AccountGetAddressAction($this->addressRepositoryMock);
+		$this->action = new AccountGetEditAddressAction($this->addressRepositoryMock);
 	}
 
 	/**
@@ -36,7 +36,7 @@ class AccountGetAddressActionTest extends Tests\UnitTestCase
 
 		$response = $this->action->execute($user);
 
-		$this->assertResponseViewNameIs('account.address', $response);
+		$this->assertResponseViewNameIs('account.editaddress', $response);
 		$this->assertEquals('Bart', $response->data['address']->forename);
 	}
 

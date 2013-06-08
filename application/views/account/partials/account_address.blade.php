@@ -3,10 +3,9 @@
 
     Variables needed:
     - address -> the address
-    - user -> the user
 --}}
             <h2>{{ __('rhine/account.address') }}</h2>
-            <p>Your orders will be shipped to the following address:</p>
+            <p>{{ __('rhine/account.address_info') }}</p>
             {{ Form::open(URL::current(), 'POST', array('class' => 'form-horizontal')) }}
 
             <div class="control-group">
