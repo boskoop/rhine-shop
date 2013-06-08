@@ -5,16 +5,60 @@ class Seed_Data_Task
 
 	public function run($arguments)
 	{
-		User::create(array(
+		$user = User::all();
+		if (count($user) > 0) {
+			echo "User table not empty, aborting!\n";
+			throw new RuntimeException('Exception: User table not empty!');
+		}
+
+		$this->insertUsers();
+
+		$this->insertProducts();
+
+		$this->insertProductImages();
+	}
+
+	private function insertUsers()
+	{
+		echo "Inserting users/addresses";
+
+		$admin = User::create(array(
 			'username' => 'admin',
 			'email' => 'admin@example.com',
 			'password' => Hash::make('123456')
 			));
-		User::create(array(
+		$user = User::create(array(
 			'username' => 'user',
 			'email' => 'user@example.com',
 			'password' => Hash::make('123456')
 			));
+
+		Address::create(array(
+			'user_id' => $admin->id,
+			'gender_id' => GenderEnum::FEMALE,
+			'forename' => 'Marge',
+			'surname' => 'Simpson',
+			'street1' => '742 Evergreen Terrace',
+			'zip' => '1337',
+			'city' => 'Springfield',
+			'country' => 'USA',
+		));
+		Address::create(array(
+			'user_id' => $user->id,
+			'gender_id' => GenderEnum::MALE,
+			'forename' => 'Bart',
+			'surname' => 'Simpson',
+			'street1' => 'c/o Homer Simpson',
+			'street2' => '742 Evergreen Terrace',
+			'zip' => '1337',
+			'city' => 'Springfield',
+			'country' => 'USA',
+		));
+	}
+
+	private function insertProducts()
+	{
+		echo "\nInserting categories/products";
 
 		$pcGames = Category::create(array(
 			'name' => 'PC Games',
@@ -85,12 +129,11 @@ class Seed_Data_Task
 				'stocksize' => 6)
 			);
 		$xbox->products()->save($products);
-
-		$this->insertProductImages();
 	}
 
 	private function insertProductImages()
 	{
+		echo "\nInserting product images:";
 		$categories = Category::all();
 		foreach ($categories as $category) {
 			$catName = strtolower($category->name);
@@ -104,28 +147,12 @@ class Seed_Data_Task
 				
 				$fileName = $catName.'_'.$prodName.'.png';
 				$file = path('app').'tasks/img/'.$fileName;
-				echo "\nInserting image: ".$file;
+				echo "\n".$file;
 				$image = File::get($file);
 
 				$productImage = new ProductImage(array('file' => $image));
 				$product->productImage()->insert($productImage);
 			}
-		}
-	}
-
-	public function clean($arguments)
-	{
-		$admin = User::where('username', '=', 'admin')->first();
-		$admin->delete();
-
-		$products = Product::all();
-		foreach ($products as $product) {
-			// deletes productimages as well (cascade)
-			$product->delete();
-		}
-		$categories = Category::all();
-		foreach ($categories as $category) {
-			$category->delete();
 		}
 	}
 

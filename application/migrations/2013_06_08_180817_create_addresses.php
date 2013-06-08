@@ -11,7 +11,7 @@ class Create_Addresses {
 	{
 		Schema::create('genders', function($table) {
 			$table->increments('id');
-			$table->string('gender', 2)->unique();
+			$table->string('gender', 6)->unique();
 			$table->timestamps();
 		});
 
