@@ -15,8 +15,6 @@ class CartServiceTest extends Tests\PersistenceTestCase
 
 	protected function setUpInternal()
 	{
-		$ioc = new RhineIoC();
-		$ioc->init();
 		$factory = IoC::resolve('cartFactory');
 		$this->cartService = new CartServiceImpl($factory);
 	}

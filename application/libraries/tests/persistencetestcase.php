@@ -5,6 +5,8 @@ use Laravel\Session;
 use Laravel\Cookie;
 use Laravel\Config;
 use Laravel\Auth;
+use Laravel\IoC;
+use Rhine\RhineIoC;
 
 
 abstract class PersistenceTestCase extends PHPUnit_Framework_TestCase {
@@ -20,6 +22,10 @@ abstract class PersistenceTestCase extends PHPUnit_Framework_TestCase {
 		echo "\nPersistenceTestCase: running ".get_class($this)."->".$this->getName()."()";
 
 		PersistenceTestHelper::cleanDatabase();
+
+		// Initialize IoC
+		$ioc = new RhineIoC();
+		$ioc->init();
 
 		// Initialize the session (session is retrieved via cookie)
 		$tempSessionDriver = Config::get('session.driver');
@@ -38,6 +44,10 @@ abstract class PersistenceTestCase extends PHPUnit_Framework_TestCase {
 		Config::set('session.driver', $this->tempSessionDriver);
 
 		$this->tearDownInternal();
+
+		// Reset IoC
+		IoC::$registry = array();
+		IoC::$singletons = array();
 
 		$timeTaken = $this->timer->getTimeTaken();
 		echo "\nPersistenceTestCase: completed ".get_class($this)."->".$this->getName()."()";
