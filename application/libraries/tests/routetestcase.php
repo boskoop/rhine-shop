@@ -9,6 +9,8 @@ use Laravel\Input;
 use Laravel\Request;
 use Laravel\Routing\Router;
 use Laravel\Auth;
+use Laravel\IoC;
+use Rhine\RhineIoC;
 
 abstract class RouteTestCase extends PHPUnit_Framework_TestCase {
 
@@ -23,6 +25,10 @@ abstract class RouteTestCase extends PHPUnit_Framework_TestCase {
 		echo "\nRouteTestCase: running ".get_class($this)."->".$this->getName()."()";
 
 		PersistenceTestHelper::cleanDatabase();
+
+		// Initialize IoC
+		$ioc = new RhineIoC();
+		$ioc->init();
 
 		// Initialize the session (session is retrieved via cookie)
 		$tempSessionDriver = Config::get('session.driver');
@@ -45,6 +51,10 @@ abstract class RouteTestCase extends PHPUnit_Framework_TestCase {
 		Config::set('session.driver', $this->tempSessionDriver);
 
 		$this->tearDownInternal();
+
+		// Reset IoC
+		IoC::$registry = array();
+		IoC::$singletons = array();
 
 		$timeTaken = $this->timer->getTimeTaken();
 		echo "\nRouteTestCase: completed ".get_class($this)."->".$this->getName()."()";
@@ -89,6 +99,7 @@ abstract class RouteTestCase extends PHPUnit_Framework_TestCase {
 		echo "\nRouteTestCase: calling HTTP ".$method." '".$route."'";
 
 		$request = Router::route($method, $route);
+		Request::foundation()->request->replace($input);
 		Request::setMethod($method);
 
 		$response = $request->call();
