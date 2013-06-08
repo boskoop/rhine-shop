@@ -15,6 +15,6 @@
 
 @section('content')
           <div class="span9">
-@include('account.partials.account_profile')
+@include('account.partials.account_address')
           </div>
 @endsection

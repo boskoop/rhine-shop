@@ -1,5 +1,5 @@
 {{--
-    account_sidenavigation.blade.php
+    account_editprofile.blade.php
 
     Variables needed:
     - username -> the username

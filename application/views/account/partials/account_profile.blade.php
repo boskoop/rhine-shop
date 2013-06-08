@@ -1,5 +1,5 @@
 {{--
-    account_sidenavigation.blade.php
+    account_profile.blade.php
 
     Variables needed:
     - user -> the user
