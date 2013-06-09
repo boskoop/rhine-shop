@@ -1,10 +1,9 @@
 <?php namespace Rhine\Actions\Account;
 
-use Laravel\Auth;
 use Laravel\Redirect;
 use Laravel\Config;
 use Laravel\Hash;
-use Rhine\Services\Validators\User\UserValidator;
+use Rhine\Services\Validators\UserValidator\UserValidator;
 use Rhine\Services\Validators\ValidationException;
 use User;
 

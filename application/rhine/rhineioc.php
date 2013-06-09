@@ -43,7 +43,10 @@ class RhineIoC
 
 		// Validators
 		IoC::singleton('userValidator', function() {
-			return new Services\Validators\User\UserValidator();
+			return new Services\Validators\Account\UserValidator();
+		});
+		IoC::singleton('addressValidator', function() {
+			return new Services\Validators\Account\AddressValidator();
 		});
 
 		// Actions
@@ -99,6 +102,9 @@ class RhineIoC
 		});
 		IoC::register('accountGetEditAddressAction', function() {
 			return new Actions\Account\AccountGetEditAddressAction(IoC::resolve('addressRepository'));
+		});
+		IoC::register('accountPostEditAddressAction', function() {
+			return new Actions\Account\AccountPostEditAddressAction(IoC::resolve('addressRepository'), IoC::resolve('addressValidator'));
 		});
 		IoC::register('accountGetLoginAction', function() {
 			return new Actions\Account\AccountGetLoginAction();

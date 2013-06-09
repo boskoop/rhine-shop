@@ -10,9 +10,9 @@
               <div class="control-group{{ $errors->has('title') ? ' error' : '' }}">
                 <label class="control-label" for="title">{{ __('rhine/account.title') }} <span class="mandatory">*</span></label>
                 <div class="controls">
-                  <select id="title" name="title" placeholder="{{ __('rhine/account.title') }}" value="{{ $address->title }}" required>
-@foreach(GenderEnum::values() as $gender)
-                    <option>{{ __('rhine/account.title_'.$gender) }}</option>
+                  <select id="title" name="title" placeholder="{{ __('rhine/account.title') }}" required>
+@foreach(GenderEnum::all() as $gender)
+                    <option{{ ($gender == $address->gender_id)  ? ' selected="selected"' : '' }} value="{{ $gender }}">{{ __('rhine/account.title_'.GenderEnum::getValue($gender)) }}</option>
 @endforeach
                   </select>
 @if($errors->has('title'))

@@ -18,7 +18,7 @@ class AccountGetEditAddressAction
 	/**
 	 * @return View
 	 */
-	public function execute(User $user = null, Address $input = null)
+	public function execute(User $user = null, $inputAddress = null)
 	{
 		if ($user == null) {
 			throw new \LogicException('User not authorized!');
@@ -26,8 +26,8 @@ class AccountGetEditAddressAction
 
 		$address = $this->addressRepository->findByUserId($user->id);
 
-		if ($input != null) {
-			$address = $input;
+		if ($inputAddress != null) {
+			$address = $inputAddress;
 		}
 
 		return View::make('account.editaddress')

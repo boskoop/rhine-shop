@@ -11,22 +11,23 @@ class Account_Controller extends Base_Controller {
 
 	public function action_editprofile()
 	{
+		$action = IoC::resolve('accountGetEditProfileAction');
 		$user = Auth::user();
 
 		$username = Input::old('username');
 		$email = Input::old('email');
 		$inputUser = new User(array('username' => $username, 'email' => $email));
 
-		$action = IoC::resolve('accountGetEditProfileAction');
 		return $action->execute($user, $inputUser);
 	}
 
 	public function action_saveprofile()
 	{
-		$input = Input::get();
-
 		$action = IoC::resolve('accountPostEditProfileAction');
-		return $action->execute($input);
+		$user = Auth::user();
+
+		$input = Input::get();
+		return $action->execute($user, $input);
 	}
 
 	public function action_login()
@@ -46,7 +47,31 @@ class Account_Controller extends Base_Controller {
 	{
 		$action = IoC::resolve('accountGetEditAddressAction');
 		$user = Auth::user();
-		return $action->execute($user);
+
+		if (Session::has('errors')) {
+			$inputAddress = new Address(array(
+				'gender_id' => Input::old('title'),
+				'forename' => Input::old('forename'),
+				'surname' => Input::old('surname'),
+				'street1' => Input::old('street1'),
+				'street2' => Input::old('street2'),
+				'zip' => Input::old('zip'),
+				'city' => Input::old('city'),
+				'country' => Input::old('country')
+			));
+		} else {
+			$inputAddress = null;
+		}
+		return $action->execute($user, $inputAddress);
+	}
+
+	public function action_saveaddress()
+	{
+		$action = IoC::resolve('accountPostEditAddressAction');
+		$user = Auth::user();
+
+		$input = Input::get();
+		return $action->execute($user, $input);
 	}
 
 }

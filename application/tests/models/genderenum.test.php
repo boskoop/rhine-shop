@@ -29,4 +29,15 @@ class GenderEnumTest extends Tests\UnitTestCase
 		$this->assertEquals(2, sizeof($genders));
 	}
 
+	/**
+	 * Tests if the gender enum correctly maps key to values
+	 * 
+	 * @return void
+	 */
+	public function testGenderEnumMapValues()
+	{
+		$this->assertEquals(GenderEnum::MALE_VALUE, GenderEnum::getValue(GenderEnum::MALE));
+		$this->assertEquals(GenderEnum::FEMALE_VALUE, GenderEnum::getValue(GenderEnum::FEMALE));
+	}
+
 }

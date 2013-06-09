@@ -12,7 +12,7 @@
 @endif
           	<a href="{{ URL::to_route('profile') }}"><i class="icon-chevron-right"></i>{{ __('rhine/account.profile') }}</a>
           </li>
-@if(in_array(Request::route()->action['as'], array('address')))
+@if(in_array(Request::route()->action['as'], array('address', 'editaddress')))
           <li class="active">
 @else
           <li>

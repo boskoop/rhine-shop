@@ -8,6 +8,11 @@ abstract class GenderEnum
 	const FEMALE = 2;
 	const FEMALE_VALUE = 'female';
 
+	private static $map = array(
+			GenderEnum::MALE => GenderEnum::MALE_VALUE, 
+			GenderEnum::FEMALE => GenderEnum::FEMALE_VALUE
+	);
+
 	/**
 	 * Retuns all available genders in an array
 	 * 
@@ -28,6 +33,11 @@ abstract class GenderEnum
 	{
 		return array(GenderEnum::MALE_VALUE, 
 			GenderEnum::FEMALE_VALUE);
+	}
+
+	public static function getValue($key)
+	{
+		return self::$map[''.$key];
 	}
 
 }

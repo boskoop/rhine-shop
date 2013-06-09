@@ -1,4 +1,4 @@
-<?php namespace Rhine\Services\Validators\User;
+<?php namespace Rhine\Services\Validators\Account;
 
 use Laravel\Validator;
 use Laravel\Hash;
