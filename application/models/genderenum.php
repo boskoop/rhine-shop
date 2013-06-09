@@ -15,7 +15,8 @@ abstract class GenderEnum
 	 */
 	public static function all()
 	{
-		return array(GenderEnum::MALE, GenderEnum::FEMALE);
+		return array(GenderEnum::MALE, 
+			GenderEnum::FEMALE);
 	}
 
 	/**
@@ -25,7 +26,8 @@ abstract class GenderEnum
 	 */
 	public static function values()
 	{
-		return array(GenderEnum::MALE_VALUE, GenderEnum::FEMALE_VALUE);
+		return array(GenderEnum::MALE_VALUE, 
+			GenderEnum::FEMALE_VALUE);
 	}
 
 }

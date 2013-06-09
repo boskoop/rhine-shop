@@ -24,7 +24,7 @@ class UserAddressTest extends Tests\PersistenceTestCase
 			'street2' => '742 Evergreen Terrace',
 			'zip' => '1337',
 			'city' => 'Springfield',
-			'country' => 'USA',
+			'country' => 'US',
 		));
 
 		$user->address()->insert($address);

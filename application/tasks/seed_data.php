@@ -41,7 +41,7 @@ class Seed_Data_Task
 			'street1' => '742 Evergreen Terrace',
 			'zip' => '1337',
 			'city' => 'Springfield',
-			'country' => 'USA',
+			'country' => 'US',
 		));
 		Address::create(array(
 			'user_id' => $user->id,
@@ -52,7 +52,7 @@ class Seed_Data_Task
 			'street2' => '742 Evergreen Terrace',
 			'zip' => '1337',
 			'city' => 'Springfield',
-			'country' => 'USA',
+			'country' => 'US',
 		));
 	}
 

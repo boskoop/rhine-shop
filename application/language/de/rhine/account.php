@@ -27,6 +27,13 @@ return array(
 	'title_female' => 'Frau',
 	'edit_address' => 'Adresse bearbeiten',
 	'title' => 'Anrede',
+	'forename' => 'Vorname',
+	'surname' => 'Nachname',
+	'street1' => 'Adresszeile 1',
+	'street2' => 'Adresszeile 2',
+	'zip' => 'Postleitzahl',
+	'city' => 'Ort',
+	'country' => 'Land',
 
 	'orders' => 'Bestellungen',
 

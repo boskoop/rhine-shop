@@ -27,6 +27,13 @@ return array(
 	'title_female' => 'Ms.',
 	'edit_address' => 'Edit address',
 	'title' => 'Title',
+	'forename' => 'Forename',
+	'surname' => 'Surname',
+	'street1' => 'Street 1',
+	'street2' => 'Street 2',
+	'zip' => 'ZIP',
+	'city' => 'City',
+	'country' => 'Country',
 
 	'orders' => 'Orders',
 

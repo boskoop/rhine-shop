@@ -27,6 +27,13 @@ return array(
 	'title_female' => 'Mme',
 	'edit_address' => 'Modifier l’adresse',
 	'title' => 'Titre',
+	'forename' => 'Prénom',
+	'surname' => 'Nom de famille',
+	'street1' => 'Barre d’adresse 1',
+	'street2' => 'Barre d’adresse 2',
+	'zip' => 'Code postal',
+	'city' => 'Lieu',
+	'country' => 'Pays',
 
 	'orders' => 'Commandes',
 

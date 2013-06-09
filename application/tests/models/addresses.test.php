@@ -19,7 +19,7 @@ class AddressesTest extends Tests\PersistenceTestCase
 			'street2' => '742 Evergreen Terrace',
 			'zip' => '1337',
 			'city' => 'Springfield',
-			'country' => 'USA',
+			'country' => 'US',
 		));
 
 		$address = Address::find(1);
@@ -31,7 +31,7 @@ class AddressesTest extends Tests\PersistenceTestCase
 		$this->assertEquals('742 Evergreen Terrace', $address->street2);
 		$this->assertEquals('1337', $address->zip);
 		$this->assertEquals('Springfield', $address->city);
-		$this->assertEquals('USA', $address->country);
+		$this->assertEquals('US', $address->country);
 	}
 
 	/**

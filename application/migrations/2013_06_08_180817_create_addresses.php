@@ -34,7 +34,7 @@ class Create_Addresses {
 			$table->string('street2', 64)->nullable();
 			$table->string('zip', 16);
 			$table->string('city', 64);
-			$table->string('country', 64);
+			$table->string('country', 2);
 			$table->timestamps();
 
 			// fk (no support by sqlite -> disable in test)
