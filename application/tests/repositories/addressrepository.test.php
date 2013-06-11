@@ -13,7 +13,7 @@ class AddressRepositoryTest extends Tests\PersistenceTestCase
 	}
 
 	/**
-	 * Tests if findByCategory() returns Products in order.
+	 * Tests if testFindByUserId() returns the address for the correct user.
 	 *
 	 * @return void
 	 */
