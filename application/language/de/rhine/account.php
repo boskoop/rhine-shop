@@ -11,6 +11,8 @@ return array(
 	'edit' => 'Bearbeiten',
 
 	'do_register' => 'Registrieren',
+	'captcha' => 'Captcha',
+	'captcha_text' => 'Geben Sie den Code im Bild ein',
 
 	'profile' => 'Profil',
 	'email' => 'E-Mail',
