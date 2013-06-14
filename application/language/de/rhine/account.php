@@ -10,6 +10,8 @@ return array(
 	'do_login' => 'Anmelden',
 	'edit' => 'Bearbeiten',
 
+	'do_register' => 'Registrieren',
+
 	'profile' => 'Profil',
 	'email' => 'E-Mail',
 

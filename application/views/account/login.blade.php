@@ -43,6 +43,9 @@
                 <div class="control-group">
                   <div class="controls">
                     {{ Form::button(__('rhine/account.do_login'), array('class' => 'btn btn-primary', 'type' => 'submit')) }}
+
+                    {{ HTML::link_to_route('register', __('rhine/account.do_register'), array(), array('class' => 'btn')) }}
+
                   </div>
                 </div>
                 {{ Form::token() }}

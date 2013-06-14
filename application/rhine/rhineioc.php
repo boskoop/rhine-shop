@@ -109,6 +109,9 @@ class RhineIoC
 		IoC::register('accountGetLoginAction', function() {
 			return new Actions\Account\AccountGetLoginAction();
 		});
+		IoC::register('accountGetRegisterAction', function() {
+			return new Actions\Account\AccountGetRegisterAction();
+		});
 
 		IoC::register('informationGetAboutAction', function() {
 			return new Actions\Information\InformationGetAboutAction();

@@ -74,4 +74,10 @@ class Account_Controller extends Base_Controller {
 		return $action->execute($user, $input);
 	}
 
+	public function action_register()
+	{
+		$action = IoC::resolve('accountGetRegisterAction');
+		return $action->execute();
+	}
+
 }

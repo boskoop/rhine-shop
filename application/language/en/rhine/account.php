@@ -7,8 +7,10 @@ return array(
 	'password' => 'Password',
 
 	'login' => 'Login',
-	'do_login' => 'Sign in',
+	'do_login' => 'Log in',
 	'edit' => 'Edit',
+
+	'do_register' => 'Sign up',
 
 	'profile' => 'Profile',
 	'email' => 'Email',

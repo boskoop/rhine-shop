@@ -79,7 +79,7 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('account/orderhistory', array('as' => 'orderhistory', 'uses' => 'account@index'));
 });
 
-// Login/logout
+// Login/logout/register
 Route::get('account/login', array('as' => 'login', 'uses' => 'account@login'));
 Route::post('account/login', array('as' => 'loginaction', 'before' => 'csrf', function()
 	{
@@ -96,6 +96,7 @@ Route::get('account/logout', array('as' => 'logout', function()
 		Auth::logout();
 		return Redirect::to_route('login');
 	}));
+Route::get('account/register', array('as' => 'register', 'uses' => 'account@register'));
 
 // Information routes
 Route::get('information/about', array('as' => 'information_about', 'uses' => 'information@about'));
