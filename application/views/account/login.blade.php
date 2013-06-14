@@ -21,14 +21,14 @@
                 <div class="control-group">
                   <label class="control-label" for="username">{{ __('rhine/account.username') }} <span class="mandatory">*</span></label>
                   <div class="controls">
-                    {{ Form::text('username', '', array('placeholder' => __('rhine/account.username'), 'required')) }}
+                    {{ Form::text('username', '', array('id' => 'username', 'placeholder' => __('rhine/account.username'), 'required')) }}
                   </div>
                 </div>
 
                 <div class="control-group">
                   <label class="control-label" for="password">{{ __('rhine/account.password') }} <span class="mandatory">*</span></label>
                   <div class="controls">
-                    {{ Form::password('password', array('placeholder' => __('rhine/account.password'), 'required')) }}
+                    {{ Form::password('password', array('id' => 'password', 'placeholder' => __('rhine/account.password'), 'required')) }}
                   </div>
                 </div>
                 
