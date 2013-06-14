@@ -23,7 +23,7 @@
               <div class="control-group{{ $errors->has('forename') ? ' error' : '' }}">
                 <label class="control-label" for="forename">{{ __('rhine/account.forename') }} <span class="mandatory">*</span></label>
                 <div class="controls">
-                  <input type="forename" id="forename" name="forename" placeholder="{{ __('rhine/account.forename') }}" value="{{ $address->forename }}" required>
+                  <input type="text" id="forename" name="forename" placeholder="{{ __('rhine/account.forename') }}" value="{{ $address->forename }}" required>
 @if($errors->has('forename'))
                   <span class="help-inline">{{ $errors->first('forename') }}</span>
 @endif
@@ -32,7 +32,7 @@
               <div class="control-group{{ $errors->has('surname') ? ' error' : '' }}">
                 <label class="control-label" for="surname">{{ __('rhine/account.surname') }} <span class="mandatory">*</span></label>
                 <div class="controls">
-                  <input type="surname" id="surname" name="surname" placeholder="{{ __('rhine/account.surname') }}" value="{{ $address->surname }}" required>
+                  <input type="text" id="surname" name="surname" placeholder="{{ __('rhine/account.surname') }}" value="{{ $address->surname }}" required>
 @if($errors->has('surname'))
                   <span class="help-inline">{{ $errors->first('surname') }}</span>
 @endif
@@ -41,7 +41,7 @@
               <div class="control-group{{ $errors->has('street1') ? ' error' : '' }}">
                 <label class="control-label" for="street1">{{ __('rhine/account.street1') }} <span class="mandatory">*</span></label>
                 <div class="controls">
-                  <input type="street1" id="street1" name="street1" placeholder="{{ __('rhine/account.street1') }}" value="{{ $address->street1 }}" required>
+                  <input type="text" id="street1" name="street1" placeholder="{{ __('rhine/account.street1') }}" value="{{ $address->street1 }}" required>
 @if($errors->has('street1'))
                   <span class="help-inline">{{ $errors->first('street1') }}</span>
 @endif
@@ -50,7 +50,7 @@
               <div class="control-group{{ $errors->has('street2') ? ' error' : '' }}">
                 <label class="control-label" for="street2">{{ __('rhine/account.street2') }}</label>
                 <div class="controls">
-                  <input type="street2" id="street2" name="street2" placeholder="{{ __('rhine/account.street2') }}" value="{{ $address->street2 }}">
+                  <input type="text" id="street2" name="street2" placeholder="{{ __('rhine/account.street2') }}" value="{{ $address->street2 }}">
 @if($errors->has('street2'))
                   <span class="help-inline">{{ $errors->first('street2') }}</span>
 @endif
@@ -59,7 +59,7 @@
               <div class="control-group{{ $errors->has('zip') ? ' error' : '' }}">
                 <label class="control-label" for="zip">{{ __('rhine/account.zip') }} <span class="mandatory">*</span></label>
                 <div class="controls">
-                  <input type="zip" id="zip" name="zip" placeholder="{{ __('rhine/account.zip') }}" value="{{ $address->zip }}" required>
+                  <input type="text" id="zip" name="zip" placeholder="{{ __('rhine/account.zip') }}" value="{{ $address->zip }}" required>
 @if($errors->has('zip'))
                   <span class="help-inline">{{ $errors->first('zip') }}</span>
 @endif
@@ -68,7 +68,7 @@
               <div class="control-group{{ $errors->has('city') ? ' error' : '' }}">
                 <label class="control-label" for="city">{{ __('rhine/account.city') }} <span class="mandatory">*</span></label>
                 <div class="controls">
-                  <input type="city" id="city" name="city" placeholder="{{ __('rhine/account.city') }}" value="{{ $address->city }}" required>
+                  <input type="text" id="city" name="city" placeholder="{{ __('rhine/account.city') }}" value="{{ $address->city }}" required>
 @if($errors->has('city'))
                   <span class="help-inline">{{ $errors->first('city') }}</span>
 @endif
