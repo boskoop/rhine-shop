@@ -36,5 +36,6 @@
 return array(
 
 	'docs' => array('handles' => 'docs'),
+	'laracaptcha' => array('auto' => true, 'handles' => 'captcha'),
 
 );
