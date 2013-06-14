@@ -16,7 +16,7 @@ class AccountGetRegisterAction
 			return Redirect::to_route('account');
 		}
 
-		return View::make('account.login');
+		return View::make('account.register');
 	}
 
 }
