@@ -18,7 +18,7 @@
             <div class="well">
               {{ Form::open(URL::to_route('register'), 'POST', array('class' => 'form-horizontal')) }}
 
-                <div class="control-grou{{ $errors->has('username') ? ' error' : '' }}">
+                <div class="control-group{{ $errors->has('username') ? ' error' : '' }}">
                   <label class="control-label" for="username">{{ __('rhine/account.username') }} <span class="mandatory">*</span></label>
                   <div class="controls">
                     {{ Form::text('username', $username, array('id' => 'username', 'placeholder' => __('rhine/account.username'), 'required')) }}
