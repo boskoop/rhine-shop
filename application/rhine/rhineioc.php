@@ -46,6 +46,10 @@ class RhineIoC
 		IoC::singleton('cartService', function() {
 			return new Services\Impl\CartServiceImpl(IoC::resolve('cartFactory'));
 		});
+		IoC::singleton('orderService', function() {
+			return new Services\Impl\OrderServiceImpl(IoC::resolve('orderFactory'),
+				IoC::resolve('orderRepository'));
+		});
 
 		// Validators
 		IoC::singleton('userValidator', function() {
