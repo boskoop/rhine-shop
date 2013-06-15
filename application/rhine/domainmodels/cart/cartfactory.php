@@ -4,7 +4,7 @@ interface CartFactory
 {
 
 	/**
-	 * @return Cart
+	 * @return CartBo
 	 */
 	function createCartFromDto(CartDto $dto);
 

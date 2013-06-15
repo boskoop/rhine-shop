@@ -13,7 +13,7 @@ class CartDto
 		return new CartDto();
 	}
 
-	public static function createFromCart(Cart $cart)
+	public static function createFromCart(CartBo $cart)
 	{
 		$cartDto = new CartDto();
 		$positions = $cart->getPositions();

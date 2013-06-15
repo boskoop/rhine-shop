@@ -1,6 +1,9 @@
 <?php namespace Rhine\DomainModels\Cart;
 
-interface Cart
+/**
+ * A business object for a cart.
+ */
+interface CartBo
 {
 
 	/**

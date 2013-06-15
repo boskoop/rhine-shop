@@ -1,6 +1,6 @@
 <?php namespace Rhine\Services;
 
-use Rhine\DomainModels\Cart\Cart;
+use Rhine\DomainModels\Cart\CartBo;
 
 interface CartService
 {
@@ -17,6 +17,6 @@ interface CartService
 	 * 
 	 * @return void
 	 */
-	function saveCart(Cart $cart);
+	function saveCart(CartBo $cart);
 
 }

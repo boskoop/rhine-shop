@@ -1,7 +1,7 @@
 <?php namespace Rhine\Services\Impl;
 
 use Rhine\Services\CartService;
-use Rhine\DomainModels\Cart\Cart;
+use Rhine\DomainModels\Cart\CartBo;
 use Rhine\DomainModels\Cart\CartDto;
 use Rhine\DomainModels\Cart\CartFactory;
 use Laravel\Session;
@@ -32,7 +32,7 @@ class CartServiceImpl implements CartService
 		return $this->cart;
 	}
 
-	public function saveCart(Cart $cart)
+	public function saveCart(CartBo $cart)
 	{
 		$this->cart = $cart;
 		$sessionCart = CartDto::createFromCart($cart);

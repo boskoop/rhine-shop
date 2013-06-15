@@ -1,9 +1,9 @@
 <?php namespace Rhine\DomainModels\Cart\Impl;
 
 use Rhine\Repositories\ProductRepository;
-use Rhine\DomainModels\Cart\Cart;
+use Rhine\DomainModels\Cart\CartBo;
 
-class CartImpl implements Cart
+class CartImpl implements CartBo
 {
 
 	private $productRepository;
