@@ -10,12 +10,13 @@ class OrdersTest extends Tests\PersistenceTestCase
 	 */
 	public function testOrderAttributes()
 	{
-		$created = new DateTime('2010-02-01');
-		$shipped = new DateTime('2010-01-01');
+		$created = new DateTime('2010-01-01');
+		$paid = new DateTime('2010-01-02');
+		$shipped = new DateTime('2010-01-03');
 
 		$order = Order::create(array('id' => 1,
 			'user_id' => 1,
-			'paid' => false,
+			'paid_at' => $paid,
 			'shipped_at' => $shipped,
 		));
 		// We have to manually set the created_at because
@@ -25,7 +26,7 @@ class OrdersTest extends Tests\PersistenceTestCase
 
 		$order = Order::find(1);
 		$this->assertEquals(1, $order->user_id);
-		$this->assertEquals(false, $order->paid);
+		$this->assertEquals($paid->getTimestamp(), strtotime($order->paid_at));
 		$this->assertEquals($shipped->getTimestamp(), strtotime($order->shipped_at));
 		$this->assertEquals($created->getTimestamp(), strtotime($order->created_at));
 	}
@@ -116,6 +117,21 @@ class OrdersTest extends Tests\PersistenceTestCase
 		$order = Order::find(5);
 
 		$this->assertEquals(null, $order->shipped_at);
+	}
+
+	/**
+	 * Tests if orders are not paid by default
+	 *
+	 * @return void
+	 */
+	public function testOrderNotPaid()
+	{
+		$order = Order::create(array(
+			'id' => 5
+		));
+		$order = Order::find(5);
+
+		$this->assertEquals(null, $order->paid_at);
 	}
 
 }

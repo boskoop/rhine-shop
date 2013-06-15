@@ -12,7 +12,7 @@ class Create_Orders {
 		Schema::create('orders', function($table) {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
-			$table->boolean('paid')->default(false);
+			$table->date('paid_at')->nullable()->default(null);
 			$table->date('shipped_at')->nullable()->default(null);
 			$table->timestamps();
 
