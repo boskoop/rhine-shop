@@ -16,9 +16,9 @@
           <div class="span6">
             <h2>{{ __('rhine/account.do_register') }}</h2>
             <div class="well">
-              {{ Form::open(URL::to_route('login'), 'POST', array('class' => 'form-horizontal')) }}
+              {{ Form::open(URL::to_route('register'), 'POST', array('class' => 'form-horizontal')) }}
 
-                <div class="control-grou{{ $errors->has('username') ? ' error' : '' }}p">
+                <div class="control-grou{{ $errors->has('username') ? ' error' : '' }}">
                   <label class="control-label" for="username">{{ __('rhine/account.username') }} <span class="mandatory">*</span></label>
                   <div class="controls">
                     {{ Form::text('username', $username, array('id' => 'username', 'placeholder' => __('rhine/account.username'), 'required')) }}
@@ -31,7 +31,7 @@
                 <div class="control-group{{ $errors->has('email') ? ' error' : '' }}">
                   <label class="control-label" for="email">{{ __('rhine/account.email') }} <span class="mandatory">*</span></label>
                   <div class="controls">
-                    {{ Form::text('email', $email, array('id' => 'email', 'placeholder' => __('rhine/account.email'), 'required')) }}
+                    {{ Form::email('email', $email, array('id' => 'email', 'placeholder' => __('rhine/account.email'), 'required')) }}
 
 @if($errors->has('email'))
                     <span class="help-inline">{{ $errors->first('email') }}</span>

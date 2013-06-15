@@ -48,6 +48,9 @@ class RhineIoC
 		IoC::singleton('addressValidator', function() {
 			return new Services\Validators\Account\AddressValidator();
 		});
+		IoC::singleton('captchaValidator', function() {
+			return new Services\Validators\Account\CaptchaValidator();
+		});
 
 		// Actions
 		IoC::register('shopGetIndexAction', function() {
@@ -111,6 +114,10 @@ class RhineIoC
 		});
 		IoC::register('accountGetRegisterAction', function() {
 			return new Actions\Account\AccountGetRegisterAction();
+		});
+		IoC::register('accountPostRegisterAction', function() {
+			return new Actions\Account\AccountPostRegisterAction(IoC::resolve('userValidator'),
+					IoC::resolve('addressValidator'), IoC::resolve('captchaValidator'));
 		});
 
 		IoC::register('informationGetAboutAction', function() {

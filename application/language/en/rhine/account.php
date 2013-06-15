@@ -13,6 +13,7 @@ return array(
 	'do_register' => 'Sign up',
 	'captcha' => 'Captcha',
 	'captcha_text' => 'Enter the code in the picture',
+	'captcha_error' => 'Invalid captcha',
 
 	'profile' => 'Profile',
 	'email' => 'Email',

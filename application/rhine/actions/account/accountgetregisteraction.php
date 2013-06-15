@@ -1,8 +1,6 @@
 <?php namespace Rhine\Actions\Account;
 
 use Laravel\View;
-use Laravel\Auth;
-use Laravel\Redirect;
 
 class AccountGetRegisterAction
 {
@@ -12,10 +10,6 @@ class AccountGetRegisterAction
 	 */
 	public function execute()
 	{
-		if (Auth::check()) {
-			return Redirect::to_route('account');
-		}
-
 		$username = '';
 		$email = '';
 		$gender = '';

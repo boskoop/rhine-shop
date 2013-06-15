@@ -97,6 +97,7 @@ Route::get('account/logout', array('as' => 'logout', function()
 		return Redirect::to_route('login');
 	}));
 Route::get('account/register', array('as' => 'register', 'uses' => 'account@register'));
+Route::post('account/register', array('as' => 'registeraction', 'before' => 'csrf', 'uses' => 'account@doregister'));
 
 // Information routes
 Route::get('information/about', array('as' => 'information_about', 'uses' => 'information@about'));

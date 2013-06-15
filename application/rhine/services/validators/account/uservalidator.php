@@ -35,6 +35,24 @@ class UserValidator
 		}
 	}
 
+	/**
+	 * @throws ValidationException
+	 */
+	public function validateNewUser($input)
+	{
+		$rules = array(
+			'username' => 'required|alpha_dash|min:3|max:32|unique:users,username',
+			'email' => 'required|email|max:128',
+			'password' => 'required|min:6|confirmed|max:32',
+			);
+
+		$validation = Validator::make($input, $rules);
+
+		if ($validation->fails()) {
+			throw new ValidationException($validation);
+		}
+	}
+
 	public function validateOldPassword(User $user, $input)
 	{
 		$rules = array(

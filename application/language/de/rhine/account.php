@@ -13,6 +13,7 @@ return array(
 	'do_register' => 'Registrieren',
 	'captcha' => 'Captcha',
 	'captcha_text' => 'Geben Sie den Code im Bild ein',
+	'captcha_error' => 'Captcha ungültig',
 
 	'profile' => 'Profil',
 	'email' => 'E-Mail',

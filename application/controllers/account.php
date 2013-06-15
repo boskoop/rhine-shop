@@ -32,6 +32,10 @@ class Account_Controller extends Base_Controller {
 
 	public function action_login()
 	{
+		if (Auth::check()) {
+			return Redirect::to_route('account');
+		}
+
 		$action = IoC::resolve('accountGetLoginAction');
 		return $action->execute();
 	}
@@ -76,8 +80,24 @@ class Account_Controller extends Base_Controller {
 
 	public function action_register()
 	{
+		if (Auth::check()) {
+			return Redirect::to_route('account');
+		}
+
 		$action = IoC::resolve('accountGetRegisterAction');
 		return $action->execute();
+	}
+
+	public function action_doregister()
+	{
+		if (Auth::check()) {
+			return Redirect::to_route('account');
+		}
+
+		$action = IoC::resolve('accountPostRegisterAction');
+
+		$input = Input::get();
+		return $action->execute($input);
 	}
 
 }

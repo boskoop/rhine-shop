@@ -3,7 +3,7 @@
 use Laravel\Redirect;
 use Laravel\Config;
 use Laravel\Hash;
-use Rhine\Services\Validators\UserValidator\UserValidator;
+use Rhine\Services\Validators\Account\UserValidator;
 use Rhine\Services\Validators\ValidationException;
 use User;
 
