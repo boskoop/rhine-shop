@@ -7,10 +7,17 @@ interface OrderService
 {
 
 	/**
-	 * Returns the cart.
+	 * Loads open orders from the database an wraps them into a business object.
 	 * 
-	 * @return OrderBo
+	 * @return OrderBo[]
 	 */
-	function loadOrders(User $user);
+	function loadOpenOrdersFor(User $user);
+
+	/**
+	 * Loads open completed from the database an wraps them into a business object.
+	 * 
+	 * @return OrderBo[]
+	 */
+	function loadCompletedOrdersFor(User $user);
 
 }
