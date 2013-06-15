@@ -37,5 +37,6 @@ return array(
 
 	'docs' => array('handles' => 'docs'),
 	'laracaptcha' => array('auto' => true, 'handles' => 'captcha'),
+	'tcpdf' => array('auto' => true),
 
 );
