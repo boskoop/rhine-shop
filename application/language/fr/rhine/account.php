@@ -26,6 +26,11 @@ return array(
 	'save' => 'Enregistrer les modifications',
 	'cancel' => 'Annuler',
 
+	'delete' => 'Supprimer le compte',
+	'delete_warning' => 'Attention',
+	'delete_message' => 'Cette opération supprime tous vos données irréparablement. Confirmez l’effacement avec le code Captcha et votre mot de passe.',
+	'do_delete' => 'Oui, j’aimerais supprimer mon compte definitivement',
+
 	'address' => 'Adresse',
 	'address_info' => 'Vos commandes seront livrées à l’adresse suivante:',
 	'title_male' => 'M.',

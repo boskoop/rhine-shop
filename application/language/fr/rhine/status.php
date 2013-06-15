@@ -7,5 +7,6 @@ return array(
 	'login_error' => 'Échec de la connexion, utilisateur ou mot de passe incorrect!',
 
 	'register_ok' => 'Inscription complet, vous pouvez vous connecter maintenant!',
+	'delete_ok' => 'Compte supprimé avec succès!',
 
 );

@@ -7,5 +7,6 @@ return array(
 	'login_error' => 'Login fehlgeschlagen, Benutzername oder Passwort falsch!',
 
 	'register_ok' => 'Registrierung abgeschlossen, Sie können sich nun einloggen!',
+	'delete_ok' => 'Konto erfolgreich gelöscht!',
 
 );

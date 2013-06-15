@@ -70,10 +70,12 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('account/profile/edit', array('as' => 'editprofile', 'uses' => 'account@editprofile'));
 	Route::post('account/profile/edit', array('before' => 'csrf', 'as' => 'saveprofile', 'uses' => 'account@saveprofile'));
 
+	Route::get('account/profile/delete', array('as' => 'deleteprofile', 'uses' => 'account@deleteprofile'));
+	Route::post('account/profile/delete', array('before' => 'csrf', 'as' => 'confirmdeleteprofile', 'uses' => 'account@confirmdeleteprofile'));
+
 	Route::get('account/address', array('as' => 'address', 'uses' => 'account@address'));
 	Route::get('account/address/edit', array('as' => 'editaddress', 'uses' => 'account@editaddress'));
 	Route::post('account/address/edit', array('before' => 'csrf', 'as' => 'saveaddress', 'uses' => 'account@saveaddress'));
-
 	
 	Route::get('account/orders', array('as' => 'orders', 'uses' => 'account@index'));
 	Route::get('account/orderhistory', array('as' => 'orderhistory', 'uses' => 'account@index'));

@@ -53,10 +53,29 @@ class UserValidator
 		}
 	}
 
+	/**
+	 * @throws ValidationException
+	 */
 	public function validateOldPassword(User $user, $input)
 	{
 		$rules = array(
 			'old_password' => 'hashed_password:'.$user->id,
+			);
+
+		$validation = Validator::make($input, $rules);
+
+		if ($validation->fails()) {
+			throw new ValidationException($validation);
+		}
+	}
+
+	/**
+	 * @throws ValidationException
+	 */
+	public function validatePassword(User $user, $input)
+	{
+		$rules = array(
+			'password' => 'hashed_password:'.$user->id,
 			);
 
 		$validation = Validator::make($input, $rules);

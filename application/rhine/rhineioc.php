@@ -119,6 +119,13 @@ class RhineIoC
 			return new Actions\Account\AccountPostRegisterAction(IoC::resolve('userValidator'),
 					IoC::resolve('addressValidator'), IoC::resolve('captchaValidator'));
 		});
+		IoC::register('accountGetDeleteProfileAction', function() {
+			return new Actions\Account\AccountGetDeleteProfileAction();
+		});
+		IoC::register('accountPostDeleteProfileAction', function() {
+			return new Actions\Account\AccountPostDeleteProfileAction(IoC::resolve('userValidator'),
+					IoC::resolve('captchaValidator'));
+		});
 
 		IoC::register('informationGetAboutAction', function() {
 			return new Actions\Information\InformationGetAboutAction();

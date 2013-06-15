@@ -33,7 +33,9 @@
               </div>
 @endif
               <div class="form-actions">
-                  {{ HTML::link_to_route('editprofile', __('rhine/account.edit'), array() ,array('class' => 'btn')) }}
+                  {{ HTML::link_to_route('editprofile', __('rhine/account.edit'), array() ,array('class' => 'btn btn-primary')) }}
+
+                  {{ HTML::link_to_route('deleteprofile', __('rhine/account.delete'), array() ,array('class' => 'btn')) }}
 
               </div>
             {{ Form::close() }}

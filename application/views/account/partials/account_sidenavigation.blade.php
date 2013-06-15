@@ -5,7 +5,7 @@
     -
 --}}
         <ul class="nav nav-tabs nav-stacked">
-@if(in_array(Request::route()->action['as'], array('account', 'profile', 'editprofile')))
+@if(in_array(Request::route()->action['as'], array('account', 'profile', 'editprofile', 'deleteprofile')))
           <li class="active">
 @else
           <li>

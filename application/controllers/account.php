@@ -101,4 +101,20 @@ class Account_Controller extends Base_Controller {
 		return $action->execute($input);
 	}
 
+	public function action_deleteprofile()
+	{
+		$action = IoC::resolve('accountGetDeleteProfileAction');
+		$user = Auth::user();
+		return $action->execute($user);
+	}
+
+	public function action_confirmdeleteprofile()
+	{
+		$action = IoC::resolve('accountPostDeleteProfileAction');
+		$user = Auth::user();
+
+		$input = Input::get();
+		return $action->execute($user, $input);
+	}
+
 }

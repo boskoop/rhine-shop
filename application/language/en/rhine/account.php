@@ -26,6 +26,11 @@ return array(
 	'save' => 'Save changes',
 	'cancel' => 'Cancel',
 
+	'delete' => 'Delete account',
+	'delete_warning' => 'Warning',
+	'delete_message' => 'With the deletion of the account all stored data will be unrecoverably deleted. Please confirm the deletion with the Captcha code and your password.',
+	'do_delete' => 'Yes, I want my account to be be unrecoverably deleted',
+
 	'address' => 'Address',
 	'address_info' => 'Your orders will be shipped to the following address:',
 	'title_male' => 'Mr.',

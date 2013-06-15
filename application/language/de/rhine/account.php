@@ -26,6 +26,11 @@ return array(
 	'save' => 'Änderungen speichern',
 	'cancel' => 'Abbrechen',
 
+	'delete' => 'Account löschen',
+	'delete_warning' => 'Warnung',
+	'delete_message' => 'Damit werden sämtliche Daten Ihres Accounts unwiederrufbar gelöscht. Bestätigen Sie die Löschung mit dem Captcha Code und ihrem Passwort.',
+	'do_delete' => 'Ja, ich will den Account definitiv löschen',
+
 	'address' => 'Adresse',
 	'address_info' => 'Ihre Bestellungen werden an die folgende Adresse geliefert:',
 	'title_male' => 'Herrn',
