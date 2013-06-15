@@ -23,8 +23,9 @@ class OrderImpl implements OrderBo
 
 	function setItems(array $items)
 	{
+		$this->orderItems = array();
 		foreach ($items as $item) {
-			$itemBo = new OrderItemBo($item);
+			$itemBo = new OrderItemImpl($item);
 			$this->orderItems[] = $itemBo;
 		}
 	}
@@ -37,17 +38,17 @@ class OrderImpl implements OrderBo
 	function isPaid()
 	{
 		if ($this->order->paid_at == null) {
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 	function isShipped()
 	{
 		if ($this->order->shipped_at == null) {
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 	function getTotalPrice()
