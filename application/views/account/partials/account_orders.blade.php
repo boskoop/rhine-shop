@@ -2,41 +2,64 @@
     account_profile.blade.php
 
     Variables needed:
-    - user -> the user
+    - orders -> the orders in an array
 --}}
-            <h2>{{ __('rhine/account.profile') }}</h2>
-            {{ Form::open(URL::current(), 'POST', array('class' => 'form-horizontal')) }}
-
-              <div class="control-group">
-                <label class="control-label" for="username">{{ __('rhine/account.username') }}</label>
-                <div class="controls">
-                  <span class="uneditable-input" id="username">{{ $user->username }}</span>
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label" for="email">{{ __('rhine/account.email') }}</label>
-                <div class="controls">
-                  <span class="uneditable-input" id="email">{{ $user->email }}</span>
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label" for="password">{{ __('rhine/account.password') }}</label>
-                <div class="controls">
-                  <span class="uneditable-input" id="password">************</span>
-                </div>
-              </div>  
-@if(Session::get('status') != null)
-              <div class="alert alert-success fade in">
-                <a href="#" class="close" data-dismiss="alert">&times;</a>
-                {{ __('rhine/status.'.Session::get('status')) }}
-
-              </div>
+@if(count($orders) < 1)
+            <p class="text-info">{{ __('rhine/account.no_orders') }}</p>
+@else
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Date</th>
+                  <th>Paid</th>
+                  <th>Item</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Qty</th>
+                  <th>Price total</th>
+                </tr>
+              </thead>
+              <tbody>
+                </tr>
+                <tr class="table-condensed" style="background-color: #f9f9f9">
+                  <td colspan="8"></td>
+                </tr>
+@foreach($orders as $order)
+                <tr>
+                  <td rowspan="{{ $order->getNumberOfItems() + ($order->isShipped() ? 2 : 1) }}">{{ $order->getOrderId() }}</td>
+                  <td rowspan="{{ $order->getNumberOfItems() }}">{{ date('d.m.Y', strtotime($order->getOrderDate())) }}</td>
+@if($order->isPaid())
+                  <td rowspan="{{ $order->getNumberOfItems() }}">
+                    <span class="label label-success"><i class="icon-ok-circle icon-white" ></i></span>
+                  </td>
+@else
+                  <td rowspan="{{ $order->getNumberOfItems() }}">
+                    <span class="label label-important"><i class="icon-ban-circle icon-white" ></i></span>
+                  </td>
 @endif
-              <div class="form-actions">
-                  {{ HTML::link_to_route('editprofile', __('rhine/account.edit'), array() ,array('class' => 'btn btn-primary')) }}
-
-                  {{ HTML::link_to_route('deleteprofile', __('rhine/account.delete'), array() ,array('class' => 'btn')) }}
-
-              </div>
-            {{ Form::close() }}
-
+@foreach($order->getItems() as $item)
+                  <td>{{ $item->getProductName() }}</td>
+                  <td>{{ $item->getCategoryName() }}</td>
+                  <td>{{ number_format($item->getUnitPrice() / 100, 2) }}</td>
+                  <td>{{ $item->getQuantity() }}</td>
+                  <td>{{ number_format($item->getTotalPrice() / 100, 2) }}</td>
+                </tr>
+                <tr>
+@endforeach
+                  <td colspan="6" style="text-align: right"><strong>Total SFr.</strong></td>
+                  <td><strong>{{ number_format($order->getTotalPrice() / 100, 2) }}</strong></td>
+                </tr>
+@if($order->isShipped())
+                <tr>
+                  <td>{{ date('d.m.Y', strtotime($order->getShippedDate())) }}</td>
+                  <td colspan="6"><strong>Order shipped</strong></td>
+                </tr>
+@endif
+                <tr class="table-condensed" style="background-color: #f9f9f9">
+                  <td colspan="8"></td>
+                </tr>
+@endforeach
+              </tbody>
+            </table>
+@endif

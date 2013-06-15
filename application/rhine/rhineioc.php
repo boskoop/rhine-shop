@@ -140,6 +140,9 @@ class RhineIoC
 		IoC::register('accountGetOrdersAction', function() {
 			return new Actions\Account\AccountGetOrdersAction(IoC::resolve('orderService'));
 		});
+		IoC::register('accountGetOrderHistoryAction', function() {
+			return new Actions\Account\AccountGetOrderHistoryAction(IoC::resolve('orderService'));
+		});
 
 		IoC::register('informationGetAboutAction', function() {
 			return new Actions\Information\InformationGetAboutAction();

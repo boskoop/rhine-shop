@@ -125,4 +125,11 @@ class Account_Controller extends Base_Controller
 		return $action->execute($user);
 	}
 
+	public function action_orderhistory()
+	{
+		$action = IoC::resolve('accountGetOrderHistoryAction');
+		$user = Auth::user();
+		return $action->execute($user);
+	}
+
 }

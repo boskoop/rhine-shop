@@ -25,6 +25,16 @@ class OrderBusinessObjectTest extends Tests\UnitTestCase
 		$this->assertEquals(10, $bo->getOrderId());
 	}
 
+	public function testGetOrderDate()
+	{
+		$created = time();
+		$order = new Order(array('id' => 10,
+			'created_at' => $created));
+		$bo = new OrderImpl($order);
+
+		$this->assertEquals($created, $bo->getOrderDate());
+	}
+
 	public function testPayOrder()
 	{
 		$order = new Order(array('id' => 10));
@@ -43,10 +53,12 @@ class OrderBusinessObjectTest extends Tests\UnitTestCase
 		$bo = new OrderImpl($order);
 
 		$this->assertFalse($bo->isShipped());
+		$this->assertNull($bo->getShippedDate());
 
 		$bo->shipOrder();
 
 		$this->assertTrue($bo->isShipped());
+		$this->assertNotNull($bo->getShippedDate());
 	}
 
 	public function testGetItems()
@@ -62,16 +74,19 @@ class OrderBusinessObjectTest extends Tests\UnitTestCase
 			'product_name' => '3'));
 
 		$this->assertEquals(0, count($bo->getItems()));
+		$this->assertEquals(0, $bo->getNumberOfItems());
 
 		$bo->setItems(array($item1));
 
 		$this->assertEquals(1, count($bo->getItems()));
+		$this->assertEquals(1, $bo->getNumberOfItems());
 		$items = $bo->getItems();
 		$this->assertEquals('1', $items[0]->getProductName());
 
 		$bo->setItems(array($item2, $item3));
 
 		$this->assertEquals(2, count($bo->getItems()));
+		$this->assertEquals(2, $bo->getNumberOfItems());
 		$items = $bo->getItems();
 		$this->assertEquals('2', $items[0]->getProductName());
 		$this->assertEquals('3', $items[1]->getProductName());

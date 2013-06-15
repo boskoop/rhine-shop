@@ -15,7 +15,7 @@
 
 @section('content')
           <div class="span9">
-            <h2>Open Orders</h2>
+            <h2>Order history</h2>
 @include('account.partials.account_orders')
           </div>
 @endsection

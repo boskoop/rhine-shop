@@ -4,7 +4,7 @@ use Laravel\View;
 use Rhine\Services\OrderService;
 use User;
 
-class AccountGetOrdersAction
+class AccountGetOrderHistoryAction
 {
 
 	private $orderService;
@@ -23,9 +23,9 @@ class AccountGetOrdersAction
 			throw new \LogicException('User not authenticated!');
 		}
 
-		$orders = $this->orderService->loadOpenOrdersFor($user);
+		$orders = $this->orderService->loadCompletedOrdersFor($user);
 
-		return View::make('account.orders')
+		return View::make('account.orderhistory')
 		->with(compact('orders'));
 	}
 

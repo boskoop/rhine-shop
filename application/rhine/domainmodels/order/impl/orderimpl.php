@@ -35,6 +35,11 @@ class OrderImpl implements OrderBo
 		return $this->order->id;
 	}
 
+	function getOrderDate()
+	{
+		return $this->order->created_at;
+	}
+
 	function isPaid()
 	{
 		if ($this->order->paid_at == null) {
@@ -51,6 +56,11 @@ class OrderImpl implements OrderBo
 		return true;
 	}
 
+	function getShippedDate()
+	{
+		return $this->order->shipped_at;
+	}
+
 	function getTotalPrice()
 	{
 		$totalPrice = 0;
@@ -64,6 +74,11 @@ class OrderImpl implements OrderBo
 	function getItems()
 	{
 		return array_merge($this->orderItems);
+	}
+
+	function getNumberOfItems()
+	{
+		return count($this->orderItems);
 	}
 
 	function payOrder()

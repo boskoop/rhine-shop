@@ -78,7 +78,7 @@ Route::group(array('before' => 'auth'), function()
 	Route::post('account/address/edit', array('before' => 'csrf', 'as' => 'saveaddress', 'uses' => 'account@saveaddress'));
 	
 	Route::get('account/orders', array('as' => 'orders', 'uses' => 'account@orders'));
-	Route::get('account/orderhistory', array('as' => 'orderhistory', 'uses' => 'account@index'));
+	Route::get('account/orderhistory', array('as' => 'orderhistory', 'uses' => 'account@orderhistory'));
 });
 
 // Login/logout/register
