@@ -85,6 +85,7 @@ class Account_Controller extends Base_Controller {
 		}
 
 		$action = IoC::resolve('accountGetRegisterAction');
+
 		return $action->execute();
 	}
 

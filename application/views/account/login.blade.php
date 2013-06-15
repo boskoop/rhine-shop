@@ -31,11 +31,17 @@
                     {{ Form::password('password', array('id' => 'password', 'placeholder' => __('rhine/account.password'), 'required')) }}
                   </div>
                 </div>
-                
+
 @if(Session::get('status') != null)
                 <div class="alert alert-error fade in">
                   <a href="#" class="close" data-dismiss="alert">&times;</a>
                   {{ __('rhine/status.'.Session::get('status')) }}
+
+                </div>
+@elseif(Session::get('success') != null)
+                <div class="alert alert-success fade in">
+                  <a href="#" class="close" data-dismiss="alert">&times;</a>
+                  {{ __('rhine/status.'.Session::get('success')) }}
 
                 </div>
 @endif

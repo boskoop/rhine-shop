@@ -65,8 +65,8 @@
                   <div class="controls">
                     <select id="title" name="title" placeholder="{{ __('rhine/account.title') }}" required>
                       <option value=""></option>
-@foreach(GenderEnum::all() as $genderEnum)
-                      <option{{ ($genderEnum == $gender)  ? ' selected="selected"' : '' }} value="{{ $genderEnum }}">{{ __('rhine/account.title_'.GenderEnum::getValue($genderEnum)) }}</option>
+@foreach(GenderEnum::all() as $gender)
+                      <option{{ ($gender == $title)  ? ' selected="selected"' : '' }} value="{{ $gender }}">{{ __('rhine/account.title_'.GenderEnum::getValue($gender)) }}</option>
 @endforeach
                     </select>
 @if($errors->has('title'))
