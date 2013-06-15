@@ -45,8 +45,18 @@ return array(
 	'city' => 'City',
 	'country' => 'Country',
 
-	'orders' => 'Orders',
-
+	'orders' => 'Open orders',
 	'completed_orders' => 'Completed orders',
+	'order_date' => 'Date',
+	'order_item' => 'Product',
+	'order_category' => 'Category',
+	'order_price' => 'Price',
+	'order_quantity' => 'Qty',
+	'order_pricetotal' => 'Price total',
+	'order_total' => 'Total SFr.',
+	'order_payment_ok' => 'Payment received',
+	'order_payment_nok' => 'Order not paid',
+	'order_shipped' => 'Order shipped',
+	'no_orders' => 'No orders found!',
 	
 );

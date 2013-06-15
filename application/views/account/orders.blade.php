@@ -15,7 +15,7 @@
 
 @section('content')
           <div class="span9">
-            <h2>Open Orders</h2>
+            <h2>{{ __('rhine/account.orders') }}</h2>
 @include('account.partials.account_orders')
           </div>
 @endsection
