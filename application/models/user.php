@@ -8,4 +8,9 @@ class User extends Eloquent
 		return $this->has_one('Address');
 	}
 
+	public function orders()
+	{
+		return $this->has_many('Order');
+	}
+
 }
