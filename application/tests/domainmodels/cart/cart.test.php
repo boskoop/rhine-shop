@@ -3,7 +3,7 @@
 use Rhine\DomainModels\Cart\Impl\CartImpl;
 use Rhine\DomainModels\Cart\Impl\CartPositionImpl;
 
-class CartBusinessModelTest extends Tests\UnitTestCase
+class CartBusinessObjectTest extends Tests\UnitTestCase
 {
 
 	private $cart;
