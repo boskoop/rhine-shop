@@ -111,4 +111,32 @@ class OrderBusinessObjectTest extends Tests\UnitTestCase
 		$this->assertEquals('comic', $bo->getCategoryName());
 	}
 
+	public function testOrderItemGetQuantity()
+	{
+		$orderItem = new OrderItem(array('id' => 10,
+			'quantity' => 5));
+		$bo = new OrderItemImpl($orderItem);
+
+		$this->assertEquals(5, $bo->getQuantity());
+	}
+
+	public function testOrderItemGetUnitPrice()
+	{
+		$orderItem = new OrderItem(array('id' => 10,
+			'price' => 100));
+		$bo = new OrderItemImpl($orderItem);
+
+		$this->assertEquals(100, $bo->getUnitPrice());
+	}
+
+	public function testOrderItemGetTotalPrice()
+	{
+		$orderItem = new OrderItem(array('id' => 10,
+			'price' => 100,
+			'quantity' => 5));
+		$bo = new OrderItemImpl($orderItem);
+
+		$this->assertEquals(500, $bo->getTotalPrice());
+	}
+
 }
