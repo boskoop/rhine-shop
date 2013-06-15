@@ -38,7 +38,7 @@ class OrdersTest extends Tests\PersistenceTestCase
 	 */
 	public function testOrderItemAttributes()
 	{
-		$order = OrderItem::create(array('id' => 1,
+		OrderItem::create(array('id' => 1,
 			'order_id' => 2,
 			'product_name' => 'donald',
 			'category_name' => 'comic',

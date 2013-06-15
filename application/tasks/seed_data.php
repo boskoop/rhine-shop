@@ -16,6 +16,8 @@ class Seed_Data_Task
 		$this->insertProducts();
 
 		$this->insertProductImages();
+
+		$this->insertOrders();
 	}
 
 	private function insertUsers()
@@ -154,6 +156,75 @@ class Seed_Data_Task
 				$product->productImage()->insert($productImage);
 			}
 		}
+	}
+
+
+	private function insertOrders()
+	{
+		echo "\nInserting orders";
+		$user = User::where('username', '=', 'user')->first();
+
+		// paid & shipped order
+		$created = new DateTime('2010-01-01');
+		$paid = new DateTime('2010-01-02');
+		$shipped = new DateTime('2010-01-03');
+
+		$order = new Order(array('paid_at' => $paid,
+			'shipped_at' => $shipped,
+		));
+		$user->orders()->insert($order);
+		// We have to manually set the created_at because
+		// it is overrriden when inserted to db!
+		$order->created_at = $created;
+		$order->save();
+
+		$xbox = Category::where('name', '=', 'Xbox 360')->first();
+		$xboxProducts = $xbox->products()->get();
+		$i = 1;
+		foreach($xboxProducts as $product) {
+			$item = new OrderItem(array('product_name' => $product->name,
+				'category_name' => $xbox->name,
+				'price' => $product->price,
+				'quantity' => $i,
+				));
+			$order->items()->insert($item);
+			$i++;
+		}
+
+
+		// paid order
+		$created = new DateTime('2011-03-01');
+		$paid = new DateTime('2011-03-02');
+
+		$order = new Order(array('paid_at' => $paid));
+		$user->orders()->insert($order);
+		// We have to manually set the created_at because
+		// it is overrriden when inserted to db!
+		$order->created_at = $created;
+		$order->save();
+
+		$ps3 = Category::where('name', '=', 'Playstation 3')->first();
+		$product = $ps3->products()->first();
+		$item = new OrderItem(array('product_name' => $product->name,
+			'category_name' => $ps3->name,
+			'price' => $product->price,
+			'quantity' => 2,
+			));
+		$order->items()->insert($item);
+
+
+		// unpaid order
+		$order = new Order();
+		$user->orders()->insert($order);
+
+		$pc = Category::where('name', '=', 'PC Games')->first();
+		$product = $pc->products()->first();
+		$item = new OrderItem(array('product_name' => $product->name,
+			'category_name' => $pc->name,
+			'price' => $product->price,
+			'quantity' => 1,
+			));
+		$order->items()->insert($item);
 	}
 
 }
