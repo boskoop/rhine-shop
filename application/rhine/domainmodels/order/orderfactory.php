@@ -1,5 +1,7 @@
 <?php namespace Rhine\DomainModels\Order;
 
+use Order;
+
 interface OrderFactory
 {
 

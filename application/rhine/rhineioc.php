@@ -32,6 +32,9 @@ class RhineIoC
 		IoC::singleton('cartFactory', function() {
 			return new DomainModels\Cart\Impl\CartFactoryImpl(IoC::resolve('productRepository'));
 		});
+		IoC::singleton('orderFactory', function() {
+			return new DomainModels\Order\Impl\OrderFactoryImpl();
+		});
 
 		// Services
 		IoC::singleton('searchService', function() {
