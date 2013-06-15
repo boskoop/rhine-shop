@@ -103,4 +103,19 @@ class OrdersTest extends Tests\PersistenceTestCase
 		$this->assertEquals(8, $order->user_id);
 	}
 
+	/**
+	 * Tests if orders are not shipped by default
+	 *
+	 * @return void
+	 */
+	public function testOrderNotShipped()
+	{
+		$order = Order::create(array(
+			'id' => 5
+		));
+		$order = Order::find(5);
+
+		$this->assertEquals(null, $order->shipped_at);
+	}
+
 }
