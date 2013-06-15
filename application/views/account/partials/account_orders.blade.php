@@ -12,7 +12,6 @@
                 <tr>
                   <th>#</th>
                   <th>Date</th>
-                  <th>Paid</th>
                   <th>Item</th>
                   <th>Category</th>
                   <th>Price</th>
@@ -27,17 +26,8 @@
                 </tr>
 @foreach($orders as $order)
                 <tr>
-                  <td rowspan="{{ $order->getNumberOfItems() + ($order->isShipped() ? 2 : 1) }}">{{ $order->getOrderId() }}</td>
-                  <td rowspan="{{ $order->getNumberOfItems() }}">{{ date('d.m.Y', strtotime($order->getOrderDate())) }}</td>
-@if($order->isPaid())
-                  <td rowspan="{{ $order->getNumberOfItems() }}">
-                    <span class="label label-success"><i class="icon-ok-circle icon-white" ></i></span>
-                  </td>
-@else
-                  <td rowspan="{{ $order->getNumberOfItems() }}">
-                    <span class="label label-important"><i class="icon-ban-circle icon-white" ></i></span>
-                  </td>
-@endif
+                  <td rowspan="{{ $order->getNumberOfItems() + ($order->isShipped() ? 3 : 2) }}">{{ $order->getOrderId() }}</td>
+                  <td rowspan="{{ $order->getNumberOfItems() + 1 }}">{{ date('d.m.Y', strtotime($order->getOrderDate())) }}</td>
 @foreach($order->getItems() as $item)
                   <td>{{ $item->getProductName() }}</td>
                   <td>{{ $item->getCategoryName() }}</td>
@@ -47,9 +37,30 @@
                 </tr>
                 <tr>
 @endforeach
-                  <td colspan="6" style="text-align: right"><strong>Total SFr.</strong></td>
+                  <td colspan="4" style="text-align: right"><strong>Total SFr.</strong></td>
                   <td><strong>{{ number_format($order->getTotalPrice() / 100, 2) }}</strong></td>
                 </tr>
+@if($order->isPaid())
+                <tr>
+                  <td>{{ date('d.m.Y', strtotime($order->getPaymentDate())) }}</td>
+                  <td colspan="4"><strong>Payment received</strong></td>
+                  <td>
+                    <a href="#">
+                      <span class="label label-info"><i class="icon-print icon-white" ></i> Print</span>
+                    </a>
+                  </td>
+                </tr>
+@else
+                <tr>
+                  <td><span class="label label-important"><i class="icon-ban-circle icon-white" ></i></span></td>
+                  <td colspan="4"><strong>Order not paid</strong></td>
+                  <td>
+                    <a href="#">
+                      <span class="label label-info"><i class="icon-print icon-white" ></i> Print</span>
+                    </a>
+                  </td>
+                </tr>
+@endif
 @if($order->isShipped())
                 <tr>
                   <td>{{ date('d.m.Y', strtotime($order->getShippedDate())) }}</td>

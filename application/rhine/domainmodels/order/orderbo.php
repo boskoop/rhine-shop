@@ -27,6 +27,11 @@ interface OrderBo
 	function isPaid();
 
 	/**
+	 * @return string the date when the order was paid
+	 */
+	function getPaymentDate();
+
+	/**
 	 * @return boolean true, if the order is shipped, false otherwise
 	 */
 	function isShipped();

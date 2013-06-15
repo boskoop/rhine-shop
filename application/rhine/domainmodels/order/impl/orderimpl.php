@@ -48,6 +48,11 @@ class OrderImpl implements OrderBo
 		return true;
 	}
 
+	function getPaymentDate()
+	{
+		return $this->order->paid_at;
+	}
+
 	function isShipped()
 	{
 		if ($this->order->shipped_at == null) {
