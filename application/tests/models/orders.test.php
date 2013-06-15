@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @group integration
+ */
 class OrdersTest extends Tests\PersistenceTestCase
 {
 

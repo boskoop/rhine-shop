@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @group integration
+ */
 class CategoryProductTest extends Tests\PersistenceTestCase
 {
 

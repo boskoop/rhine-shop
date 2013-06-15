@@ -4,6 +4,9 @@ use Rhine\DomainModels\Cart\Impl\CartFactoryImpl;
 use Rhine\DomainModels\Cart\CartDto;
 use Rhine\DomainModels\Cart\CartPositionDto;
 
+/**
+ * @group unit
+ **/
 class CartFactoryTest extends Tests\UnitTestCase
 {
 

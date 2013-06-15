@@ -3,6 +3,9 @@
 use Rhine\Services\Impl\OrderServiceImpl;
 use Rhine\DomainModels\Order\Impl\OrderImpl;
 
+/**
+ * @group unit
+ */
 class OrderServiceTest extends Tests\UnitTestCase
 {
 

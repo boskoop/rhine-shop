@@ -2,6 +2,9 @@
 
 use Rhine\Actions\Shop\ShopGetIndexAction;
 
+/**
+ * @group unit
+ */
 class ShopGetIndexActionTest extends Tests\UnitTestCase
 {
 

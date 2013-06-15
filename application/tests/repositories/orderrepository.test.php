@@ -2,6 +2,9 @@
 
 use Laravel\IoC;
 
+/**
+ * @group integration
+ */
 class OrderRepositoryTest extends Tests\PersistenceTestCase
 {
 

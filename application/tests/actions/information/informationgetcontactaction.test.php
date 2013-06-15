@@ -2,6 +2,9 @@
 
 use Rhine\Actions\Information\InformationGetContactAction;
 
+/**
+ * @group unit
+ */
 class InformationGetContactActionTest extends Tests\UnitTestCase
 {
 

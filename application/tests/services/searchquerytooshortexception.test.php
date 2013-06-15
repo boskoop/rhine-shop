@@ -2,6 +2,9 @@
 
 use Rhine\Services\SearchQueryTooShortException;
 
+/**
+ * @group unit
+ */
 class SearchQueryTooShortExceptionTest extends Tests\UnitTestCase
 {
 

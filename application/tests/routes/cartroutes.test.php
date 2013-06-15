@@ -3,6 +3,9 @@
 use Rhine\RhineIoC;
 use Rhine\Services\Impl\CartServiceImpl;
 
+/**
+ * @group endtoend
+ */
 class CartRoutesTest extends Tests\RouteTestCase
 {
 

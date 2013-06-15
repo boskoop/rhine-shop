@@ -2,6 +2,9 @@
 
 use Rhine\Services\Impl\SearchServiceImpl;
 
+/**
+ * @group unit
+ */
 class SearchServiceTest extends Tests\UnitTestCase
 {
 

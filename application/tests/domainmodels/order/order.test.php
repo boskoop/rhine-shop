@@ -3,6 +3,9 @@
 use Rhine\DomainModels\Order\Impl\OrderImpl;
 use Rhine\DomainModels\Order\Impl\OrderItemImpl;
 
+/**
+ * @group unit
+ */
 class OrderBusinessObjectTest extends Tests\UnitTestCase
 {
 

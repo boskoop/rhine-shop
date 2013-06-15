@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @group integration
+ */
 class CategoriesTest extends Tests\PersistenceTestCase
 {
 

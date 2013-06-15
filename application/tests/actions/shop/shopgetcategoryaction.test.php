@@ -2,6 +2,9 @@
 
 use Rhine\Actions\Shop\ShopGetCategoryAction;
 
+/**
+ * @group unit
+ */
 class ShopGetCategoryActionTest extends Tests\UnitTestCase
 {
 

@@ -3,6 +3,9 @@
 use Laravel\Hash;
 use Laravel\Auth;
 
+/**
+ * @group integration
+ */
 class UsersTest extends Tests\PersistenceTestCase
 {
 

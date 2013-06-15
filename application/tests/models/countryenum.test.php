@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @group unit
+ */
 class CountryEnumTest extends Tests\UnitTestCase
 {
 

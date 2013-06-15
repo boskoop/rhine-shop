@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @group integration
+ */
 class GenderAddressTest extends Tests\PersistenceTestCase
 {
 

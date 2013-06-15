@@ -4,6 +4,9 @@ use Rhine\DomainModels\Cart\Impl\CartFactoryImpl;
 use Rhine\DomainModels\Cart\CartDto;
 use Rhine\DomainModels\Cart\CartPositionDto;
 
+/**
+ * @group integration
+ */
 class OrderFactoryTest extends Tests\PersistenceTestCase
 {
 

@@ -2,6 +2,9 @@
 
 use Rhine\Actions\Account\AccountGetEditProfileAction;
 
+/**
+ * @group unit
+ */
 class AccountGetEditProfileActionTest extends Tests\UnitTestCase
 {
 

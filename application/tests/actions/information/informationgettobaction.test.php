@@ -2,6 +2,9 @@
 
 use Rhine\Actions\Information\InformationGetToBAction;
 
+/**
+ * @group unit
+ */
 class InformationGetToBActionTest extends Tests\UnitTestCase
 {
 

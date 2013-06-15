@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @group integration
+ */
 class UserAddressTest extends Tests\PersistenceTestCase
 {
 

@@ -8,7 +8,6 @@ use Laravel\Auth;
 use Laravel\IoC;
 use Rhine\RhineIoC;
 
-
 abstract class PersistenceTestCase extends PHPUnit_Framework_TestCase {
 
 	private $timer;

@@ -2,6 +2,9 @@
 
 use Laravel\Session;
 
+/**
+ * @group integration
+ */
 class SessionTest extends Tests\PersistenceTestCase
 {
 

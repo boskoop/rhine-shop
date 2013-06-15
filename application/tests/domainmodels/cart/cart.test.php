@@ -3,6 +3,9 @@
 use Rhine\DomainModels\Cart\Impl\CartImpl;
 use Rhine\DomainModels\Cart\Impl\CartPositionImpl;
 
+/**
+ * @group unit
+ */
 class CartBusinessObjectTest extends Tests\UnitTestCase
 {
 

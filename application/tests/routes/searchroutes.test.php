@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @group endtoend
+ */
 class SearchRoutesTest extends Tests\RouteTestCase
 {
 

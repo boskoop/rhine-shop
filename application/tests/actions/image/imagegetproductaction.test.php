@@ -2,6 +2,9 @@
 
 use Rhine\Actions\Image\ImageGetProductAction;
 
+/**
+ * @group unit
+ */
 class ImageGetProductActionTest extends Tests\UnitTestCase
 {
 

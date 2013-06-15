@@ -2,6 +2,9 @@
 
 use Rhine\Actions\Account\AccountGetOrdersAction;
 
+/**
+ * @group unit
+ */
 class AccountGetOrdersActionTest extends Tests\UnitTestCase
 {
 

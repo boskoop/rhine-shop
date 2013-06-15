@@ -8,6 +8,9 @@ use Rhine\Services\Impl\CartServiceImpl;
 use Rhine\DomainModels\Cart\CartDto;
 use Rhine\DomainModels\Cart\CartPositionDto;
 
+/**
+ * @group integration
+ */
 class CartServiceTest extends Tests\PersistenceTestCase
 {
 

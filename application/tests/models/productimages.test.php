@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @group integration
+ */
 class ProductImagesTest extends Tests\PersistenceTestCase
 {
 

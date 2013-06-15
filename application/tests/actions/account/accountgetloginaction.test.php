@@ -2,6 +2,9 @@
 
 use Rhine\Actions\Account\AccountGetLoginAction;
 
+/**
+ * @group unit
+ */
 class AccountGetLoginActionTest extends Tests\UnitTestCase
 {
 

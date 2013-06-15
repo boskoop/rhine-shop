@@ -76,9 +76,12 @@
 										<exclude>application/libraries/tests/**</exclude>
 
 										<!-- Exclude directory content -->
-										<!--
-										<exclude>download/**/*</exclude>
-									-->
+										<exclude>storage/cache/**/*</exclude>
+										<exclude>storage/database/**/*</exclude>
+										<exclude>storage/logs/**/*</exclude>
+										<exclude>storage/sessions/**/*</exclude>
+										<exclude>storage/views/**/*</exclude>
+										<exclude>storage/work/**/*</exclude>
 
 									<!-- Exclude specific files -->
 									<exclude>**/.gitignore</exclude>
@@ -86,8 +89,7 @@
 									<exclude>**/.travis.yml</exclude>
 									<exclude>pom.xml</exclude>
 									<exclude>assembly.xml</exclude>
-									<exclude>phpunit_nocoverage.xml</exclude>
-									<exclude>phpunit.sh</exclude>
+									<exclude>phpunit*</exclude>
 								</excludes>
 							</resource>
 							

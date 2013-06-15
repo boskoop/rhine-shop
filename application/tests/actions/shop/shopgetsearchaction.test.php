@@ -3,6 +3,9 @@
 use Rhine\Actions\Shop\ShopGetSearchAction;
 use Rhine\Services\SearchQueryTooShortException;
 
+/**
+ * @group unit
+ */
 class ShopGetSearchActionTest extends Tests\UnitTestCase
 {
 

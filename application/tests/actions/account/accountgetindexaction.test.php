@@ -2,6 +2,9 @@
 
 use Rhine\Actions\Account\AccountGetIndexAction;
 
+/**
+ * @group unit
+ */
 class AccountGetIndexActionTest extends Tests\UnitTestCase
 {
 

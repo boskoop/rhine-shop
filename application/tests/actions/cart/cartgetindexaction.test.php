@@ -2,6 +2,9 @@
 
 use Rhine\Actions\Cart\CartGetIndexAction;
 
+/**
+ * @group unit
+ */
 class CartGetIndexActionTest extends Tests\UnitTestCase
 {
 

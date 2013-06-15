@@ -2,6 +2,9 @@
 
 use Laravel\IoC;
 
+/**
+ * @group integration
+ */
 class ProductImageRepositoryTest extends Tests\PersistenceTestCase
 {
 

@@ -2,6 +2,9 @@
 
 use Rhine\Actions\Account\AccountGetAddressAction;
 
+/**
+ * @group unit
+ */
 class AccountGetAddressActionTest extends Tests\UnitTestCase
 {
 

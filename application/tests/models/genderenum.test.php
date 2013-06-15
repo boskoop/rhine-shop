@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @group unit
+ */
 class GenderEnumTest extends Tests\UnitTestCase
 {
 

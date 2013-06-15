@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @group integration
+ */
 class PersistenceTestHelperTest extends Tests\PersistenceTestCase
 {
 

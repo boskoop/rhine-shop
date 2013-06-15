@@ -1,0 +1,20 @@
+<phpunit colors="true" 
+         bootstrap="laravel/cli/tasks/test/phpunit.php"
+         backupGlobals="false">
+	<formatter type="clover" usefile="false"/>
+	<testsuites>
+		<testsuite name="Test Suite">
+			<directory suffix=".test.php">application/tests</directory>
+		</testsuite>
+	</testsuites>
+
+	<groups>
+		<include>
+			<group>endtoend</group>
+		</include>
+		<exclude>
+			<group>integration</group>
+			<group>unit</group>
+		</exclude>
+	</groups>
+</phpunit>
