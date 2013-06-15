@@ -1,6 +1,7 @@
 <?php
 
-class Account_Controller extends Base_Controller {
+class Account_Controller extends Base_Controller
+{
 
 	public function action_index()
 	{
@@ -115,6 +116,13 @@ class Account_Controller extends Base_Controller {
 
 		$input = Input::get();
 		return $action->execute($user, $input);
+	}
+
+	public function action_orders()
+	{
+		$action = IoC::resolve('accountGetOrdersAction');
+		$user = Auth::user();
+		return $action->execute($user);
 	}
 
 }

@@ -127,6 +127,10 @@ class RhineIoC
 					IoC::resolve('captchaValidator'));
 		});
 
+		IoC::register('accountGetOrdersAction', function() {
+			return new Actions\Account\AccountGetOrdersAction();
+		});
+
 		IoC::register('informationGetAboutAction', function() {
 			return new Actions\Information\InformationGetAboutAction();
 		});
