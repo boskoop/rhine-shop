@@ -7,6 +7,13 @@
 @if(count($orders) < 1)
             <p class="text-info">{{ __('rhine/account.no_orders') }}</p>
 @else
+@if(Session::get('success') != null)
+            <div class="alert alert-success fade in">
+              <a href="#" class="close" data-dismiss="alert">&times;</a>
+              {{ __('rhine/status.'.Session::get('success')) }}
+
+            </div>
+@endif
             <table class="table table-bordered">
               <thead>
                 <tr>

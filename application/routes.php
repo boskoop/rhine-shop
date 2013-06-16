@@ -61,6 +61,11 @@ Route::group(array('before' => 'csrf'), function()
 	Route::post('cart/sub/(:num)', array('as' => 'cartsub', 'uses' => 'cart@subtractproduct'));
 	Route::post('cart/del/(:num)', array('as' => 'cartdel', 'uses' => 'cart@deleteproduct'));
 });
+Route::group(array('before' => 'auth'), function()
+{
+	Route::get('cart/checkout', array('as' => 'checkout', 'uses' => 'cart@checkout'));
+	Route::post('cart/checkout', array('as' => 'processcheckout', 'uses' => 'cart@processcheckout'));
+});
 
 // Account routes
 Route::group(array('before' => 'auth'), function()
