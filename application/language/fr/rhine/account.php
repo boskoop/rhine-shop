@@ -56,7 +56,7 @@ return array(
 	'order_total' => 'Total SFr.',
 	'order_payment_ok' => 'Paiement reçu',
 	'order_payment_nok' => 'Commande pas payée',
-	'order_shipped' => 'Commande livrée',
+	'order_shipped' => 'Commande fournie',
 	'no_orders' => 'Pas de commandes trouvées!',
 
 	'pdf_invoice' => 'Facture',

@@ -76,7 +76,7 @@
                       {{ Form::hidden('order_id', $order->getOrderId()) }}
 
 @if($order->isPaid())
-                      <button href="#confirm-reset-pay-{{ $order->getOrderId() }}" type="button" data-toggle="modal" class="btn btn-small btn-danger">{{ __('rhine/admin.order_reset_pay') }}</button>
+                      <button href="#confirm-reset-pay-{{ $order->getOrderId() }}" type="button" data-toggle="modal" class="btn btn-small btn-info"><i class="icon-briefcase icon-white" ></i> {{ __('rhine/admin.order_reset_pay') }}</button>
                       <div id="confirm-reset-pay-{{ $order->getOrderId() }}" class="modal hide fade" style="text-align: left">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -86,12 +86,12 @@
                           <p>{{ __('rhine/admin.order_confirm_info') }}</p>
                         </div>
                         <div class="modal-footer">
-                          <button type="submit" class="btn btn-danger">{{ __('rhine/admin.order_confirm_reset_pay') }}</button>
+                          <button type="submit" class="btn btn-danger"><i class="icon-briefcase icon-white" ></i> {{ __('rhine/admin.order_confirm_reset_pay') }}</button>
                           <a href="#confirm-reset-pay-{{ $order->getOrderId() }}" role="button" class="btn" data-toggle="modal">{{ __('rhine/admin.cancel') }}</a>
                         </div>
                       </div>
 @else
-                      <button type="submit" class="btn btn-small btn-success">{{ __('rhine/admin.order_pay') }}</button>
+                      <button type="submit" class="btn btn-small btn-success"><i class="icon-briefcase icon-white" ></i> {{ __('rhine/admin.order_pay') }}</button>
 @endif
                       {{ Form::token() }}
 
@@ -102,7 +102,7 @@
                       {{ Form::hidden('order_id', $order->getOrderId()) }}
 
 @if($order->isShipped())
-                      <button href="#confirm-reset-ship-{{ $order->getOrderId() }}" type="button" data-toggle="modal" class="btn btn-small btn-danger">{{ __('rhine/admin.order_reset_ship') }}</button>
+                      <button href="#confirm-reset-ship-{{ $order->getOrderId() }}" type="button" data-toggle="modal" class="btn btn-small btn-info"><i class="icon-road icon-white" ></i> {{ __('rhine/admin.order_reset_ship') }}</button>
                       <div id="confirm-reset-ship-{{ $order->getOrderId() }}" class="modal hide fade" style="text-align: left">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -112,12 +112,12 @@
                           <p>{{ __('rhine/admin.order_confirm_info') }}</p>
                         </div>
                         <div class="modal-footer">
-                          <button type="submit" class="btn btn-danger">{{ __('rhine/admin.order_confirm_reset_ship') }}</button>
+                          <button type="submit" class="btn btn-danger"><i class="icon-road icon-white" ></i> {{ __('rhine/admin.order_confirm_reset_ship') }}</button>
                           <a href="#confirm-reset-ship-{{ $order->getOrderId() }}" role="button" class="btn" data-toggle="modal">{{ __('rhine/admin.cancel') }}</a>
                         </div>
                       </div>
 @else
-                      <button type="submit" class="btn btn-small btn-success">{{ __('rhine/admin.order_ship') }}</button>
+                      <button type="submit" class="btn btn-small btn-success"><i class="icon-road icon-white" ></i> {{ __('rhine/admin.order_ship') }}</button>
 @endif
                       {{ Form::token() }}
 
@@ -127,7 +127,7 @@
 
                       {{ Form::hidden('order_id', $order->getOrderId()) }}
 
-                      <button href="#confirm-delete-{{ $order->getOrderId() }}" type="button" data-toggle="modal" class="btn btn-small btn-danger">{{ __('rhine/admin.order_delete') }}</button>
+                      <button href="#confirm-delete-{{ $order->getOrderId() }}" type="button" data-toggle="modal" class="btn btn-small btn-danger"><i class="icon-remove-sign icon-white" ></i> {{ __('rhine/admin.order_delete') }}</button>
                       <div id="confirm-delete-{{ $order->getOrderId() }}" class="modal hide fade" style="text-align: left">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -137,7 +137,7 @@
                           <p>{{ __('rhine/admin.order_delete_info') }}</p>
                         </div>
                         <div class="modal-footer">
-                          <button type="submit" class="btn btn-danger">{{ __('rhine/admin.order_confirm_delete') }}</button>
+                          <button type="submit" class="btn btn-danger"><i class="icon-remove-sign icon-white" ></i> {{ __('rhine/admin.order_confirm_delete') }}</button>
                           <a href="#confirm-delete-{{ $order->getOrderId() }}" role="button" class="btn" data-toggle="modal">{{ __('rhine/admin.cancel') }}</a>
                         </div>
                       </div>
