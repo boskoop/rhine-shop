@@ -10,25 +10,25 @@ class Admin_Controller extends Base_Controller
 		return $action->execute($user);
 	}
 
-	public function action_payorder()
+	public function action_payorder($orderId)
 	{
-		$action = IoC::resolve('adminGetOrdersAction');
+		$action = IoC::resolve('adminPostPayOrderAction');
 		$user = Auth::user();
-		return $action->execute($user);
+		return $action->execute($user, $orderId);
 	}
 
-	public function action_shiporder()
+	public function action_shiporder($orderId)
 	{
-		$action = IoC::resolve('adminGetOrdersAction');
+		$action = IoC::resolve('adminPostShipOrderAction');
 		$user = Auth::user();
-		return $action->execute($user);
+		return $action->execute($user, $orderId);
 	}
 
-	public function action_deleteorder()
+	public function action_deleteorder($orderId)
 	{
-		$action = IoC::resolve('adminGetOrdersAction');
+		$action = IoC::resolve('adminPostDeleteOrderAction');
 		$user = Auth::user();
-		return $action->execute($user);
+		return $action->execute($user, $orderId);
 	}
 
 }

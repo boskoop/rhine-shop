@@ -92,10 +92,20 @@ class OrderImpl implements OrderBo
 		$this->order->paid_at = $now;
 	}
 
+	function resetPayOrder()
+	{
+		$this->order->paid_at = null;
+	}
+
 	function shipOrder()
 	{
 		$now = date("Y-m-d H:i:s");
 		$this->order->shipped_at = $now;
+	}
+
+	function resetShipOrder()
+	{
+		$this->order->shipped_at = null;
 	}
 
 }

@@ -26,7 +26,10 @@ class AdminGetOrdersActionTest extends Tests\UnitTestCase
 	 */
 	public function testNoOrders()
 	{
-		$user = new User(array('id' => 1, 'username' => 'user'));
+		$user = new User(array('id' => 1,
+			'username' => 'admin',
+			'role_id' => RoleEnum::ADMIN
+			));
 
 		$this->orderServiceMock
 		->expects($this->once())

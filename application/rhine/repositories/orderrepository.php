@@ -40,6 +40,11 @@ interface OrderRepository
 	function persistOrder(User $user, Order $order, array $orderItems);
 
 	/**
+	 * Deletes the given order from the database.
+	 */
+	function deleteOrder($orderId);
+
+	/**
 	 * Returns an array of Orders sorted desc by their id.
 	 * 
 	 * @return Order[]

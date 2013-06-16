@@ -65,9 +65,21 @@ interface OrderBo
 	function payOrder();
 
 	/**
+	 * Resets the payment state of the order. This does not save
+	 * the model to the database.
+	 */
+	function resetPayOrder();
+
+	/**
 	 * Marks the order as shipped with the current timestamp. This does not
 	 * save the model to the database.
 	 */
 	function shipOrder();
+
+	/**
+	 * Resets the shippmend state of the order. This does not
+	 * save the model to the database.
+	 */
+	function resetShipOrder();
 
 }

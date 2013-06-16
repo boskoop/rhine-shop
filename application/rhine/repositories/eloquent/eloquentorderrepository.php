@@ -28,7 +28,7 @@ class EloquentOrderRepository implements OrderRepository
 
 	public function findById($orderId)
 	{
-		$order = Order::where('id', '=', $orderId)->first();
+		$order = Order::find($orderId);
 		return $order;
 	}
 
@@ -45,6 +45,14 @@ class EloquentOrderRepository implements OrderRepository
 		$ordersPerPage = Config::get('rhine.orders#per_page', 9);
 		$orders = Order::order_by('id', 'desc')->paginate($ordersPerPage);
 		return $orders;
+	}
+
+	public function deleteOrder($orderId)
+	{
+		$order = Order::find($orderId);
+		if ($order != null) {
+			$order->delete();
+		}
 	}
 
 }

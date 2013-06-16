@@ -177,5 +177,14 @@ class RhineIoC
 		IoC::register('adminGetOrdersAction', function() {
 			return new Actions\Admin\AdminGetOrdersAction(IoC::resolve('orderService'));
 		});
+		IoC::register('adminPostPayOrderAction', function() {
+			return new Actions\Admin\AdminPostPayOrderAction(IoC::resolve('orderService'));
+		});
+		IoC::register('adminPostShipOrderAction', function() {
+			return new Actions\Admin\AdminPostShipOrderAction(IoC::resolve('orderService'));
+		});
+		IoC::register('adminPostDeleteOrderAction', function() {
+			return new Actions\Admin\AdminPostDeleteOrderAction(IoC::resolve('orderRepository'));
+		});
 	}
 }

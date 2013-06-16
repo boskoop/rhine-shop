@@ -65,6 +65,16 @@ class OrderServiceImpl implements OrderService
 		return $order;
 	}
 
+	public function loadOrder($orderId)
+	{
+		$dbOrder = $this->orderRepository->findById($orderId);
+		if($dbOrder == null) {
+			throw new OrderNotFoundException();
+		}
+		$order = $this->orderFactory->createFromOrder($dbOrder);
+		return $order;
+	}
+
 	public function placeOrder(User $user, CartBo $cart)
 	{
 		$order = new Order(array('paid_at' => null,

@@ -19,7 +19,7 @@ class AdminGetOrdersAction
 	 */
 	public function execute(User $user = null)
 	{
-		if ($user == null) {
+		if ($user == null or !$user->isAdmin()) {
 			throw new \LogicException('User not authenticated!');
 		}
 

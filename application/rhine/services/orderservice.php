@@ -23,11 +23,20 @@ interface OrderService
 
 	/**
 	 * Loads an order for given orderId and user from the database and wraps it into a business object.
+	 * If the user is an admin, the user is not checked.
 	 * 
 	 * @throws OrderNotFoundException if there is no order for the user with given id
-	 * @return OrderBo, null if the orderId does not exist for the user
+	 * @return OrderBo
 	 */
 	function loadOrderFor(User $user, $orderId);
+
+	/**
+	 * Loads an order for given orderId from the database and wraps it into a business object.
+	 * 
+	 * @throws OrderNotFoundException if there is no order with given id
+	 * @return OrderBo
+	 */
+	function loadOrder($orderId);
 
 	/**
 	 * Places an order for given cart.
