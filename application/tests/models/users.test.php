@@ -67,4 +67,40 @@ class UsersTest extends Tests\PersistenceTestCase
 			'username' => 'joe'
 		));
 	}
+
+	/**
+	 * Tests the User model admin property.
+	 *
+	 * @return void
+	 */
+	public function testUserIsAdmin()
+	{
+		$admin = User::create(array(
+			'id' => 1,
+			'username' => 'admin',
+			'role_id' => RoleEnum::ADMIN
+		));
+		$user1 = User::create(array(
+			'id' => 2,
+			'username' => 'user1',
+			'role_id' => RoleEnum::USER
+		));
+		$user2 = User::create(array(
+			'id' => 3,
+			'username' => 'user2'
+		));
+
+		$this->assertTrue($admin->isAdmin());
+		$this->assertFalse($user1->isAdmin());
+		$this->assertFalse($user2->isAdmin());
+
+		$admin = User::find(1);
+		$user1 = User::find(2);
+		$user2 = User::find(3);
+
+		$this->assertTrue($admin->isAdmin());
+		$this->assertFalse($user1->isAdmin());
+		$this->assertFalse($user2->isAdmin());
+	}
+
 }

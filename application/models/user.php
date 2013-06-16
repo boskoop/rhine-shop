@@ -18,4 +18,12 @@ class User extends Eloquent
 		return $this->belongs_to('Role');
 	}
 
+	public function isAdmin()
+	{
+		if ($this->role_id == RoleEnum::ADMIN) {
+			return true;
+		}
+		return false;
+	}
+
 }
