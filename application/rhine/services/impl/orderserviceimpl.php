@@ -60,7 +60,7 @@ class OrderServiceImpl implements OrderService
 		return $order;
 	}
 
-	function placeOrder(User $user, CartBo $cart)
+	public function placeOrder(User $user, CartBo $cart)
 	{
 		$order = new Order(array('paid_at' => null,
 			'shipped_at' => null));
@@ -79,6 +79,12 @@ class OrderServiceImpl implements OrderService
 			$orderItems[] = $item;
 		}
 		$this->orderRepository->persistOrder($user, $order, $orderItems);
+	}
+
+	public function loadOrdersPaginated()
+	{
+		// Todo: implement
+		return array();
 	}
 
 }

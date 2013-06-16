@@ -1,8 +1,8 @@
 {{--
-    account_orders.blade.php
+    admin_orders.blade.php
 
     Variables needed:
-    - orders -> the orders in an array
+    - orders -> the orders paginated
 --}}
 @if(count($orders) < 1)
             <p class="text-info">{{ __('rhine/account.no_orders') }}</p>

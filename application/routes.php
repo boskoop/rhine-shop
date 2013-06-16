@@ -91,7 +91,7 @@ Route::group(array('before' => 'auth'), function()
 Route::group(array('before' => 'auth|admin'), function()
 {
 	Route::get('admin/users', array('as' => 'manage_users', 'uses' => 'account@index'));
-	Route::get('admin/orders', array('as' => 'manage_orders', 'uses' => 'account@index'));
+	Route::get('admin/orders', array('as' => 'manage_orders', 'uses' => 'admin@orders'));
 	Route::get('admin/categories', array('as' => 'manage_categories', 'uses' => 'account@index'));
 	Route::get('admin/products', array('as' => 'manage_products', 'uses' => 'account@index'));
 });

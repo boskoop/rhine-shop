@@ -34,4 +34,9 @@ interface OrderService
 	 */
 	function placeOrder(User $user, CartBo $cart);
 
+	/**
+	 * Loads all orders descending by their id and paginated.
+	 */
+	function loadOrdersPaginated();
+
 }
