@@ -26,7 +26,7 @@ class Create_Users {
 
 		Schema::create('users', function($table) {
 			$table->increments('id');
-			$table->integer('role_id')->unsigned();
+			$table->integer('role_id')->unsigned()->default(RoleEnum::USER);
 			$table->string('username', 32)->unique();
 			$table->string('email', 128);
 			$table->string('password', 64);

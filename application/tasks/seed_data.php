@@ -25,11 +25,13 @@ class Seed_Data_Task
 		echo "Inserting users/addresses";
 
 		$admin = User::create(array(
+			'role_id' => RoleEnum::ADMIN,
 			'username' => 'admin',
 			'email' => 'admin@example.com',
 			'password' => Hash::make('123456')
 			));
 		$user = User::create(array(
+			'role_id' => RoleEnum::USER,
 			'username' => 'user',
 			'email' => 'user@example.com',
 			'password' => Hash::make('123456')
