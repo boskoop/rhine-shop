@@ -28,7 +28,8 @@ class AccountGetEditProfileAction
 
 		return View::make('account.editprofile')
 		->with(compact('username'))
-		->with(compact('email'));
+		->with(compact('email'))
+		->with(compact('user'));
 	}
 
 }

@@ -35,8 +35,10 @@
               <div class="form-actions">
                   {{ HTML::link_to_route('editprofile', __('rhine/account.edit'), array() ,array('class' => 'btn btn-primary')) }}
 
+@unless($user->isAdmin())
                   {{ HTML::link_to_route('deleteprofile', __('rhine/account.delete'), array() ,array('class' => 'btn')) }}
 
+@endunless
               </div>
             {{ Form::close() }}
 

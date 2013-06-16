@@ -75,8 +75,8 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('account/profile/edit', array('as' => 'editprofile', 'uses' => 'account@editprofile'));
 	Route::post('account/profile/edit', array('before' => 'csrf', 'as' => 'saveprofile', 'uses' => 'account@saveprofile'));
 
-	Route::get('account/profile/delete', array('as' => 'deleteprofile', 'uses' => 'account@deleteprofile'));
-	Route::post('account/profile/delete', array('before' => 'csrf', 'as' => 'confirmdeleteprofile', 'uses' => 'account@confirmdeleteprofile'));
+	Route::get('account/profile/delete', array('before' => 'noadmin', 'as' => 'deleteprofile', 'uses' => 'account@deleteprofile'));
+	Route::post('account/profile/delete', array('before' => 'csrf|noadmin', 'as' => 'confirmdeleteprofile', 'uses' => 'account@confirmdeleteprofile'));
 
 	Route::get('account/address', array('as' => 'address', 'uses' => 'account@address'));
 	Route::get('account/address/edit', array('as' => 'editaddress', 'uses' => 'account@editaddress'));
@@ -87,7 +87,16 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('account/order/(:num).pdf', array('as' => 'orderpdf', 'uses' => 'account@pdf'));
 });
 
-// Login/logout/register
+// Admin
+Route::group(array('before' => 'auth|admin'), function()
+{
+	Route::get('admin/users', array('as' => 'manage_users', 'uses' => 'account@index'));
+	Route::get('admin/orders', array('as' => 'manage_orders', 'uses' => 'account@index'));
+	Route::get('admin/categories', array('as' => 'manage_categories', 'uses' => 'account@index'));
+	Route::get('admin/products', array('as' => 'manage_products', 'uses' => 'account@index'));
+});
+
+// Login
 Route::get('account/login', array('as' => 'login', 'uses' => 'account@login'));
 Route::post('account/login', array('as' => 'loginaction', 'before' => 'csrf', function()
 	{
@@ -99,12 +108,16 @@ Route::post('account/login', array('as' => 'loginaction', 'before' => 'csrf', fu
 		}
 		return Redirect::to_route('login')->with('status', 'login_error');;
 	}));
+
+// Logout
 Route::get('account/logout', array('as' => 'logout', function()
 	{
 		Auth::logout();
 		return Redirect::to_route('login')
 		->with('success', 'logout_ok');
 	}));
+
+// Register
 Route::get('account/register', array('as' => 'register', 'uses' => 'account@register'));
 Route::post('account/register', array('as' => 'registeraction', 'before' => 'csrf', 'uses' => 'account@doregister'));
 
@@ -193,5 +206,21 @@ Route::filter('auth', function()
 {
 	if (Auth::guest()) {
 		return Redirect::to_route('login');
+	}
+});
+
+Route::filter('admin', function()
+{
+	$user = Auth::user();
+	if ($user == null or !$user->isAdmin()) {
+		return Response::error('401');
+	}
+});
+
+Route::filter('noadmin', function()
+{
+	$user = Auth::user();
+	if ($user->isAdmin()) {
+		return Response::error('401');
 	}
 });

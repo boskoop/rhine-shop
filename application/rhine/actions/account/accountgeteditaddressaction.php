@@ -31,7 +31,8 @@ class AccountGetEditAddressAction
 		}
 
 		return View::make('account.editaddress')
-		->with(compact('address'));
+		->with(compact('address'))
+		->with(compact('user'));
 	}
 
 }

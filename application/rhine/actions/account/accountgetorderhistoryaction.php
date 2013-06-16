@@ -26,7 +26,8 @@ class AccountGetOrderHistoryAction
 		$orders = $this->orderService->loadCompletedOrdersFor($user);
 
 		return View::make('account.orderhistory')
-		->with(compact('orders'));
+		->with(compact('orders'))
+		->with(compact('user'));
 	}
 
 }

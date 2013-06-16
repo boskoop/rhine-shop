@@ -26,7 +26,8 @@ class AccountGetOrdersAction
 		$orders = $this->orderService->loadOpenOrdersFor($user);
 
 		return View::make('account.orders')
-		->with(compact('orders'));
+		->with(compact('orders'))
+		->with(compact('user'));
 	}
 
 }

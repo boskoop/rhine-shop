@@ -9,6 +9,7 @@ use Rhine\Services\Validators\Account\CaptchaValidator;
 use Rhine\Services\Validators\ValidationException;
 use Address;
 use User;
+use RoleEnum;
 
 class AccountPostRegisterAction
 {
@@ -42,6 +43,7 @@ class AccountPostRegisterAction
 		}
 
 		$user = User::create(array(
+			'role_id' => RoleEnum::USER;
 			'username' => $input['username'],
 			'email' => $input['email'],
 			'password' => Hash::make($input['password'])

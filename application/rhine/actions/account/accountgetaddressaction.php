@@ -26,7 +26,8 @@ class AccountGetAddressAction
 		$address = $this->addressRepository->findByUserId($user->id);
 
 		return View::make('account.address')
-		->with(compact('address'));
+		->with(compact('address'))
+		->with(compact('user'));
 	}
 
 }
