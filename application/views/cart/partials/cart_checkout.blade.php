@@ -6,16 +6,16 @@
 --}}
             <div class="pull-right">
               <form class="form-inline" method="get" action="{{ URL::to_route('cart') }}">
-                <button class="btn btn-danger" type="submit">Zurück</button>
+                <button class="btn btn-danger" type="submit">{{ __('rhine/cart.back') }}</button>
               </form>
             </div>
             <h2>{{ __('rhine/cart.checkout') }}</h2>
             <div class="row">
               <div class="span3">
-                <h4>Adresse</h4>
+                <h4>{{ __('rhine/account.address') }}</h4>
               </div>
               <div class="span9">
-                <h4>Warenkorb</h4>
+                <h4>{{ __('rhine/cart.cart') }}</h4>
               </div>
             </div>
             <div class="row">
@@ -30,19 +30,19 @@
                   {{ $address->zip }} <strong>{{ $address->city }}</strong><br>
                   {{ $address->country }}<br>
                 </address>
-                <p>Die Adresse kann in den {{ HTML::link_to_route('editaddress', 'Kontoeinstellungen') }} geändert werden.
+                <p>{{ __('rhine/cart.address1') }}{{ HTML::link_to_route('editaddress', __('rhine/cart.address2')) }}{{ __('rhine/cart.address3') }}.
                 {{ Form::open(URL::to_route('processcheckout'), 'POST') }}
 
                   <div class="control-group{{ ($errors->has('terms') ? ' error' : '') }}">
                     <label class="checkbox">
-                      <input id="terms" name="terms" type="checkbox"> Ich akzeptiere die {{ HTML::link_to_route('information_tob', 'AGB', array(), array('target' => '_blank')) }}
+                      <input id="terms" name="terms" type="checkbox"> {{ __('rhine/cart.terms1') }} {{ HTML::link_to_route('information_tob', __('rhine/cart.terms2'), array(), array('target' => '_blank')) }}
                     </label>
 @if($errors->has('terms'))
                     <span class="help-inline">{{ $errors->first('terms') }}</span><br>
 @endif
                     <br>
                   </div>
-                  <button class="btn btn-success" type="submit"><i class="icon-envelope icon-white"></i> Bestellung abschicken</button>
+                  <button class="btn btn-success" type="submit"><i class="icon-envelope icon-white"></i> {{ __('rhine/cart.send_order') }}</button>
                   {{ Form::token() }}
 
                 {{ Form::close() }}
@@ -92,7 +92,7 @@
               </div>
               <div class="pull-right">
                 <form class="form-inline" method="get" action="{{ URL::to_route('cart') }}">
-                  <button class="btn btn-danger" type="submit">Zurück</button>
+                  <button class="btn btn-danger" type="submit">{{ __('rhine/cart.back') }}</button>
                 </form>
               </div>
             </div>

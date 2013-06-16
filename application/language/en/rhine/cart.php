@@ -16,5 +16,12 @@ return array(
 	'empty' => 'Your cart is empty.',
 
 	'checkout' => 'Checkout',
+	'back' => 'Back',
+	'address1' => 'The address can be changed in the ',
+	'address2' => 'account settings',
+	'address3' => '',
+	'terms1' => 'I accept the ',
+	'terms2' => 'general terms and conditions',
+	'send_order' => 'Send order',
 	
 );

@@ -9,4 +9,6 @@ return array(
 	'register_ok' => 'Registration successful, you can now log in!',
 	'delete_ok' => 'Account successfully deleted!',
 
+	'order_placed' => 'Your order has been successfully registered!',
+
 );

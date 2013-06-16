@@ -9,4 +9,6 @@ return array(
 	'register_ok' => 'Inscription complet, vous pouvez vous connecter maintenant!',
 	'delete_ok' => 'Compte supprimé avec succès!',
 
+	'order_placed' => 'Votre commande a été enregistrée avec succès!',
+
 );
