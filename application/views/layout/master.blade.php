@@ -11,10 +11,10 @@
   <div id="wrap">
     <div class="container">
       <div class="row">
-        <div class="span4">
+        <div class="span3">
           <h1>rhine shop</h1>
         </div>
-        <div class="span3">
+        <div class="span3 text-right">
 @if(Auth::check())
           <h4>{{ __('rhine/header.logged_in') }}</h4>
           <p>
@@ -27,7 +27,7 @@
           </p>
 @endif
         </div>
-        <div class="span3">
+        <div class="span3 text-right">
           <h4>{{ __('rhine/header.language') }}</h4>
           <p>
 <?php $firstElement = true; ?>
@@ -50,7 +50,7 @@ $isCurrentLanguage = (Config::get('application.language') == $lang)
 @endforeach
           </p>
         </div>
-        <div class="span2 text-right">
+        <div class="span3 text-right">
           <h4>{{ __('rhine/header.cart') }}</h4>
 <?php
 $cart = IoC::resolve('cartService')->loadCart();
