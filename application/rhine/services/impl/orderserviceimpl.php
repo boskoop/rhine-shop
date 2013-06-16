@@ -1,6 +1,7 @@
 <?php namespace Rhine\Services\Impl;
 
 use Rhine\Services\OrderService;
+use Rhine\Services\OrderNotFoundException;
 use Rhine\DomainModels\Order\OrderBo;
 use Rhine\DomainModels\Order\OrderFactory;
 use Rhine\Repositories\OrderRepository;
@@ -44,6 +45,16 @@ class OrderServiceImpl implements OrderService
 		}
 
 		return $orders;
+	}
+
+	public function loadOrderFor(User $user, $orderId)
+	{
+		$dbOrder = $this->orderRepository->findByIdAndUser($orderId, $user);
+		if ($dbOrder == null) {
+			throw new OrderNotFoundException();
+		}
+		$order = $this->orderFactory->createFromOrder($dbOrder);
+		return $order;
 	}
 
 }

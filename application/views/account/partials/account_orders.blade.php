@@ -45,7 +45,7 @@
                   <td>{{ date('d.m.Y', strtotime($order->getPaymentDate())) }}</td>
                   <td colspan="4"><strong>{{ __('rhine/account.order_payment_ok') }}</strong></td>
                   <td>
-                    <a href="#">
+                    <a href="{{ URL::to_route('orderpdf', array($order->getOrderId())) }}">
                       <span class="label label-info"><i class="icon-print icon-white" ></i> PDF</span>
                     </a>
                   </td>
@@ -55,7 +55,7 @@
                   <td><span class="label label-important"><i class="icon-ban-circle icon-white" ></i></span></td>
                   <td colspan="4"><strong>{{ __('rhine/account.order_payment_nok') }}</strong></td>
                   <td>
-                    <a href="#">
+                    <a href="{{ URL::to_route('orderpdf', array($order->getOrderId())) }}">
                       <span class="label label-info"><i class="icon-print icon-white" ></i> PDF</span>
                     </a>
                   </td>

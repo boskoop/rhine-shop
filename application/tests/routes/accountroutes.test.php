@@ -100,6 +100,39 @@ class AccountRoutesTest extends Tests\RouteTestCase
 	}
 
 	/**
+	 * Tests the account-pdf-route.
+	 *
+	 * @return void
+	 */
+	public function testOrderPdf()
+	{
+		Auth::login(2);
+
+		Bundle::start('tcpdf');
+		$response = $this->httpGet('account/order/1.pdf');
+		$this->assertTrue($response->foundation->isOk());
+		$this->assertEquals('application/pdf', $response->foundation->headers->get('content-type'));
+		
+		Auth::logout();
+	}
+
+	/**
+	 * Tests the account-pdf-route if there is no such order.
+	 *
+	 * @return void
+	 */
+	public function testOrderPdfNotFound()
+	{
+		Auth::login(2);
+
+		Bundle::start('tcpdf');
+		$response = $this->httpGet('account/order/100.pdf');
+		$this->assertTrue($response->foundation->isNotFound());
+		
+		Auth::logout();
+	}
+
+	/**
 	 * Tests the account-address-edit-route.
 	 *
 	 * @return void

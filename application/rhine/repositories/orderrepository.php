@@ -20,4 +20,11 @@ interface OrderRepository
 	 */
 	function findCompletedOrdersByUser(User $user);
 
+	/**
+	 * Returns the Order for given id and user.
+	 * 
+	 * @return Order, null if not found
+	 */
+	function findByIdAndUser($orderId, User $user);
+
 }

@@ -79,6 +79,7 @@ Route::group(array('before' => 'auth'), function()
 	
 	Route::get('account/orders', array('as' => 'orders', 'uses' => 'account@orders'));
 	Route::get('account/orderhistory', array('as' => 'orderhistory', 'uses' => 'account@orderhistory'));
+	Route::get('account/order/(:num).pdf', array('as' => 'orderpdf', 'uses' => 'account@pdf'));
 });
 
 // Login/logout/register

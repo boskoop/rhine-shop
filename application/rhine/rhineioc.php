@@ -50,6 +50,9 @@ class RhineIoC
 			return new Services\Impl\OrderServiceImpl(IoC::resolve('orderFactory'),
 				IoC::resolve('orderRepository'));
 		});
+		IoC::singleton('pdfService', function() {
+			return new Services\Impl\PdfServiceImpl();
+		});
 
 		// Validators
 		IoC::singleton('userValidator', function() {
@@ -142,6 +145,10 @@ class RhineIoC
 		});
 		IoC::register('accountGetOrderHistoryAction', function() {
 			return new Actions\Account\AccountGetOrderHistoryAction(IoC::resolve('orderService'));
+		});
+		IoC::register('accountGetOrderPdfAction', function() {
+			return new Actions\Account\AccountGetOrderPdfAction(IoC::resolve('orderService'),
+				IoC::resolve('pdfService'));
 		});
 
 		IoC::register('informationGetAboutAction', function() {

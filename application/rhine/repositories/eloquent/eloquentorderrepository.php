@@ -18,4 +18,10 @@ class EloquentOrderRepository implements OrderRepository
 		return $orders;
 	}
 
+	function findByIdAndUser($orderId, User $user)
+	{
+		$order = $user->orders()->where('id', '=', $orderId)->first();
+		return $order;
+	}
+
 }

@@ -132,4 +132,11 @@ class Account_Controller extends Base_Controller
 		return $action->execute($user);
 	}
 
+	public function action_pdf($orderId)
+	{
+		$action = IoC::resolve('accountGetOrderPdfAction');
+		$user = Auth::user();
+		return $action->execute($orderId, $user);
+	}
+
 }

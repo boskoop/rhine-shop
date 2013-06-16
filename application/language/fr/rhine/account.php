@@ -58,5 +58,11 @@ return array(
 	'order_payment_nok' => 'Commande pas payée',
 	'order_shipped' => 'Commande livrée',
 	'no_orders' => 'Pas de commandes trouvées!',
+
+	'pdf_invoice' => 'Facture',
+	'pdf_customer' => 'Numéro de client',
+	'pdf_thankyou' => 'Nous vous remercions de votre achat chez Rhine Shop',
+	'pdf_period' => 'Payable net dans les 30 jours',
+	'pdf_bank' => 'Coordonnées bancaires',
 	
 );

@@ -58,5 +58,11 @@ return array(
 	'order_payment_nok' => 'Order not paid',
 	'order_shipped' => 'Order shipped',
 	'no_orders' => 'No orders found!',
+
+	'pdf_invoice' => 'Invoice',
+	'pdf_customer' => 'Customer number',
+	'pdf_thankyou' => 'Thank you for shopping at Rhine Shop',
+	'pdf_period' => 'Due within 30 days in Swiss currency, net and without discount, per post or bank remittance, free of any charges for us',
+	'pdf_bank' => 'Bank connection',
 	
 );
