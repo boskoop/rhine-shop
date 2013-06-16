@@ -17,7 +17,7 @@
                       <a href="{{ URL::to_route('shop') }}"><i class="icon-home icon-white"></i> {{ __('rhine/nav.shop') }}</a>
                     </li>
                     <li class="divider-vertical"></li>
-@if(in_array(Request::route()->action['as'], array('cart')))
+@if(in_array(Request::route()->action['as'], array('cart', 'checkout')))
                     <li class="active">
 @else
                     <li>
