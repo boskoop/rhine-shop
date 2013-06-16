@@ -102,7 +102,8 @@ Route::post('account/login', array('as' => 'loginaction', 'before' => 'csrf', fu
 Route::get('account/logout', array('as' => 'logout', function()
 	{
 		Auth::logout();
-		return Redirect::to_route('login');
+		return Redirect::to_route('login')
+		->with('success', 'logout_ok');
 	}));
 Route::get('account/register', array('as' => 'register', 'uses' => 'account@register'));
 Route::post('account/register', array('as' => 'registeraction', 'before' => 'csrf', 'uses' => 'account@doregister'));

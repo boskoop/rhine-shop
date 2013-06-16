@@ -8,6 +8,7 @@ return array(
 
 	'register_ok' => 'Registrierung abgeschlossen, Sie können sich nun einloggen!',
 	'delete_ok' => 'Konto erfolgreich gelöscht!',
+	'logout_ok' => 'Abmelden erfolgreich!',
 
 	'order_placed' => 'Ihre Bestellung wurde erfolgreich registriert!',
 
