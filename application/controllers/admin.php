@@ -67,4 +67,40 @@ class Admin_Controller extends Base_Controller
 		return $action->execute($user, $userId);
 	}
 
+	public function action_products()
+	{
+		$action = IoC::resolve('adminGetProductsAction');
+		$user = Auth::user();
+		return $action->execute($user);
+	}
+
+	public function action_addproduct()
+	{
+		$action = IoC::resolve('adminPostAddProductAction');
+		$user = Auth::user();
+		$input = Input::all();
+		return $action->execute($user, $input);
+	}
+
+	public function action_addstock($productId)
+	{
+		$action = IoC::resolve('adminPostAddStockAction');
+		$user = Auth::user();
+		return $action->execute($user, $productId, 1);
+	}
+
+	public function action_substock($productId)
+	{
+		$action = IoC::resolve('adminPostAddStockAction');
+		$user = Auth::user();
+		return $action->execute($user, $productId, -1);
+	}
+
+	public function action_deleteproduct($productId)
+	{
+		$action = IoC::resolve('adminPostDeleteProductAction');
+		$user = Auth::user();
+		return $action->execute($user, $productId);
+	}
+
 }

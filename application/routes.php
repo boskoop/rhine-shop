@@ -102,7 +102,11 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::post('admin/category/(:num)/delete', array('before' => 'csrf', 'as' => 'deletecategory', 'uses' => 'admin@deletecategory'));
 	Route::post('admin/category/add', array('before' => 'csrf', 'as' => 'addcategory', 'uses' => 'admin@addcategory'));
 
-	Route::get('admin/products', array('as' => 'manage_products', 'uses' => 'account@index'));
+	Route::get('admin/products', array('as' => 'manage_products', 'uses' => 'admin@products'));
+	Route::post('admin/product/(:num)/delete', array('before' => 'csrf', 'as' => 'deleteproduct', 'uses' => 'admin@deleteproduct'));
+	Route::post('admin/product/add', array('before' => 'csrf', 'as' => 'addproduct', 'uses' => 'admin@addproduct'));
+	Route::post('admin/product/(:num)/addstock', array('before' => 'csrf', 'as' => 'stockadd', 'uses' => 'admin@addstock'));
+	Route::post('admin/product/(:num)/substock', array('before' => 'csrf', 'as' => 'stocksub', 'uses' => 'admin@substock'));
 });
 
 // Login

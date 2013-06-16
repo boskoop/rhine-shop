@@ -201,5 +201,17 @@ class RhineIoC
 		IoC::register('adminPostDeleteUserAction', function() {
 			return new Actions\Admin\AdminPostDeleteUserAction();
 		});
+		IoC::register('adminGetProductsAction', function() {
+			return new Actions\Admin\AdminGetProductsAction(IoC::resolve('categoryRepository'));
+		});
+		IoC::register('adminPostAddProductAction', function() {
+			return new Actions\Admin\AdminPostAddProductAction(IoC::resolve('productRepository'));
+		});
+		IoC::register('adminPostDeleteProductAction', function() {
+			return new Actions\Admin\AdminPostDeleteProductAction(IoC::resolve('productRepository'));
+		});
+		IoC::register('adminPostAddStockAction', function() {
+			return new Actions\Admin\AdminPostAddStockAction(IoC::resolve('productRepository'));
+		});
 	}
 }
