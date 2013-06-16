@@ -43,7 +43,7 @@ class AccountPostRegisterAction
 		}
 
 		$user = User::create(array(
-			'role_id' => RoleEnum::USER;
+			'role_id' => RoleEnum::USER,
 			'username' => $input['username'],
 			'email' => $input['email'],
 			'password' => Hash::make($input['password'])
