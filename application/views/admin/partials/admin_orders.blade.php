@@ -71,43 +71,76 @@
                 <tr>
                   <td colspan="7">
                     <div class="row-fluid">
+                    {{ Form::open(URL::to_route('payorder', array($order->getOrderId())), 'POST', array('class' => 'form-inline span4', 'style' => 'margin-bottom: 0')) }}
+
+                      {{ Form::hidden('order_id', $order->getOrderId()) }}
+
 @if($order->isPaid())
-                    {{ Form::open(URL::to_route('manage_orders'), 'POST', array('class' => 'form-inline span4', 'style' => 'margin-bottom: 0')) }}
-
-                      <button type="submit" class="btn btn-small btn-danger">{{ __('rhine/admin.order_reset_pay') }}</button>
-                      {{ Form::token() }}
-
-                    {{ Form::close() }}
-
+                      <button href="#confirm-reset-pay-{{ $order->getOrderId() }}" type="button" data-toggle="modal" class="btn btn-small btn-danger">{{ __('rhine/admin.order_reset_pay') }}</button>
+                      <div id="confirm-reset-pay-{{ $order->getOrderId() }}" class="modal hide fade" style="text-align: left">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h3>{{ __('rhine/admin.order_confirm_question') }}</h3>
+                        </div>
+                        <div class="modal-body">
+                          <p>{{ __('rhine/admin.order_confirm_info') }}</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="submit" class="btn btn-danger">{{ __('rhine/admin.order_confirm_reset_pay') }}</button>
+                          <a href="#confirm-reset-pay-{{ $order->getOrderId() }}" role="button" class="btn" data-toggle="modal">{{ __('rhine/admin.cancel') }}</a>
+                        </div>
+                      </div>
 @else
-                    {{ Form::open(URL::to_route('manage_orders'), 'POST', array('class' => 'form-inline span4', 'style' => 'margin-bottom: 0')) }}
-
                       <button type="submit" class="btn btn-small btn-success">{{ __('rhine/admin.order_pay') }}</button>
+@endif
                       {{ Form::token() }}
 
                     {{ Form::close() }}
 
-@endif
+                    {{ Form::open(URL::to_route('shiporder', array($order->getOrderId())), 'POST', array('class' => 'form-inline span4', 'style' => 'margin-bottom: 0; text-align: center')) }}
+
+                      {{ Form::hidden('order_id', $order->getOrderId()) }}
+
 @if($order->isShipped())
-                    {{ Form::open(URL::to_route('manage_orders'), 'POST', array('class' => 'form-inline span4', 'style' => 'margin-bottom: 0; text-align: center')) }}
-
-                      <button type="submit" class="btn btn-small btn-danger">{{ __('rhine/admin.order_reset_ship') }}</button>
-                      {{ Form::token() }}
-
-                    {{ Form::close() }}
-
+                      <button href="#confirm-reset-ship-{{ $order->getOrderId() }}" type="button" data-toggle="modal" class="btn btn-small btn-danger">{{ __('rhine/admin.order_reset_ship') }}</button>
+                      <div id="confirm-reset-ship-{{ $order->getOrderId() }}" class="modal hide fade" style="text-align: left">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h3>{{ __('rhine/admin.order_confirm_question') }}</h3>
+                        </div>
+                        <div class="modal-body">
+                          <p>{{ __('rhine/admin.order_confirm_info') }}</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="submit" class="btn btn-danger">{{ __('rhine/admin.order_confirm_reset_ship') }}</button>
+                          <a href="#confirm-reset-ship-{{ $order->getOrderId() }}" role="button" class="btn" data-toggle="modal">{{ __('rhine/admin.cancel') }}</a>
+                        </div>
+                      </div>
 @else
-                    {{ Form::open(URL::to_route('manage_orders'), 'POST', array('class' => 'form-inline span4', 'style' => 'margin-bottom: 0; text-align: center')) }}
-
                       <button type="submit" class="btn btn-small btn-success">{{ __('rhine/admin.order_ship') }}</button>
+@endif
                       {{ Form::token() }}
 
                     {{ Form::close() }}
 
-@endif
-                    {{ Form::open(URL::to_route('manage_orders'), 'POST', array('class' => 'form-inline span4', 'style' => 'margin-bottom: 0; text-align: right')) }}
+                    {{ Form::open(URL::to_route('deleteorder', array($order->getOrderId())), 'POST', array('class' => 'form-inline span4', 'style' => 'margin-bottom: 0; text-align: right')) }}
 
-                      <button type="submit" class="btn btn-small btn-danger">{{ __('rhine/admin.order_delete') }}</button>
+                      {{ Form::hidden('order_id', $order->getOrderId()) }}
+
+                      <button href="#confirm-delete-{{ $order->getOrderId() }}" type="button" data-toggle="modal" class="btn btn-small btn-danger">{{ __('rhine/admin.order_delete') }}</button>
+                      <div id="confirm-delete-{{ $order->getOrderId() }}" class="modal hide fade" style="text-align: left">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h3>{{ __('rhine/admin.order_delete_question') }}</h3>
+                        </div>
+                        <div class="modal-body">
+                          <p>{{ __('rhine/admin.order_delete_info') }}</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="submit" class="btn btn-danger">{{ __('rhine/admin.order_confirm_delete') }}</button>
+                          <a href="#confirm-delete-{{ $order->getOrderId() }}" role="button" class="btn" data-toggle="modal">{{ __('rhine/admin.cancel') }}</a>
+                        </div>
+                      </div>
                       {{ Form::token() }}
 
                     {{ Form::close() }}
