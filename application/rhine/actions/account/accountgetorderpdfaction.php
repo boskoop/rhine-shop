@@ -38,7 +38,7 @@ class AccountGetOrderPdfAction
 		$pdf = $this->pdfService->createInvoice($user, $order);
 		$content = $pdf->Output('', 'S');
 		
-		return Response::make($content, 200, array('content-type'=>'application/pdf'));
+		return Response::make($content, 200, array('content-type' => 'application/pdf'));
 	}
 
 }
