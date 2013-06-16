@@ -15,7 +15,6 @@
 
 @section('content')
           <div class="span10">
-@include('shop.partials.product_filter')
 @include('shop.partials.product_list')
           </div>
 @endsection
