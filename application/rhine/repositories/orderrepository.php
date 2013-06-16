@@ -28,8 +28,22 @@ interface OrderRepository
 	function findByIdAndUser($orderId, User $user);
 
 	/**
+	 * Returns the Order for given id.
+	 * 
+	 * @return Order, null if not found
+	 */
+	function findById($orderId);
+
+	/**
 	 * Persists the given order to the database.
 	 */
 	function persistOrder(User $user, Order $order, array $orderItems);
+
+	/**
+	 * Returns an array of Orders sorted desc by their id.
+	 * 
+	 * @return Order[]
+	 */
+	function findAllOrdersDescPaginated();
 
 }

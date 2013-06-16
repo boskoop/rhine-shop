@@ -11,5 +11,6 @@ return array(
 
 	// Pagination
 	'products#per_page' => 6,
+	'orders#per_page' => 6,
 
 );

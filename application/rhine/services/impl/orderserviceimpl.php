@@ -52,7 +52,12 @@ class OrderServiceImpl implements OrderService
 
 	public function loadOrderFor(User $user, $orderId)
 	{
-		$dbOrder = $this->orderRepository->findByIdAndUser($orderId, $user);
+		$dbOrder = null;
+		if ($user->isAdmin()) {
+			$dbOrder = $this->orderRepository->findById($orderId);
+		} else {
+			$dbOrder = $this->orderRepository->findByIdAndUser($orderId, $user);
+		}
 		if ($dbOrder == null) {
 			throw new OrderNotFoundException();
 		}
@@ -83,8 +88,15 @@ class OrderServiceImpl implements OrderService
 
 	public function loadOrdersPaginated()
 	{
-		// Todo: implement
-		return array();
+		$orders = array();
+
+		$dbOrders = $this->orderRepository->findAllOrdersDescPaginated();
+		foreach ($dbOrders->results as $dbOrder) {
+			$bo = $this->orderFactory->createFromOrder($dbOrder);
+			$orders[] = $bo;
+		}
+		$dbOrders->results = $orders;
+		return $dbOrders;
 	}
 
 }

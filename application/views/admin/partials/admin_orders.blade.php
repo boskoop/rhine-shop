@@ -4,16 +4,10 @@
     Variables needed:
     - orders -> the orders paginated
 --}}
-@if(count($orders) < 1)
+@if(count($orders->results) < 1)
             <p class="text-info">{{ __('rhine/account.no_orders') }}</p>
 @else
-@if(Session::get('success') != null)
-            <div class="alert alert-success fade in">
-              <a href="#" class="close" data-dismiss="alert">&times;</a>
-              {{ __('rhine/status.'.Session::get('success')) }}
-
-            </div>
-@endif
+            {{ $orders->links() }}
             <table class="table table-bordered">
               <thead>
                 <tr>
@@ -28,12 +22,12 @@
               </thead>
               <tbody>
                 </tr>
-                <tr class="table-condensed" style="background-color: #f9f9f9">
+                <tr style="background-color: #f9f9f9">
                   <td colspan="8"></td>
                 </tr>
-@foreach($orders as $order)
+@foreach($orders->results as $order)
                 <tr>
-                  <td rowspan="{{ $order->getNumberOfItems() + ($order->isShipped() ? 3 : 2) }}">{{ $order->getOrderId() }}</td>
+                  <td rowspan="{{ $order->getNumberOfItems() + ($order->isShipped() ? 4 : 3) }}">{{ $order->getOrderId() }}</td>
                   <td rowspan="{{ $order->getNumberOfItems() + 1 }}">{{ date('d.m.Y', strtotime($order->getOrderDate())) }}</td>
 @foreach($order->getItems() as $item)
                   <td>{{ $item->getProductName() }}</td>
@@ -74,10 +68,58 @@
                   <td colspan="6"><strong>{{ __('rhine/account.order_shipped') }}</strong></td>
                 </tr>
 @endif
-                <tr class="table-condensed" style="background-color: #f9f9f9">
+                <tr>
+                  <td colspan="7">
+                    <div class="row-fluid">
+@if($order->isPaid())
+                    {{ Form::open(URL::to_route('manage_orders'), 'POST', array('class' => 'form-inline span4', 'style' => 'margin-bottom: 0')) }}
+
+                      <button type="submit" class="btn btn-small btn-danger">{{ __('rhine/admin.order_reset_pay') }}</button>
+                      {{ Form::token() }}
+
+                    {{ Form::close() }}
+
+@else
+                    {{ Form::open(URL::to_route('manage_orders'), 'POST', array('class' => 'form-inline span4', 'style' => 'margin-bottom: 0')) }}
+
+                      <button type="submit" class="btn btn-small btn-success">{{ __('rhine/admin.order_pay') }}</button>
+                      {{ Form::token() }}
+
+                    {{ Form::close() }}
+
+@endif
+@if($order->isShipped())
+                    {{ Form::open(URL::to_route('manage_orders'), 'POST', array('class' => 'form-inline span4', 'style' => 'margin-bottom: 0; text-align: center')) }}
+
+                      <button type="submit" class="btn btn-small btn-danger">{{ __('rhine/admin.order_reset_ship') }}</button>
+                      {{ Form::token() }}
+
+                    {{ Form::close() }}
+
+@else
+                    {{ Form::open(URL::to_route('manage_orders'), 'POST', array('class' => 'form-inline span4', 'style' => 'margin-bottom: 0; text-align: center')) }}
+
+                      <button type="submit" class="btn btn-small btn-success">{{ __('rhine/admin.order_ship') }}</button>
+                      {{ Form::token() }}
+
+                    {{ Form::close() }}
+
+@endif
+                    {{ Form::open(URL::to_route('manage_orders'), 'POST', array('class' => 'form-inline span4', 'style' => 'margin-bottom: 0; text-align: right')) }}
+
+                      <button type="submit" class="btn btn-small btn-danger">{{ __('rhine/admin.order_delete') }}</button>
+                      {{ Form::token() }}
+
+                    {{ Form::close() }}
+
+                    </div>
+                  </td>
+                </tr>
+                <tr style="background-color: #f9f9f9">
                   <td colspan="8"></td>
                 </tr>
 @endforeach
               </tbody>
             </table>
+            {{ $orders->links() }}
 @endif
