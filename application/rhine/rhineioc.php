@@ -189,5 +189,17 @@ class RhineIoC
 		IoC::register('adminGetCategoriesAction', function() {
 			return new Actions\Admin\AdminGetCategoriesAction(IoC::resolve('categoryRepository'));
 		});
+		IoC::register('adminPostAddCategoryAction', function() {
+			return new Actions\Admin\AdminPostAddCategoryAction(IoC::resolve('categoryRepository'));
+		});
+		IoC::register('adminPostDeleteCategoryAction', function() {
+			return new Actions\Admin\AdminPostDeleteCategoryAction(IoC::resolve('categoryRepository'));
+		});
+		IoC::register('adminGetUsersAction', function() {
+			return new Actions\Admin\AdminGetUsersAction();
+		});
+		IoC::register('adminPostDeleteUserAction', function() {
+			return new Actions\Admin\AdminPostDeleteUserAction();
+		});
 	}
 }

@@ -38,4 +38,33 @@ class Admin_Controller extends Base_Controller
 		return $action->execute($user);
 	}
 
+	public function action_addcategory()
+	{
+		$action = IoC::resolve('adminPostAddCategoryAction');
+		$user = Auth::user();
+		$name = Input::get('category');
+		return $action->execute($user, $name);
+	}
+
+	public function action_deletecategory($categoryId)
+	{
+		$action = IoC::resolve('adminPostDeleteCategoryAction');
+		$user = Auth::user();
+		return $action->execute($user, $categoryId);
+	}
+
+	public function action_users()
+	{
+		$action = IoC::resolve('adminGetUsersAction');
+		$user = Auth::user();
+		return $action->execute($user);
+	}
+
+	public function action_deleteuser($userId)
+	{
+		$action = IoC::resolve('adminPostDeleteUserAction');
+		$user = Auth::user();
+		return $action->execute($user, $userId);
+	}
+
 }

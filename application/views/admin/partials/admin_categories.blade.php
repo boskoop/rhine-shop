@@ -1,5 +1,5 @@
 {{--
-    admin_orders.blade.php
+    admin_categories.blade.php
 
     Variables needed:
     - categories -> the categories
