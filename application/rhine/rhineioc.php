@@ -186,5 +186,8 @@ class RhineIoC
 		IoC::register('adminPostDeleteOrderAction', function() {
 			return new Actions\Admin\AdminPostDeleteOrderAction(IoC::resolve('orderRepository'));
 		});
+		IoC::register('adminGetCategoriesAction', function() {
+			return new Actions\Admin\AdminGetCategoriesAction(IoC::resolve('categoryRepository'));
+		});
 	}
 }

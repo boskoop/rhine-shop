@@ -31,4 +31,11 @@ class Admin_Controller extends Base_Controller
 		return $action->execute($user, $orderId);
 	}
 
+	public function action_categories()
+	{
+		$action = IoC::resolve('adminGetCategoriesAction');
+		$user = Auth::user();
+		return $action->execute($user);
+	}
+
 }

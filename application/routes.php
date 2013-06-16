@@ -93,11 +93,14 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::get('admin/users', array('as' => 'manage_users', 'uses' => 'account@index'));
 
 	Route::get('admin/orders', array('as' => 'manage_orders', 'uses' => 'admin@orders'));
-	Route::post('admin/order/(:num)/pay', array('as' => 'payorder', 'uses' => 'admin@payorder'));
-	Route::post('admin/order/(:num)/ship', array('as' => 'shiporder', 'uses' => 'admin@shiporder'));
-	Route::post('admin/order/(:num)/delete', array('as' => 'deleteorder', 'uses' => 'admin@deleteorder'));
+	Route::post('admin/order/(:num)/pay', array('before' => 'csrf', 'as' => 'payorder', 'uses' => 'admin@payorder'));
+	Route::post('admin/order/(:num)/ship', array('before' => 'csrf', 'as' => 'shiporder', 'uses' => 'admin@shiporder'));
+	Route::post('admin/order/(:num)/delete', array('before' => 'csrf', 'as' => 'deleteorder', 'uses' => 'admin@deleteorder'));
 
-	Route::get('admin/categories', array('as' => 'manage_categories', 'uses' => 'account@index'));
+	Route::get('admin/categories', array('as' => 'manage_categories', 'uses' => 'admin@categories'));
+	Route::post('admin/category/(:num)/delete', array('before' => 'csrf', 'as' => 'deletecategory', 'uses' => 'admin@categories'));
+	Route::post('admin/category/add', array('before' => 'csrf', 'as' => 'addcategory', 'uses' => 'admin@categories'));
+
 	Route::get('admin/products', array('as' => 'manage_products', 'uses' => 'account@index'));
 });
 

@@ -21,7 +21,6 @@
                 </tr>
               </thead>
               <tbody>
-                </tr>
                 <tr style="background-color: #f9f9f9">
                   <td colspan="8"></td>
                 </tr>
