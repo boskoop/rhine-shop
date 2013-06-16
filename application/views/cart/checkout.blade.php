@@ -12,6 +12,6 @@
 
 @section('content')
           <div class="span12">
-@include('cart.partials.cart_index')
+@include('cart.partials.cart_checkout')
           </div>
 @endsection

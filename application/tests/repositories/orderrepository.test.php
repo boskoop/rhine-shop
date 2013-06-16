@@ -47,8 +47,8 @@ class OrderRepositoryTest extends Tests\PersistenceTestCase
 		$orders = $this->orderRepository->findOpenOrdersByUser($user);
 
 		$this->assertEquals(2, count($orders));
-		$this->assertEquals(1, $orders[0]->id);
-		$this->assertEquals(2, $orders[1]->id);
+		$this->assertEquals(2, $orders[0]->id);
+		$this->assertEquals(1, $orders[1]->id);
 	}
 
 	/**
@@ -83,8 +83,8 @@ class OrderRepositoryTest extends Tests\PersistenceTestCase
 		$orders = $this->orderRepository->findCompletedOrdersByUser($user);
 
 		$this->assertEquals(2, count($orders));
-		$this->assertEquals(3, $orders[0]->id);
-		$this->assertEquals(4, $orders[1]->id);
+		$this->assertEquals(4, $orders[0]->id);
+		$this->assertEquals(3, $orders[1]->id);
 	}
 
 }

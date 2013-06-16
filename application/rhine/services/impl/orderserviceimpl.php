@@ -6,6 +6,9 @@ use Rhine\DomainModels\Order\OrderBo;
 use Rhine\DomainModels\Order\OrderFactory;
 use Rhine\Repositories\OrderRepository;
 use User;
+use Order;
+use OrderItem;
+use Rhine\DomainModels\Cart\CartBo;
 
 class OrderServiceImpl implements OrderService
 {
@@ -55,6 +58,27 @@ class OrderServiceImpl implements OrderService
 		}
 		$order = $this->orderFactory->createFromOrder($dbOrder);
 		return $order;
+	}
+
+	function placeOrder(User $user, CartBo $cart)
+	{
+		$order = new Order(array('paid_at' => null,
+			'shipped_at' => null));
+		$orderItems = array();
+		foreach ($cart->getPositions() as $position) {
+			// Todo: refactor to use a repository
+			$product = $position->getProduct();
+			$product->stocksize -= $position->getQuantity();
+			$product->save();
+
+			$category = $product->category()->first();
+			$item = new OrderItem(array('product_name' => $product->name,
+				'category_name' => $category->name,
+				'price' => $position->getUnitPrice(),
+				'quantity' => $position->getQuantity()));
+			$orderItems[] = $item;
+		}
+		$this->orderRepository->persistOrder($user, $order, $orderItems);
 	}
 
 }

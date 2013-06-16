@@ -7,7 +7,7 @@
 @unless($cart->isEmpty())
             <div class="pull-right">
               <form class="form-inline" method="get" action="{{ URL::to_route('checkout') }}">
-                <button class="btn btn-success" type="submit"><i class="icon-check icon-white"></i> {{ __('rhine/cart.checkout') }}</button>
+                <button class="btn btn-success" type="submit"><i class="icon-check icon-white"></i> {{ __('rhine/cart.to_checkout') }}</button>
               </form>
             </div>
 @endunless
@@ -96,6 +96,6 @@
           </div>
           <div class="span12">
             <form class="form-inline pull-right" method="get" action="{{ URL::to_route('checkout') }}">
-              <button class="btn btn-success" type="submit"><i class="icon-check icon-white"></i> {{ __('rhine/cart.checkout') }}</button>
+              <button class="btn btn-success" type="submit"><i class="icon-check icon-white"></i> {{ __('rhine/cart.to_checkout') }}</button>
             </form>
 @endunless

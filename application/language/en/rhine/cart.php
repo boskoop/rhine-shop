@@ -11,8 +11,10 @@ return array(
 	'quantity' => 'Quantity',
 	'price_total' => 'Price total',
 	'total' => 'Total',
-	'checkout' => 'Checkout',
+	'to_checkout' => 'Checkout',
 
 	'empty' => 'Your cart is empty.',
+
+	'checkout' => 'Checkout',
 	
 );

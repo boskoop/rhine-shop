@@ -11,8 +11,10 @@ return array(
 	'quantity' => 'Menge',
 	'price_total' => 'Preis Total',
 	'total' => 'Total',
-	'checkout' => 'Zur Kasse',
+	'to_checkout' => 'Zur Kasse',
 
 	'empty' => 'Ihr Warenkorb ist leer.',
+
+	'checkout' => 'Kasse',
 	
 );

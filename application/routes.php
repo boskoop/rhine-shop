@@ -64,6 +64,7 @@ Route::group(array('before' => 'csrf'), function()
 Route::group(array('before' => 'auth'), function()
 {
 	Route::get('cart/checkout', array('as' => 'checkout', 'uses' => 'cart@checkout'));
+	Route::post('cart/checkout', array('as' => 'processcheckout', 'uses' => 'cart@processcheckout'));
 });
 
 // Account routes

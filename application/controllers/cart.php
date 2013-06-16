@@ -33,4 +33,13 @@ class Cart_Controller extends Base_Controller {
 		return $action->execute($user);
 	}
 
+	public function action_processcheckout()
+	{
+		$action = IoC::resolve('cartPostCheckoutAction');
+		$user = Auth::user();
+
+		$input = Input::get();
+		return $action->execute($user, $input);
+	}
+
 }

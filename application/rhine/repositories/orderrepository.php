@@ -27,4 +27,9 @@ interface OrderRepository
 	 */
 	function findByIdAndUser($orderId, User $user);
 
+	/**
+	 * Persists the given order to the database.
+	 */
+	function persistOrder(User $user, Order $order, array $orderItems);
+
 }

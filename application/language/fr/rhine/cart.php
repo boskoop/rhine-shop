@@ -11,8 +11,10 @@ return array(
 	'quantity' => 'Quantité',
 	'price_total' => 'Prix total',
 	'total' => 'Total',
-	'checkout' => 'Au Caisse',
+	'to_checkout' => 'Au Caisse',
 
 	'empty' => 'Votre panier est vide.',
+
+	'checkout' => 'Caisse',
 	
 );
