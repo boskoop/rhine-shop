@@ -12,5 +12,10 @@ class User extends Eloquent
 	{
 		return $this->has_many('Order');
 	}
+	
+	public function role()
+	{
+		return $this->belongs_to('Role');
+	}
 
 }

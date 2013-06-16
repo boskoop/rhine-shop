@@ -19,13 +19,15 @@ class UsersTest extends Tests\PersistenceTestCase
 		User::create(array(
 			'username' => 'joe',
 			'email' => 'joe@doe.com',
-			'password' => 'secret'
+			'password' => 'secret',
+			'role_id' => RoleEnum::ADMIN
 		));
 
 		$joe = User::find(1);
 		$this->assertEquals('joe', $joe->username);
 		$this->assertEquals('joe@doe.com', $joe->email);
 		$this->assertEquals('secret', $joe->password);
+		$this->assertEquals(RoleEnum::ADMIN, $joe->role_id);
 	}
 
 	/**

@@ -11,7 +11,7 @@ class GenderAddressTest extends Tests\PersistenceTestCase
 	 *
 	 * @return void
 	 */
-	public function testOneToOne()
+	public function testAssociation()
 	{
 		$gender = Gender::find(GenderEnum::MALE);
 		$address = new Address(array(
