@@ -1,6 +1,7 @@
 <?php namespace Rhine\Services;
 
 use Rhine\DomainModels\Order\OrderBo;
+use Rhine\DomainModels\Cart\CartBo;
 use User;
 
 interface OrderService
@@ -27,5 +28,10 @@ interface OrderService
 	 * @return OrderBo, null if the orderId does not exist for the user
 	 */
 	function loadOrderFor(User $user, $orderId);
+
+	/**
+	 * Places an order for given cart.
+	 */
+	function placeOrder(User $user, CartBo $cart);
 
 }
